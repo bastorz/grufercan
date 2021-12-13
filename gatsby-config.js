@@ -37,5 +37,18 @@ module.exports = {
         path: `${__dirname}/api/db/news/`,
       },
     },
+    {
+      resolve: "gatsby-plugin-htaccess",
+      options: {
+        RewriteBase: true,
+      },
+    },
+    // {
+    //   resolve: `gatsby-plugin-htaccess-redirects`,
+    //   options: {
+    //     prefix: "<IfModule mod_rewrite.c>\nRewriteEngine On",
+    //     suffix: "</IfModule>",
+    //   },
+    // },
   ],
 };
