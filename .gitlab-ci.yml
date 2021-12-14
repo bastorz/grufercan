@@ -12,12 +12,13 @@ deploy-prod:
   before_script:
     - apt-get update -qy
     - apt-get install -y lftp
+    - apt-get install -y -qq sshpass
     - yarn config set cache-folder .yarn
     # - yarn install
   script:
     # - yarn build
     - echo 'building production'
     # - lftp -c "open $PROD_HOST; user $PROD_USERNAME $PROD_PASSWORD; mirror --reverse --verbose  /builds/medanosol/projects/grufercan/build/ ./testing --parallel=10; bye"
-    - lftp -c "open sftp://ssh.medanosol.es; user medanosol.es qY@5J4G8SwPK; mkdir -p somedirectory"
+    - lftp -c "open -u medanosol.es,qY@5J4G8SwPK sftp://medanosol.es@ssh.medanosol.es; cd testing; mkdir somefolder; bye"
   only:
     - main
