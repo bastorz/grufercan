@@ -1,35 +1,28 @@
-import { graphql, useStaticQuery } from "gatsby";
-import { useEffect } from "react";
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 export const useNews = () => {
-  const news = useStaticQuery(graphql`
-    query GetNews {
-      allNewsJson {
-        edges {
-          node {
-            title
-            subtitle
-          }
-        }
-      }
-    }
-  `);
-
-  const getNews = async () => {
-    const response = await fetch("/api/db/news/noticia1.json", {
+  const [news, setNews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const getData = () => {
+    fetch('/grufercan/api/db/news/noticia1.json', {
+      // fetch('/api/db/news/noticia1.json', {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-    });
-
-    const data = await response.json();
-
-    console.log("data: ", data);
+    })
+      .then(async (response) => {
+        setIsLoading(false);
+        return await response.json();
+      })
+      .then((newsData) => {
+        setNews(newsData);
+      });
   };
 
   useEffect(() => {
-    getNews();
-  }, []);
+    getData();
+  }, [isLoading]);
 
-  return { news: news };
+  return { news, isLoading };
 };

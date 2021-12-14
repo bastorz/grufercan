@@ -1,4 +1,6 @@
-{
-  "title": "Noticia de prueba",
-  "subtitle": "Subtitulo de la noticia"
-}
+[
+  {
+    "title": "Noticia de prueba",
+    "subtitle": "Subtitulo de la noticia"
+  }
+]

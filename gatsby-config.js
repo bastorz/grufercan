@@ -1,7 +1,8 @@
 module.exports = {
+  pathPrefix: '/grufercan/',
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "My Gatsby Site",
+    siteUrl: 'https://www.yourdomain.tld',
+    title: 'My Gatsby Site',
   },
   plugins: [
     {
@@ -12,33 +13,33 @@ module.exports = {
         allExtensions: true, // defaults to false
       },
     },
-    "gatsby-plugin-postcss",
-    "gatsby-plugin-react-helmet",
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-react-helmet',
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: "src/images/icon.png",
+        icon: 'src/images/icon.png',
       },
     },
-    "gatsby-plugin-mdx",
+    'gatsby-plugin-mdx',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "pages",
-        path: "./src/pages/",
+        name: 'pages',
+        path: './src/pages/',
       },
-      __key: "pages",
+      __key: 'pages',
     },
-    "gatsby-transformer-json",
+    'gatsby-transformer-json',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "news",
+        name: 'news',
         path: `${__dirname}/api/db/news/`,
       },
     },
     {
-      resolve: "gatsby-plugin-htaccess",
+      resolve: 'gatsby-plugin-htaccess',
       options: {
         RewriteBase: true,
       },
