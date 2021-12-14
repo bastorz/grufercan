@@ -1,0 +1,22 @@
+image: alpine
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - deploy-prod
+
+deploy-prod:
+  stage: deploy-prod
+  before_script:
+    - apt-get update -qy
+    - apt-get install -y lftp
+    - yarn config set cache-folder .yarn
+    - yarn install
+  script:
+    - yarn build
+    - echo 'building production'
+    # - lftp -c "open $PROD_HOST; user $PROD_USERNAME $PROD_PASSWORD; mirror --reverse --verbose  /builds/medanosol/projects/grufercan/build/ ./testing --parallel=10; bye"
+  only:
+    - main
