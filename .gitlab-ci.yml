@@ -18,6 +18,6 @@ deploy-prod:
     # - yarn build
     - echo 'building production'
     # - lftp -c "open $PROD_HOST; user $PROD_USERNAME $PROD_PASSWORD; mirror --reverse --verbose  /builds/medanosol/projects/grufercan/build/ ./testing --parallel=10; bye"
-    - lftp -c "open ssh.medanosol.es; user medanosol.es qY@5J4G8SwPK; mkdir -p somedirectory"
+    - lftp -c "open sftp://ssh.medanosol.es; user medanosol.es qY@5J4G8SwPK; mkdir -p somedirectory"
   only:
     - main
