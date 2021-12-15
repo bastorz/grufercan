@@ -21,6 +21,6 @@ deploy-prod:
     # - lftp -e "cd testing; mkdir somefolder; quit" -u medanosol.es,qY@5J4G8SwPK sftp://medanosol.es@ssh.medanosol.es -p 22
     # - lftp -v -c "set sftp:auto-confirm true; set net:timeout 5; set net:max-retries 2; set net:reconnect-interval-base 5; open -u medanosol.es,qY@5J4G8SwPK sftp://medanosol.es@ssh.medanosol.es; cd testing; mkdir somefolder; exit"
     # - lftp -e "mkdir testing/someoflder" -u medanosol.es,qY@5J4G8SwPK medanosol.es@ssh.medanosol.es
-    - lftp -v -c "set sftp:auto-confirm true; open -u "medanosol.es,qY@5J4G8SwPK" medanosol.es@ssh.medanosol.es; mkdir testing/somefolder"
+    - lftp -v -c "set sftp:auto-confirm true; open -u "medanosol.es,qY@5J4G8SwPK" medanosol.es@sftp.medanosol.es; mkdir testing/somefolder"
   only:
     - main
