@@ -1,14 +1,15 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 export const useNews = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const getData = () => {
-    // fetch('/grufercan/api/db/news/noticia1.json', {
-    fetch("/api/db/news/noticia1.json", {
+    fetch(`${process.env.GATSBY_BASE_URL}/db/news/noticia1.json`, {
       headers: {
-        "Content-Type": "application/json",
+        pragma: 'no-cache',
+        'cache-control': 'no-cache',
+        'Content-Type': 'application/json',
       },
     })
       .then(async (response) => {
@@ -19,10 +20,27 @@ export const useNews = () => {
         setNews(newsData);
       });
   };
+  const addNews = async ({
+    title,
+    subtitle,
+  }: {
+    title: string;
+    subtitle: string;
+  }): Promise<any> => {
+    try {
+      await fetch(`${process.env.GATSBY_BASE_URL}/index.php`, {
+        method: 'post',
+        body: JSON.stringify({ title, subtitle }),
+      });
+      setIsLoading(true);
+    } catch (e: any) {
+      return true;
+    }
+  };
 
   useEffect(() => {
     getData();
   }, [isLoading]);
 
-  return { news, isLoading };
+  return { news, isLoading, addNews };
 };
