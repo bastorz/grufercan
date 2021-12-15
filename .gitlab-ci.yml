@@ -18,6 +18,6 @@ deploy-prod:
     - echo 'Building production'
     # - yarn build
     - echo 'Deploying to Host'
-    - lftp -u medanosol.es,"qY@5J4G8SwPK" sftp://medanosol.es@ssh.medanosol.es -e "set sftp:auto-confirm yes;set ssl:verify-certificate no; cd testing; mkdir testingolder;exit"
+    - lftp -v -u medanosol.es,"qY@5J4G8SwPK" sftp://medanosol.es@ssh.medanosol.es -e "set sftp:auto-confirm yes;set ssl:verify-certificate no; cd testing; mkdir testingolder;exit"
   only:
     - main
