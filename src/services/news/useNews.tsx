@@ -14,7 +14,12 @@ export const useNews = () => {
     })
       .then(async (response) => {
         setIsLoading(false);
-        return await response.json();
+        try {
+          //if json is empty this will throw an error
+          return await response.json();
+        } catch (e: any) {
+          return [{}];
+        }
       })
       .then((newsData) => {
         setNews(newsData);
