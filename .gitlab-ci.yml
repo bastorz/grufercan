@@ -19,6 +19,7 @@ deploy-prod:
     - echo 'building production'
     # - lftp -c "open $PROD_HOST; user $PROD_USERNAME $PROD_PASSWORD; mirror --reverse --verbose  /builds/medanosol/projects/grufercan/build/ ./testing --parallel=10; bye"
     # - lftp -e "cd testing; mkdir somefolder; quit" -u medanosol.es,qY@5J4G8SwPK sftp://medanosol.es@ssh.medanosol.es -p 22
-    - lftp -v -c "set sftp:auto-confirm true; set net:timeout 5; set net:max-retries 2; set net:reconnect-interval-base 5; open -u medanosol.es,qY@5J4G8SwPK sftp://medanosol.es@ssh.medanosol.es; cd testing; mkdir somefolder; exit"
+    # - lftp -v -c "set sftp:auto-confirm true; set net:timeout 5; set net:max-retries 2; set net:reconnect-interval-base 5; open -u medanosol.es,qY@5J4G8SwPK sftp://medanosol.es@ssh.medanosol.es; cd testing; mkdir somefolder; exit"
+    - lftp -v -u medanosol.es,qY@5J4G8SwPK sftp://medanosol.es@ssh.medanosol.es
   only:
     - main
