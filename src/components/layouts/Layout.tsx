@@ -1,10 +1,10 @@
-import React from "react";
-import { Footer } from "./footer/Footer";
-import { Header } from "./header/Header";
+import React from 'react';
+import { Footer } from './footer/Footer';
+import { Header } from './header/Header';
 
-const Layout = ({ children }) => {
+const Layout: React.FC = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen">
       <div>
         <Header />
       </div>

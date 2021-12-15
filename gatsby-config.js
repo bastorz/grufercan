@@ -11,7 +11,11 @@ module.exports = {
   pathPrefix: '/grufercan/',
   siteMetadata: {
     siteUrl: 'https://www.yourdomain.tld',
-    title: 'My Gatsby Site',
+    title: 'Grufercan',
+    description: 'Example description',
+    author: 'medanosol',
+    keywords:
+      'grufercan, grufercan tenerife, ferreteria, ferreteria tenerife, noticias ferreteria, noticias grufercan',
   },
   plugins: [
     {
