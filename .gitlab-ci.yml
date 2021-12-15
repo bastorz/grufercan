@@ -1,4 +1,4 @@
-image: debian
+image: pionl/node-with-lftp:8
 
 cache:
   paths:
@@ -11,7 +11,7 @@ deploy-prod:
   stage: deploy-prod
   before_script:
     - apt-get update -qy
-    - apt-get install -y lftp
+    # - apt-get install -y lftp
     - yarn config set cache-folder .yarn
     # - yarn install
   script:
@@ -22,6 +22,6 @@ deploy-prod:
     # - lftp -v -c "set sftp:auto-confirm true; set net:timeout 5; set net:max-retries 2; set net:reconnect-interval-base 5; open -u medanosol.es,qY@5J4G8SwPK sftp://medanosol.es@ssh.medanosol.es; cd testing; mkdir somefolder; exit"
     # - lftp -e "mkdir testing/someoflder" -u medanosol.es,qY@5J4G8SwPK medanosol.es@ssh.medanosol.es
     # - lftp -v -c "set sftp:auto-confirm true; open -u "medanosol.es,qY@5J4G8SwPK" medanosol.es@ssh.medanosol.es; mkdir testing/somefolder"
-    - lftp -u medanosol.es,"qY@5J4G8SwPK" sftp://medanosol.es@ssh.medanosol.es -e "cd testing; mkdir testingolder;exit;bye"
+    - lftp -u medanosol.es,"qY@5J4G8SwPK" sftp://medanosol.es@ssh.medanosol.es -e "cd testing; mkdir testingolder;exit"
   only:
     - main
