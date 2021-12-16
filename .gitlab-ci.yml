@@ -1,4 +1,4 @@
-image: pionl/node-with-lftp:8
+image: node
 
 cache:
   paths:
@@ -11,13 +11,18 @@ deploy-prod:
   stage: deploy-prod
   before_script:
     - apt-get update -qy
-    # - apt-get install -y lftp
+    - apt-get install -y lftp
     - yarn config set cache-folder .yarn
-    # - yarn install
+    - yarn install
   script:
     - echo 'Building production'
-    # - yarn build
+    - lftp -v
+    - node -v
+    - yarn build
     - echo 'Deploying to Host'
+    - ls /builds/medanosol/projects/grufercan/public/
     - lftp -v -u medanosol.es,"qY@5J4G8SwPK" sftp://medanosol.es@ssh.medanosol.es -e "set sftp:auto-confirm yes;set ssl:verify-certificate no; cd testing; mkdir testingolder;exit"
   only:
-    - main
+    - develop
+
+    # mirror -R --parallel=10 /builds/medanosol/projects/grufercan/public .;
