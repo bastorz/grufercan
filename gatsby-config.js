@@ -67,7 +67,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${process.env.GATSBY_BASE_URL}/db/news/images/`,
+        path: `./${process.env.GATSBY_API_NAME}/db/news/images/`,
       },
       __key: 'images',
     },
