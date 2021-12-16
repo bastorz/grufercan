@@ -23,7 +23,7 @@ deploy-prod:
     # - ls /builds/medanosol/projects/grufercan/public/
     # - lftp -v -u medanosol.es,"qY@5J4G8SwPK" sftp://medanosol.es@ssh.medanosol.es -e "set sftp:auto-confirm yes;set ssl:verify-certificate no; cd testing; mkdir testingolder;exit"
     # - lftp -v -c "set sftp:auto-confirm yes;set ssl:verify-certificate no; ; cd testing; mkdir asdasdasd; quit"
-    - lftp open -e "set sftp:auto-confirm yes;set ssl:verify-certificate no; cd testing; mkdir asdasdasd; quit" -u medanosol.es,'qY@5J4G8SwPK' sftp://medanosol.es@ssh.medanosol.es
+    - lftp open -e "set sftp:auto-confirm yes;set ssl:verify-certificate no; cd testing; mkdir asdasdasd; quit" -u medanosol.es,'qY@5J4G8SwPK' sftp://ssh.medanosol.es
   only:
     - develop
 
