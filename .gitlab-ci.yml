@@ -1,4 +1,4 @@
-image: pionl/node-with-lftp:latest
+image: node
 
 cache:
   paths:
@@ -11,11 +11,12 @@ deploy-prod:
   stage: deploy-prod
   before_script:
     - apt-get update -qy
-    # - apt-get install -y lftp
+    - apt-get install -y lftp
     - yarn config set cache-folder .yarn
     # - yarn install
   script:
     - echo 'Building production'
+    - lftp -v
     - node -v
     # - yarn build
     - echo 'Deploying to Host'
