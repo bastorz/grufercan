@@ -32,7 +32,7 @@ module.exports = {
       options: {
         defaults: {
           formats: [`auto`, `webp`],
-          placeholder: `dominantColor`,
+          placeholder: `tracedSVG`,
           quality: 50,
           breakpoints: [750, 1080, 1366, 1920],
           backgroundColor: `transparent`,
@@ -62,14 +62,6 @@ module.exports = {
         path: './src/pages/',
       },
       __key: 'pages',
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `./${process.env.GATSBY_API_NAME}/db/news/images/`,
-      },
-      __key: 'images',
     },
     // 'gatsby-transformer-json',
     // {

@@ -6,15 +6,10 @@ import { Image } from '../../components/Image';
 import { SEO } from '../../components/SEO';
 import { useNews } from '../../services/news/useNews';
 
-const NewsPage = ({ data }: any) => {
-  console.log('DATA: ', data);
-  //make generic
-  const bla = getImage(data.allFile.edges[0].node);
+const NewsPage = () => {
   const { news, isLoading, addNews } = useNews();
-  console.log('NEWS: ', news);
   const [image, setImage] = useState<any>();
   const submit = async (event: React.SyntheticEvent) => {
-    console.log('img', image);
     event.preventDefault();
     try {
       await addNews({
@@ -43,13 +38,12 @@ const NewsPage = ({ data }: any) => {
                   <div className="flex flex-col w-full" key={i}>
                     <div className="flex">{item.title}</div>
                     <div className="flex">{item.subtitle}</div>
-                    {bla && <GatsbyImage image={bla} alt="ha" />}
-                    {/* <Image /> */}
-                    {/* <img
+
+                    <img
                       src={`${process.env.GATSBY_BASE_URL}/db/news/images/${item.imgUrl}`}
                       alt={item.title}
                       width={300}
-                    /> */}
+                    />
                   </div>
                 );
               })}
