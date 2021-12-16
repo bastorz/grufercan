@@ -1,4 +1,4 @@
-image: node
+image: pionl/node-with-lftp:8
 
 cache:
   paths:
@@ -11,16 +11,13 @@ deploy-prod:
   stage: deploy-prod
   before_script:
     - apt-get update -qy
-    - apt-get install -y lftp
+    # - apt-get install -y lftp
     - yarn config set cache-folder .yarn
     # - yarn install
   script:
+    - echo 'Building production'
     # - yarn build
-    - echo 'building production'
-    # - lftp -c "open $PROD_HOST; user $PROD_USERNAME $PROD_PASSWORD; mirror --reverse --verbose  /builds/medanosol/projects/grufercan/build/ ./testing --parallel=10; bye"
-    # - lftp -e "cd testing; mkdir somefolder; quit" -u medanosol.es,qY@5J4G8SwPK sftp://medanosol.es@ssh.medanosol.es -p 22
-    # - lftp -v -c "set sftp:auto-confirm true; set net:timeout 5; set net:max-retries 2; set net:reconnect-interval-base 5; open -u medanosol.es,qY@5J4G8SwPK sftp://medanosol.es@ssh.medanosol.es; cd testing; mkdir somefolder; exit"
-    # - lftp -e "mkdir testing/someoflder" -u medanosol.es,qY@5J4G8SwPK medanosol.es@ssh.medanosol.es
-    - lftp -v -c "set sftp:auto-confirm true; open -u "medanosol.es,qY@5J4G8SwPK" medanosol.es@ssh.medanosol.es; mkdir testing/somefolder"
+    - echo 'Deploying to Host'
+    - lftp -v -u medanosol.es,"qY@5J4G8SwPK" sftp://medanosol.es@ssh.medanosol.es -e "set sftp:auto-confirm yes;set ssl:verify-certificate no; cd testing; mkdir testingolder;exit"
   only:
     - main
