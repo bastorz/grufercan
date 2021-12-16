@@ -1,4 +1,4 @@
-image: pionl/node-with-lftp:8
+image: pionl/node-with-lftp:latest
 
 cache:
   paths:
