@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-
+import { handleErrors } from '../utils';
 export const useNews = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +18,7 @@ export const useNews = () => {
           //if json is empty this will throw an error
           return await response.json();
         } catch (e: any) {
-          return [{}];
+          return [];
         }
       })
       .then((newsData) => {
@@ -28,18 +28,28 @@ export const useNews = () => {
   const addNews = async ({
     title,
     subtitle,
+    image,
   }: {
     title: string;
     subtitle: string;
+    image: any;
   }): Promise<any> => {
     try {
+      const formData = new FormData();
+      formData.append('file', image);
+      await fetch(`${process.env.GATSBY_BASE_URL}/imageUploader.php`, {
+        method: 'post',
+        body: formData,
+      }).then(handleErrors);
       await fetch(`${process.env.GATSBY_BASE_URL}/index.php`, {
         method: 'post',
-        body: JSON.stringify({ title, subtitle }),
+        body: JSON.stringify({ title, subtitle, imgUrl: image.name }),
       });
       setIsLoading(true);
-    } catch (e: any) {
       return true;
+    } catch (e: any) {
+      console.log('ERROR: ', e.message);
+      return false;
     }
   };
 
