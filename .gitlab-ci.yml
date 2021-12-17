@@ -28,7 +28,7 @@ deploy-prod:
 
 
 
-    - lftp -e "open sftp://medanosol.es@ssh.medanosol.es; user medanosol.es,qY@5J4G8SwPK;set ftp:ssl-allow yes; set sftp:auto-confirm yes;set ssl:verify-certificate no; cd testing; mkdir asdasdasd"
+    - lftp -e "user medanosol.es,qY@5J4G8SwPK; open sftp://medanosol.es@ssh.medanosol.es; set ftp:ssl-allow yes; set sftp:auto-confirm yes;set ssl:verify-certificate no; cd testing; mkdir asdasdasd"
 
   only:
     - develop
