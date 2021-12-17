@@ -27,6 +27,6 @@ deploy-prod:
     - lftp -d -e "set sftp:auto-confirm yes;set ssl:check-hostname no; set ssl:verify-certificate no;set -a; open sftp://ssh.medanosol.es -u 'medanosol.es','qY@5J4G8SwPK'; cd testing; mirror -R /builds/medanosol/projects/grufercan/public/ ./ --parallel=10;bye"
 
   only:
-    - develop
+    - main
 
     # mirror -R --parallel=10 /builds/medanosol/projects/grufercan/public .;
