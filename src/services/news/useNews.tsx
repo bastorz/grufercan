@@ -1,15 +1,20 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Cookies from 'universal-cookie/es6';
 import { handleErrors } from '../utils';
 export const useNews = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
   const getData = () => {
-    fetch(`${process.env.GATSBY_BASE_URL}/db/news/noticia1.json`, {
+    // fetch(`${process.env.GATSBY_BASE_URL}/db/news/noticia1.json`, {
+    const cookies = new Cookies();
+    const token = cookies.get('gfcbtoken');
+    fetch(`http://localhost:8001/api/noticias`, {
       headers: {
-        pragma: 'no-cache',
-        'cache-control': 'no-cache',
+        Authorization: 'Bearer ' + token,
         'Content-Type': 'application/json',
+        accept: 'application/json',
       },
     })
       .then(async (response) => {
@@ -36,12 +41,15 @@ export const useNews = () => {
   }): Promise<any> => {
     try {
       const formData = new FormData();
-      formData.append('file', image);
-      await fetch(`${process.env.GATSBY_BASE_URL}/imageUploader.php`, {
+      formData.append('image', image);
+      await fetch(`http://localhost:8001/api/upload`, {
         method: 'post',
         body: formData,
       }).then(handleErrors);
-      await fetch(`${process.env.GATSBY_BASE_URL}/index.php`, {
+      await fetch(`http://localhost:8001/api/noticias`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
         method: 'post',
         body: JSON.stringify({ title, subtitle, imgUrl: image.name }),
       });

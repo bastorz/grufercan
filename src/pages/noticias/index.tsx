@@ -1,13 +1,17 @@
-import { graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { graphql, navigate } from 'gatsby';
 import React, { useState } from 'react';
 import { Key } from 'react';
-import { Image } from '../../components/Image';
 import { SEO } from '../../components/SEO';
+import { isLoggedIn } from '../../services/auth/auth';
 import { useNews } from '../../services/news/useNews';
 
 const NewsPage = () => {
+  // if (!isLoggedIn()) {
+  //   navigate('/login');
+  //   return null;
+  // }
   const { news, isLoading, addNews } = useNews();
+  console.log('NEWS: ', news);
   const [image, setImage] = useState<any>();
   const submit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -40,7 +44,7 @@ const NewsPage = () => {
                     <div className="flex">{item.subtitle}</div>
 
                     <img
-                      src={`${process.env.GATSBY_BASE_URL}/db/news/images/${item.imgUrl}`}
+                      src={`http://localhost:8001/uploads/${item.imgUrl}`}
                       alt={item.title}
                       width={300}
                     />
@@ -49,8 +53,7 @@ const NewsPage = () => {
               })}
           </div>
         </div>
-
-        <form onSubmit={submit} encType="multipart/form-data">
+        <form onSubmit={submit}>
           <input
             onChange={(e) => {
               if (e.target.files) {

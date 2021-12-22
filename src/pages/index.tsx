@@ -1,5 +1,5 @@
-import * as React from "react";
-import { useTranslation } from "react-i18next";
+import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const IndexPage = () => {
   const { t } = useTranslation();
@@ -7,7 +7,7 @@ const IndexPage = () => {
   return (
     <div>
       <div>Home page!</div>
-      <div>{t("translate.this")}</div>
+      <div>{t('translate.this')}</div>
     </div>
   );
 };

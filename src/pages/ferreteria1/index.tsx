@@ -1,7 +1,13 @@
+import { navigate } from 'gatsby';
 import React from 'react';
 import { SEO } from '../../components/SEO';
+import { isLoggedIn } from '../../services/auth/auth';
 
 const Ferreteria1Page = () => {
+  // if (!isLoggedIn()) {
+  //   navigate('/login');
+  //   return null;
+  // }
   return (
     <>
       <SEO
