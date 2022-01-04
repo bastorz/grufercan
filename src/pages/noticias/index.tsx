@@ -11,7 +11,6 @@ const NewsPage = () => {
   //   return null;
   // }
   const { news, isLoading, addNews } = useNews();
-  console.log('NEWS: ', news);
   const [image, setImage] = useState<any>();
   const submit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -20,6 +19,7 @@ const NewsPage = () => {
         title: 'Nueva noticia',
         subtitle: 'Subtitulo',
         image,
+        date: '2022-01-04',
       });
     } catch (e: any) {
       console.log('ERROR', e);

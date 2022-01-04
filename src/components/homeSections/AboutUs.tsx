@@ -6,7 +6,10 @@ import portada1 from '../../images/portada/portada-1.jpg';
 import mapa from '../../images/portada/mapa-canarias.svg';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { useScrollSection } from 'react-scroll-section';
 export const AboutUs: React.FC = () => {
+  const newsSection = useScrollSection('latestNews');
+
   return (
     <div className="flex flex-col pb-20 bg-contrast">
       <div className="flex flex-col justify-between w-full gap-4 md:flex-row md:gap-0">
@@ -27,7 +30,11 @@ export const AboutUs: React.FC = () => {
             </div>
           </Carousel>
         </div>
-        <div className="flex-col justify-between hidden w-full p-3 text-center  md:flex md:w-1/3 bg-secondary md:aspect-square md:p-10 md:text-left">
+
+        <div
+          onClick={newsSection.onClick}
+          className="cursor-pointer flex-col justify-between hidden w-full p-3 text-center  md:flex md:w-1/3 bg-secondary md:aspect-square md:p-10 md:text-left"
+        >
           <span className="text-3xl text-white md:text-4xl lg:text-6xl">
             Últimas noticias
           </span>

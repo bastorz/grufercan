@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { AboutUs } from '../components/homeSections/AboutUs';
 import { GrufercanTop } from '../components/homeSections/GrufercanTop';
+import { LatestNews } from '../components/homeSections/LatestNews';
 import { Partners } from '../components/homeSections/Partners';
 import { Providers } from '../components/homeSections/Providers';
 import { Sevenca } from '../components/homeSections/Sevenca';
@@ -19,6 +20,7 @@ const IndexPage = () => {
         <Partners />
         <Sevenca />
         <Providers />
+        <LatestNews />
       </div>
     </>
   );
