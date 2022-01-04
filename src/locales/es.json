@@ -1,4 +1,12 @@
 {
+  "header": {
+    "aboutUs": "Nosotros",
+    "partners": "Asociados",
+    "sevenca": "Sevenca",
+    "providers": "Proveedores",
+    "blog": "Blog",
+    "contact": "Contacto"
+  },
   "translate": {
     "this": "Traduce esto!"
   },
@@ -6,5 +14,8 @@
     "navigation": {
       "news": "Noticias"
     }
+  },
+  "footer": {
+    "contact": "Contacta con nosotros"
   }
 }

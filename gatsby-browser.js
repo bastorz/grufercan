@@ -13,12 +13,12 @@ export const wrapPageElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>;
 };
 export const onRouteUpdate = ({ location, prevLocation }) => {
-  const protectedRoutes = ['/ferreteria1', '/noticias'];
-  if (!isLoggedIn()) {
-    protectedRoutes.forEach((route) => {
-      if (location.pathname === route || location.pathname === route + '/') {
-        navigate('/login');
-      }
-    });
-  }
+  // const protectedRoutes = ['/ferreteria1', '/noticias'];
+  // if (!isLoggedIn()) {
+  //   protectedRoutes.forEach((route) => {
+  //     if (location.pathname === route || location.pathname === route + '/') {
+  //       navigate('/login');
+  //     }
+  //   });
+  // }
 };
