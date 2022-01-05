@@ -38,8 +38,8 @@ const PartnersPage = (partnersProp: any) => {
   return (
     <>
       <SEO
-        title="Noticias"
-        description={'currentNews?.description'}
+        title={partner.name}
+        description={t(`partners.${partner.id}`)}
         lang={language}
       />
 
