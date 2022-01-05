@@ -24,6 +24,15 @@
     "fraper": "Comercial Fraper es punto de venta de referencia del sector en la Isla de La Palma, comprometidos en su gestión de servicio y profesionalidad. En la actualidad poseen dos establecimientos, San Andres y Sauces con 600 m2 de exposición y 1100 m2 de almacén y El paso, con unas instalaciones de 4.430 m2 de exposición y 4.430 m2 de almacén.",
     "sevenca": "Marca propia, creada por Grufercan con el objetivo de desarrollar diferentes líneas de producto en las que primen la relación calidad-precio. Supone una clara apuesta por la mejora del posicionamiento de cada uno de los socios en el mercado actual cada vez más competitivo. Hemos desarrollado varias líneas de producto: calentadores, mamparas de ducha, escaleras domésticas y hormigoneras, seguimos trabajando para implementar nuevas líneas próximamente. "
   },
+  "cookiesDialog": {
+    "accept": "Aceptar",
+    "decline": "Rechazar",
+    "text1": "Esta web únicamente utiliza cookies propias con finalidad técnica, no recaba ni cede datos de carácter personal de usuarios sin su conocimiento. Para obtener más información de nuestra política de cookies pulse ",
+    "here": "aquí.",
+    "text2": "También puede consultar nuestra",
+    "privacy": "Política de privacidad",
+    "legal": "Aviso legal"
+  },
   "footer": {
     "contact": "Contacta con nosotros"
   }

@@ -24,6 +24,15 @@
     "fraper": "Comercial Fraper is a store that stands out in its sector on the island of La Palma. They are committed to service management and professionalism.Currently, they offer two sales points; one in San Andres y Sauces with a 600m2 showroom and 1100m2 of warehouse space and the other in El Paso with a 4.430 m2 showroom and 4.430m2 of warehouse space.",
     "sevenca": "Grufercan’s own brand that was created with the objective of offering different product lines that prioritize the price-quality balance. This is a clear commitment to improving the positioning of each of the partners in today's increasingly competitive market. We’ve created various product lines including, heaters, shower partitions, home stairs and concrete mixers and we are continuing to work to include new lines soon."
   },
+  "cookiesDialog": {
+    "accept": "Accept",
+    "decline": "Decline",
+    "text1": "This website only uses its own cookies for technical purposes, it does not collect or transfer personal data from users without their knowledge. For more information on our cookie policy, click ",
+    "here": "here.",
+    "text2": "You can also consult our ",
+    "privacy": "Privacy policy",
+    "legal": "Legal Notice"
+  },
   "footer": {
     "contact": "Contact us"
   }
