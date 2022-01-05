@@ -2,11 +2,13 @@ import { mdiChevronRightCircleOutline } from '@mdi/js';
 import Icon from '@mdi/react';
 import { Link } from 'gatsby';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Section } from 'react-scroll-section';
 import { useNews } from '../../services/news/useNews';
 
 export const LatestNews: React.FC = () => {
   const { news, isLoading } = useNews();
+  const { t } = useTranslation();
   const [latestNews, setLatestNews] = useState<{
     id: string;
     title: string;
@@ -24,7 +26,7 @@ export const LatestNews: React.FC = () => {
   return (
     <div className="flex flex-col w-full py-20" id="latestNews">
       <div className="w-full py-10 text-center text-7xl text-primary">
-        <span>ÚLTIMAS NOTICIAS</span>
+        <span>{t('home.sections.latestNews.latestNews')}</span>
       </div>
       {latestNews && (
         <div className="grid grid-cols-5 gap-10 md:gap-0">
@@ -41,7 +43,9 @@ export const LatestNews: React.FC = () => {
                 state={{ newsId: latestNews.id }}
               >
                 <div className="flex items-center gap-10 cursor-pointer">
-                  <span className="text-3xl font-bold">SEGUIR LEYENDO</span>
+                  <span className="text-3xl font-bold">
+                    {t('home.sections.latestNews.keepReading')}
+                  </span>
                   <Icon path={mdiChevronRightCircleOutline} size={3.5} />
                 </div>
               </Link>

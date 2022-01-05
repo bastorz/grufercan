@@ -45,7 +45,7 @@ const PartnersPage = (partnersProp: any) => {
 
       <div className="flex flex-col w-full px-10 lg:px-32">
         <div className="flex flex-col items-center w-full text-3xl text-center lg:mb-20 text-primary lg:text-6xl">
-          <h1>SOCIOS</h1>
+          <h1>{t('home.sections.partners.partners')}</h1>
           <img
             src={partner.logo}
             alt={partner.name + ' logo'}

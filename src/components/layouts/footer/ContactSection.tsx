@@ -24,21 +24,21 @@ export const ContactSection: React.FC = () => {
       </div>
       <div className="flex flex-col justify-between w-full gap-4 px-4 md:w-2/3">
         <input
-          placeholder="NOMBRE Y APELLIDOS/EMPRESA"
+          placeholder={t('footer.contactFields.name')}
           className="h-12 px-4 py-3 bg-contrast"
         ></input>
         <input
-          placeholder="E-MAIL"
+          placeholder={t('footer.contactFields.email')}
           type="email"
           className="h-12 px-4 py-3 bg-contrast"
         ></input>
         <input
-          placeholder="TELÉFONO"
+          placeholder={t('footer.contactFields.phone')}
           type="tel"
           className="h-12 px-4 py-3 bg-contrast"
         ></input>
         <textarea
-          placeholder="MENSAJE"
+          placeholder={t('footer.contactFields.message')}
           className="h-full px-4 py-3 bg-contrast"
         ></textarea>
       </div>
