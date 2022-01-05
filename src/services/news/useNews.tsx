@@ -2,11 +2,10 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Cookies from 'universal-cookie/es6';
+import { useLanguage } from '../../hooks/useLanguage';
 import { handleErrors } from '../utils';
 export const useNews = () => {
-  const { i18n } = useTranslation();
-  const getLanguage = () => i18n.language || window.localStorage.i18nextLng;
-
+  const { language } = useLanguage();
   const [news, setNews] = useState<
     {
       id: string;
@@ -57,7 +56,7 @@ export const useNews = () => {
               date: string;
             }[]) = [];
         newsData.forEach((data: { noticiasEn: any; noticiasEs: any }) => {
-          if (getLanguage() === 'en') {
+          if (language === 'en') {
             if (data.noticiasEn) {
               const noticiasEn = data?.noticiasEn[0];
               delete data.noticiasEn;
@@ -116,10 +115,10 @@ export const useNews = () => {
   useEffect(() => {
     setNews([]);
     getData();
-  }, [i18n.language]);
+  }, [language]);
   useEffect(() => {
     getData();
-  }, [isLoading, i18n.language]);
+  }, [isLoading, language]);
 
   return { news, isLoading, addNews };
 };

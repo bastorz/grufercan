@@ -54,8 +54,8 @@ export const Providers: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col w-full py-20">
-      <div className="w-full py-10 text-center text-7xl text-primary">
+    <div className="flex flex-col w-full py-20" id="providers">
+      <div className="w-full py-10 text-4xl font-extrabold text-center lg:text-7xl text-primary">
         <span>PROVEEDORES</span>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-[1px]">

@@ -15,6 +15,15 @@
       "news": "Noticias"
     }
   },
+  "partners": {
+    "laCantera": "Está en constante renovación para ofrecer siempre el mejor servicio y una atención personalizada a sus clientes. Cuenta con un amplio horario de atención abriendo al público desde las 7:00h. de la mañana. Su centro se encuentra en Valsequillo, Las Palmas de Gran Canaria.",
+    "saavedra": "Ferretería Saavedra es un comercio especializado en pintura con un asesoramiento personalizado. Ademas, son un referente de la zona con 3.000m2 de exposición incluyendo ferretería, menaje y decoración. Podrás visitarlos en Puerto del Rosario, Las Palmas de Gran Canaria.",
+    "ferrocour": "Cuenta con un gran surtido de artículos para el hogar, construcción y ferretería en general. Su especialidad es el trato directo y altamente cualificado siendo siempre el cliente lo más importante. Están ubicados en Playa Blanca, Lanzarote.",
+    "germanMedina": "Es una empresa consolidada, dirigida por su segunda generación, son especialistas en baños, cerámicas y pinturas. Además, cuentan con una amplia flota de vehículos para ofrecer un servicio eficaz de transporte. Sus instalaciones se encuentran en el Polígono de Vecindario y en Arinaga, en Las Palmas de Gran Canaria.",
+    "sanIsidro": "Destaca especialmente en materiales de construcción, maderas, ferretería, bricolaje, baños, cerámicas y electrodomésticos. Se crea el 1981 como Ferretería San Isidro, como un pequeño negocio familiar de referencia en el municipio de Los Realejos, convirtiéndose en 2006 en el Grupo San Isidro. Cuenta con dos puntos de venta: en Calle Los Barros y Calle Trinidad, ambas en el municipio de Los Realejos en el norte de Tenerife.",
+    "fraper": "Comercial Fraper es punto de venta de referencia del sector en la Isla de La Palma, comprometidos en su gestión de servicio y profesionalidad. En la actualidad poseen dos establecimientos, San Andres y Sauces con 600 m2 de exposición y 1100 m2 de almacén y El paso, con unas instalaciones de 4.430 m2 de exposición y 4.430 m2 de almacén.",
+    "sevenca": "Marca propia, creada por Grufercan con el objetivo de desarrollar diferentes líneas de producto en las que primen la relación calidad-precio. Supone una clara apuesta por la mejora del posicionamiento de cada uno de los socios en el mercado actual cada vez más competitivo. Hemos desarrollado varias líneas de producto: calentadores, mamparas de ducha, escaleras domésticas y hormigoneras, seguimos trabajando para implementar nuevas líneas próximamente. "
+  },
   "footer": {
     "contact": "Contacta con nosotros"
   }

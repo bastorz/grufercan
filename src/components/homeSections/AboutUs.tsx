@@ -6,10 +6,8 @@ import portada1 from '../../images/portada/portada-1.jpg';
 import mapa from '../../images/portada/mapa-canarias.svg';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { useScrollSection } from 'react-scroll-section';
+import { navigate } from 'gatsby';
 export const AboutUs: React.FC = () => {
-  const newsSection = useScrollSection('latestNews');
-
   return (
     <div className="flex flex-col pb-20 bg-contrast">
       <div className="flex flex-col justify-between w-full gap-4 md:flex-row md:gap-0">
@@ -32,8 +30,8 @@ export const AboutUs: React.FC = () => {
         </div>
 
         <div
-          onClick={newsSection.onClick}
-          className="cursor-pointer flex-col justify-between hidden w-full p-3 text-center  md:flex md:w-1/3 bg-secondary md:aspect-square md:p-10 md:text-left"
+          onClick={() => navigate('/#latestNews')}
+          className="flex-col justify-between hidden w-full p-3 text-center cursor-pointer md:flex md:w-1/3 bg-secondary md:aspect-square md:p-10 md:text-left"
         >
           <span className="text-3xl text-white md:text-4xl lg:text-6xl">
             Últimas noticias
@@ -47,7 +45,10 @@ export const AboutUs: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-full gap-20 px-10 md:flex-row md:px-20 lg:px-40 pt-28">
+      <div
+        id="aboutUs"
+        className="flex flex-col w-full gap-20 px-10 md:flex-row md:px-20 lg:px-40 pt-28"
+      >
         <div className="flex flex-col w-full text-center md:w-1/3 md:text-right">
           <span className="w-full text-7xl text-primary">QUIÉNES SOMOS</span>
           <img src={mapa} alt="mapa islas canarias" />

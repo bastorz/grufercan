@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { isLoggedIn, logout } from '../../../services/auth/auth';
@@ -6,9 +6,11 @@ import logoMd from '../../../images/logo-md.jpg';
 import clsx from 'clsx';
 import { mdiMenu } from '@mdi/js';
 import Icon from '@mdi/react';
+import { useLanguage } from '../../../hooks/useLanguage';
+import { useScrollSection } from 'react-scroll-section';
 export const Header = () => {
   const { t, i18n } = useTranslation();
-  const getLanguage = () => i18n.language || window.localStorage.i18nextLng;
+  const { language } = useLanguage();
   const [toggleMenu, setToggleMenu] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const toggleNav = () => {
@@ -24,6 +26,9 @@ export const Header = () => {
       window.removeEventListener('resize', changeWidth);
     };
   }, []);
+
+  const aboutUsSection = useScrollSection('aboutUs');
+  const partnersSection = useScrollSection('partners');
 
   return (
     <div
@@ -78,23 +83,53 @@ export const Header = () => {
             <div className="w-6 h-6 bg-primary" />
             <div className="w-6 h-6 bg-secondary" />
           </div>
-          <li>
-            <Link to="/ferreteria1">{t('header.aboutUs')}</Link>
+          <li
+            onClick={() => {
+              navigate('/#aboutUs');
+            }}
+            className={clsx('cursor-pointer active:text-contrast')}
+          >
+            {t('header.aboutUs')}
           </li>
-          <li>
-            <Link to="/ferreteria1">{t('header.partners')}</Link>
+          <li
+            onClick={() => {
+              navigate('/#partners');
+            }}
+            className={clsx('cursor-pointer active:text-contrast')}
+          >
+            {t('header.partners')}
           </li>
-          <li>
-            <Link to="/ferreteria1">{t('header.sevenca')}</Link>
+          <li
+            onClick={() => {
+              navigate('/#sevenca');
+            }}
+            className={clsx('cursor-pointer active:text-contrast')}
+          >
+            {t('header.sevenca')}
           </li>
-          <li>
-            <Link to="/ferreteria1">{t('header.providers')}</Link>
+          <li
+            onClick={() => {
+              navigate('/#providers');
+            }}
+            className={clsx('cursor-pointer active:text-contrast')}
+          >
+            {t('header.providers')}
           </li>
-          <li>
-            <Link to="/ferreteria1">{t('header.blog')}</Link>
+          <li
+            onClick={() => {
+              navigate('/#latestNews');
+            }}
+            className={clsx('cursor-pointer active:text-contrast')}
+          >
+            {t('header.blog')}
           </li>
-          <li>
-            <Link to="/ferreteria1">{t('header.contact')}</Link>
+          <li
+            onClick={() => {
+              navigate('/#contact');
+            }}
+            className={clsx('cursor-pointer active:text-contrast')}
+          >
+            {t('header.contact')}
           </li>
           {/* <li className="p-2 hover:bg-red-400">
             <button
@@ -118,7 +153,7 @@ export const Header = () => {
           <li>
             <button
               className={clsx(
-                getLanguage() === 'en' ? 'font-semibold' : 'font-light',
+                language === 'en' ? 'font-semibold' : 'font-light',
               )}
               onClick={() => {
                 i18n.changeLanguage('en');
@@ -130,7 +165,7 @@ export const Header = () => {
           <li>
             <button
               className={clsx(
-                getLanguage() === 'es' ? 'font-semibold' : 'font-light',
+                language === 'es' ? 'font-semibold' : 'font-light',
               )}
               onClick={() => {
                 i18n.changeLanguage('es');

@@ -6,12 +6,15 @@ import { useTranslation } from 'react-i18next';
 export const ContactSection: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <div className="flex w-full md:flex-row flex-col gap-4 md:gap-0 pt-20">
-      <div className="flex flex-col justify-between w-full md:w-1/3 bg-secondary md:aspect-square p-3 md:p-10 text-center md:text-left">
-        <span className="text-3xl md:text-4xl lg:text-6xl text-white">
+    <div
+      className="flex flex-col w-full gap-4 pt-20 md:flex-row md:gap-0"
+      id="contact"
+    >
+      <div className="flex flex-col justify-between w-full p-3 text-center md:w-1/3 bg-secondary md:aspect-square md:p-10 md:text-left">
+        <span className="text-3xl text-white md:text-4xl lg:text-6xl">
           {t('footer.contact')}
         </span>
-        <div className="w-full md:flex hidden justify-end ">
+        <div className="justify-end hidden w-full md:flex ">
           <Icon
             path={mdiChevronRightCircleOutline}
             size={'5vw'}
@@ -19,24 +22,24 @@ export const ContactSection: React.FC = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col gap-4 w-full md:w-2/3 px-4 justify-between">
+      <div className="flex flex-col justify-between w-full gap-4 px-4 md:w-2/3">
         <input
           placeholder="NOMBRE Y APELLIDOS/EMPRESA"
-          className="bg-contrast h-12 px-4 py-3"
+          className="h-12 px-4 py-3 bg-contrast"
         ></input>
         <input
           placeholder="E-MAIL"
           type="email"
-          className="bg-contrast h-12 px-4 py-3"
+          className="h-12 px-4 py-3 bg-contrast"
         ></input>
         <input
           placeholder="TELÉFONO"
           type="tel"
-          className="bg-contrast h-12 px-4 py-3"
+          className="h-12 px-4 py-3 bg-contrast"
         ></input>
         <textarea
           placeholder="MENSAJE"
-          className="bg-contrast h-full px-4 py-3"
+          className="h-full px-4 py-3 bg-contrast"
         ></textarea>
       </div>
     </div>
