@@ -4,7 +4,7 @@ import logoMd from '../../../images/logo-md.jpg';
 import { ContactSection } from './ContactSection';
 import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
-
+import { version } from '../../../../package.json';
 export const Footer = () => {
   const { t } = useTranslation();
   return (
@@ -25,7 +25,7 @@ export const Footer = () => {
         <div className="w-[200px] h-[200px] sm:h-[300px] sm:w-[300px] md:h-[400px] md:w-[400px] mb-10 md:mb-0">
           <Iframe />
         </div>
-        <div className="absolute grid grid-cols-3 text-sm text-center divide-x-2 bottom-5 right-5 text-primary divide-primary">
+        <div className="absolute grid grid-cols-4 text-sm text-center divide-x-2 bottom-5 right-5 text-primary divide-primary">
           <Link to="/legal" className="px-2">
             {t('footer.legal')}
           </Link>
@@ -35,6 +35,7 @@ export const Footer = () => {
           <Link to="/privacy" className="px-2">
             {t('footer.privacy')}
           </Link>
+          v.{version}
         </div>
       </div>
     </>
