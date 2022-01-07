@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @see       https://github.com/laminas/laminas-code for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-code/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-code/blob/master/LICENSE.md New BSD License
+ */
+
 namespace Laminas\Code\Generator\DocBlock\Tag;
 
 use Laminas\Code\Generator\AbstractGenerator;
@@ -9,10 +15,14 @@ use function ltrim;
 
 class GenericTag extends AbstractGenerator implements TagInterface, PrototypeGenericInterface
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $name;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $content;
 
     /**
@@ -71,7 +81,9 @@ class GenericTag extends AbstractGenerator implements TagInterface, PrototypeGen
      */
     public function generate()
     {
-        return '@' . $this->name
+        $output = '@' . $this->name
             . (! empty($this->content) ? ' ' . $this->content : '');
+
+        return $output;
     }
 }

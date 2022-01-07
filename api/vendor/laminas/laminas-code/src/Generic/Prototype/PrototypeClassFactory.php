@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @see       https://github.com/laminas/laminas-code for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-code/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-code/blob/master/LICENSE.md New BSD License
+ */
+
 namespace Laminas\Code\Generic\Prototype;
 
 use Laminas\Code\Reflection\Exception;
@@ -16,21 +22,24 @@ use function str_replace;
  * If the factory can not supply the class someone is asking for
  * it tries to fallback on a generic default prototype, which would
  * have need to be set before.
- *
- * @internal this class is not part of the public API of this package
  */
 class PrototypeClassFactory
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $prototypes = [];
 
-    /** @var PrototypeGenericInterface|null */
+    /**
+     * @var PrototypeGenericInterface
+     */
     protected $genericPrototype;
 
     /**
      * @param PrototypeInterface[] $prototypes
+     * @param PrototypeGenericInterface $genericPrototype
      */
-    public function __construct($prototypes = [], ?PrototypeGenericInterface $genericPrototype = null)
+    public function __construct($prototypes = [], PrototypeGenericInterface $genericPrototype = null)
     {
         foreach ((array) $prototypes as $prototype) {
             $this->addPrototype($prototype);
@@ -42,6 +51,7 @@ class PrototypeClassFactory
     }
 
     /**
+     * @param PrototypeInterface $prototype
      * @throws Exception\InvalidArgumentException
      */
     public function addPrototype(PrototypeInterface $prototype)
@@ -56,6 +66,7 @@ class PrototypeClassFactory
     }
 
     /**
+     * @param PrototypeGenericInterface $prototype
      * @throws Exception\InvalidArgumentException
      */
     public function setGenericPrototype(PrototypeGenericInterface $prototype)

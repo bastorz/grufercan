@@ -1,6 +1,15 @@
 <?php
 
+/**
+ * @see       https://github.com/laminas/laminas-code for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-code/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-code/blob/master/LICENSE.md New BSD License
+ */
+
 namespace Laminas\Code\Scanner;
+
+use Laminas\Code\Annotation\AnnotationManager;
+use Laminas\Code\NameInformation;
 
 use function array_pop;
 use function array_push;
@@ -15,30 +24,56 @@ use function strpos;
 use function substr;
 use function trim;
 
-/** @internal this class is not part of the public API of this package */
-class DocBlockScanner
+class DocBlockScanner implements ScannerInterface
 {
-    /** @var bool */
+    /**
+     * @var bool
+     */
     protected $isScanned = false;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $docComment;
 
-    /** @var string */
-    protected $shortDescription = '';
+    /**
+     * @var NameInformation
+     */
+    protected $nameInformation;
 
-    /** @var string */
+    /**
+     * @var AnnotationManager
+     */
+    protected $annotationManager;
+
+    /**
+     * @var string
+     */
+    protected $shortDescription;
+
+    /**
+     * @var string
+     */
     protected $longDescription = '';
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $tags = [];
 
     /**
-     * @param  string $docComment
+     * @var array
      */
-    public function __construct($docComment)
+    protected $annotations = [];
+
+    /**
+     * @param  string $docComment
+     * @param null|NameInformation $nameInformation
+     */
+    public function __construct($docComment, NameInformation $nameInformation = null)
     {
-        $this->docComment = $docComment;
+        $this->docComment      = $docComment;
+        $this->nameInformation = $nameInformation;
     }
 
     /**
@@ -69,6 +104,16 @@ class DocBlockScanner
         $this->scan();
 
         return $this->tags;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAnnotations()
+    {
+        $this->scan();
+
+        return $this->annotations;
     }
 
     /**
@@ -144,7 +189,6 @@ class DocBlockScanner
     }
 
     /**
-     * @phpcs:disable Generic.Formatting.MultipleStatementAlignment.NotSame
      * @return array
      */
     protected function tokenize()
@@ -177,7 +221,7 @@ class DocBlockScanner
             }
             $currentChar = $stream[$streamIndex];
             $matches     = [];
-            $currentLine = preg_match('#(.*?)\r?\n#', $stream, $matches, 0, $streamIndex) === 1
+            $currentLine = preg_match('#(.*?)\r?\n#', $stream, $matches, null, $streamIndex) === 1
                 ? $matches[1]
                 : substr($stream, $streamIndex);
             if ($currentChar === ' ') {
