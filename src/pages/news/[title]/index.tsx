@@ -8,7 +8,7 @@ import { useLanguage } from '../../../hooks/useLanguage';
 import { useNews } from '../../../services/news/useNews';
 
 const News: React.FC = (newsProps: any) => {
-  const currentNewsId = newsProps?.location.state.newsId;
+  const currentNewsId = newsProps?.location.state?.newsId;
   const formatDate = (date: string): string => {
     const timestamp = Date.parse(date);
     return new Date(timestamp).toLocaleDateString();
