@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import Cookies from 'universal-cookie/es6';
-import { useLanguage } from '../../hooks/useLanguage';
-import { handleErrors } from '../utils';
+import { useEffect } from "react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import Cookies from "universal-cookie/es6";
+import { useLanguage } from "../../hooks/useLanguage";
+import { handleErrors } from "../utils";
 export const useNews = () => {
   const { language } = useLanguage();
   const [news, setNews] = useState<
@@ -20,12 +20,12 @@ export const useNews = () => {
   const getData = () => {
     // fetch(`${process.env.GATSBY_BASE_URL}/db/news/noticia1.json`, {
     const cookies = new Cookies();
-    const token = cookies.get('gfcbtoken');
-    fetch(`/api/noticias`, {
+    const token = cookies.get("gfcbtoken");
+    fetch(`/api/public/noticias`, {
       headers: {
-        Authorization: 'Bearer ' + token,
-        'Content-Type': 'application/json',
-        accept: 'application/json',
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
+        accept: "application/json",
       },
     })
       .then(async (response) => {
@@ -47,7 +47,7 @@ export const useNews = () => {
                 subtitle: string;
                 imgUrl: string;
                 date: string;
-              }[],
+              }[]
             ) => {
               id: string;
               title: string;
@@ -56,7 +56,7 @@ export const useNews = () => {
               date: string;
             }[]) = [];
         newsData.forEach((data: { noticiasEn: any; noticiasEs: any }) => {
-          if (language === 'en') {
+          if (language === "en") {
             if (data.noticiasEn) {
               const noticiasEn = data?.noticiasEn[0];
               delete data.noticiasEn;
@@ -79,7 +79,7 @@ export const useNews = () => {
         setNews(dataArray);
       })
       .catch((e) => {
-        console.log('ERROR: ', e);
+        console.log("ERROR: ", e);
       });
   };
   const addNews = async ({
@@ -95,22 +95,22 @@ export const useNews = () => {
   }): Promise<any> => {
     try {
       const formData = new FormData();
-      formData.append('image', image);
+      formData.append("image", image);
       await fetch(`http://localhost:8001/api/upload`, {
-        method: 'post',
+        method: "post",
         body: formData,
       }).then(handleErrors);
       await fetch(`http://localhost:8001/api/noticias`, {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        method: 'post',
+        method: "post",
         body: JSON.stringify({ title, subtitle, imgUrl: image.name, date }),
       });
       setIsLoading(true);
       return true;
     } catch (e: any) {
-      console.log('ERROR: ', e.message);
+      console.log("ERROR: ", e.message);
       return false;
     }
   };
