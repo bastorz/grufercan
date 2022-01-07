@@ -53,7 +53,7 @@ export const LatestNews: React.FC = () => {
           </div>
           <div className="relative col-span-5 px-10 md:col-span-2 md:px-0">
             <img
-              src={`http://localhost:8001/uploads/${latestNews.imgUrl}`}
+              src={`/uploads/${latestNews.imgUrl}`}
               alt={latestNews.title}
               className="w-full aspect-square"
             />
