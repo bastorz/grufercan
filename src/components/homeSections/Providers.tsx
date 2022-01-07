@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import alianzaAlemanBaker from '../../images/providers/Alianza-Aleman-Baker.png';
 import barbosa from '../../images/providers/Barbosa.png';
 import bellota from '../../images/providers/Bellota.svg';
@@ -24,6 +25,7 @@ import teicocil from '../../images/providers/Teicocil.png';
 import weber from '../../images/providers/weber.jpg';
 
 export const Providers: React.FC = () => {
+  const { t } = useTranslation();
   const providerLogos = [
     { url: 'https://alianza-ab.com', logo: alianzaAlemanBaker },
     { url: 'https://www.barbosa-universal.com', logo: barbosa },
@@ -56,7 +58,7 @@ export const Providers: React.FC = () => {
   return (
     <div className="flex flex-col w-full py-20" id="providers">
       <div className="w-full py-10 text-4xl font-extrabold text-center lg:text-7xl text-primary">
-        <span>PROVEEDORES</span>
+        <span>{t('home.sections.providers.providers')}</span>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-[1px]">
         {providerLogos.map((provider, i) => (

@@ -3,8 +3,10 @@ import { Iframe } from './Iframe';
 import logoMd from '../../../images/logo-md.jpg';
 import { ContactSection } from './ContactSection';
 import { Link } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 
 export const Footer = () => {
+  const { t } = useTranslation();
   return (
     <>
       <ContactSection />
@@ -25,13 +27,13 @@ export const Footer = () => {
         </div>
         <div className="absolute grid grid-cols-3 text-sm text-center divide-x-2 bottom-5 right-5 text-primary divide-primary">
           <Link to="/legal" className="px-2">
-            Aviso legal
+            {t('footer.legal')}
           </Link>
           <Link to="/cookies" className="px-2">
-            Política de cookies
+            {t('footer.cookies')}
           </Link>
           <Link to="/privacy" className="px-2">
-            Política de privacidad
+            {t('footer.privacy')}
           </Link>
         </div>
       </div>

@@ -32,7 +32,7 @@ export const SEO: React.FC<ISEO> = ({
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
   const { i18n } = useTranslation();
-  const getLanguage = () => i18n.language || window.localStorage.i18nextLng;
+  const getLanguage = () => i18n.language;
 
   return (
     <Helmet

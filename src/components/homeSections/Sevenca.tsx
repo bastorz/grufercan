@@ -1,9 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Carousel } from 'react-responsive-carousel';
 import logoSevenca from '../../images/partners/logos/logo-sevenca.png';
 import sevenca1 from '../../images/sevenca/sevenca-1.jpg';
 import sevenca2 from '../../images/sevenca/sevenca-2.jpg';
 export const Sevenca: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col w-full gap-4 md:flex-row" id="sevenca">
       <div className="flex flex-col items-center w-full px-20 pt-16 md:w-2/5 bg-contrast">
@@ -12,22 +14,14 @@ export const Sevenca: React.FC = () => {
         </div>
         <div className="py-10 text-xl text-justify w-80 text-primary ">
           <p className="mb-4">
-            <b>SEVENCA</b> Marca propia, creada por Grufercan con el objetivo de
-            desarrollar diferentes líneas de producto en las que primen la
-            relación calidad-precio.
+            <b>SEVENCA</b> {t('home.sections.sevenca.paragraph1')}
           </p>
-          <p>
-            Supone una clara apuesta por la mejora del posicionamiento de cada
-            uno de los socios en el mercado actual cada vez más competitivo.
-            Hemos desarrollado varias líneas de producto: calentadores, mamparas
-            de ducha, escaleras domésticas y hormigoneras, seguimos trabajando
-            para implementar nuevas líneas próximamente.
-          </p>
+          <p>{t('home.sections.sevenca.paragraph2')}</p>
         </div>
       </div>
       <div className="flex flex-col items-center w-full px-20 py-16 md:w-3/5 h-min bg-contrast">
         <span className="text-4xl font-extrabold text-center text-primary">
-          GALERÍA DE PRODUCTOS
+          {t('home.sections.sevenca.gallery')}
         </span>
         <Carousel
           dynamicHeight={true}

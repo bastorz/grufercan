@@ -24,7 +24,59 @@
     "fraper": "Comercial Fraper is a store that stands out in its sector on the island of La Palma. They are committed to service management and professionalism.Currently, they offer two sales points; one in San Andres y Sauces with a 600m2 showroom and 1100m2 of warehouse space and the other in El Paso with a 4.430 m2 showroom and 4.430m2 of warehouse space.",
     "sevenca": "Grufercan’s own brand that was created with the objective of offering different product lines that prioritize the price-quality balance. This is a clear commitment to improving the positioning of each of the partners in today's increasingly competitive market. We’ve created various product lines including, heaters, shower partitions, home stairs and concrete mixers and we are continuing to work to include new lines soon."
   },
+  "news": {
+    "news": "NEWS",
+    "showMore": "SHOW MORE"
+  },
+  "cookiesDialog": {
+    "accept": "Accept",
+    "decline": "Decline",
+    "text1": "This website only uses its own cookies for technical purposes, it does not collect or transfer personal data from users without their knowledge. For more information on our cookie policy, click ",
+    "here": "here.",
+    "text2": "You can also consult our ",
+    "privacy": "Privacy policy",
+    "legal": "Legal Notice"
+  },
+  "home": {
+    "sections": {
+      "aboutUs": {
+        "latestNews": "Latest news",
+        "aboutUs": "ABOUT US",
+        "text": {
+          "paragraph1": "At Grufercan we are a co-op of hardware stores with a management model based on facilitating the development of the partner’s commercial activity. We promote development through the acquisition of products that allow for a more competitive, differentiated and profitable positioning within its area of ​​influence.",
+          "paragraph2": "We have a presence on the islands of Tenerife, Gran Canaria, Lanzarote, Fuerteventura and La Palma, with a total of 8 partners and 12 sales points.",
+          "paragraph3": "We began our business in 2004 on the island of Lanzarote, from where we later moved to Puerto de la Cruz and La Laguna, before settling permanently in Santa Cruz de Tenerife, our current headquarters, in 2015.",
+          "paragraph4": "With a purchasing volume of over 30 million euros annually, we offer a catalog of import products under our own brand. Our clients benefit as well from our global agreements with the main brands in the sector of construction, hardware and DIY.",
+          "paragraph5": "One of our highlighted projects is the creation of the brand: SEVENCA. Today it involves the importation of products from the national and Asian markets, such as bathroom partitions, water heaters, domestic stairs and concrete mixers."
+        }
+      },
+      "partners": {
+        "partners": "PARTNERS"
+      },
+      "sevenca": {
+        "gallery": "PRODUCT'S GALLERY",
+        "paragraph1": "Grufercan’s own brand that was created with the objective of offering different product lines that prioritize the price-quality balance. ",
+        "paragraph2": "This is a clear commitment to improving the positioning of each of the partners in today's increasingly competitive market. We’ve created various product lines including, heaters, shower partitions, home stairs and concrete mixers and we are continuing to work to include new lines soon."
+      },
+      "providers": {
+        "providers": "Providers"
+      },
+      "latestNews": {
+        "latestNews": "LATEST NEWS",
+        "keepReading": "SEE MORE"
+      }
+    }
+  },
   "footer": {
-    "contact": "Contact us"
+    "contact": "Contact us",
+    "contactFields": {
+      "name": "NAME AND SURNAME/COMPANY",
+      "email": "E-MAIL",
+      "phone": "PHONE",
+      "message": "MESSAGE"
+    },
+    "legal": "Legal Notice",
+    "cookies": "Cookie Policy",
+    "privacy": "Privacy Policy"
   }
 }

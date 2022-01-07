@@ -77,6 +77,9 @@ export const useNews = () => {
           }
         });
         setNews(dataArray);
+      })
+      .catch((e) => {
+        console.log('ERROR: ', e);
       });
   };
   const addNews = async ({

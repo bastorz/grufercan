@@ -2,6 +2,7 @@ import { mdiPlusCircleOutline } from '@mdi/js';
 import Icon from '@mdi/react';
 import { Link } from 'gatsby';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import cantera from '../../images/partners/backgrounds/cantera.jpg';
 import ferrocur from '../../images/partners/backgrounds/ferrocur.png';
 import fraper from '../../images/partners/backgrounds/fraper.jpg';
@@ -16,6 +17,7 @@ import logoSaavedra from '../../images/partners/logos/logo-saavedra.png';
 import logoSanIsidro from '../../images/partners/logos/logo-san-isidro.jpg';
 
 export const Partners = () => {
+  const { t } = useTranslation();
   const partners = [
     {
       name: 'Ferretería La Cantera',
@@ -57,7 +59,7 @@ export const Partners = () => {
   return (
     <div className="w-full py-20" id="partners">
       <div className="w-full text-center text-7xl text-primary">
-        <span>SOCIOS</span>
+        <span>{t('home.sections.partners.partners')}</span>
       </div>
 
       <div className="grid grid-cols-1 gap-4 px-10 pt-20 md:grid-cols-2 lg:grid-cols-3 md:px-20 lg:px-40">
