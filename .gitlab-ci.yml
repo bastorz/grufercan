@@ -6,6 +6,7 @@ cache:
 
 stages:
   - deploy-prod
+  - deploy-api
 
 deploy-prod:
   stage: deploy-prod
@@ -21,12 +22,10 @@ deploy-prod:
     - yarn build
     - echo 'Deploying to Host'
     - ls /builds/medanosol/projects/grufercan/public/
-    - ls /builds/medanosol/projects/grufercan/api/
-    - ls /builds/medanosol/projects/grufercan/api_dev/
 
     - lftp -d -e "set sftp:auto-confirm yes;set ssl:check-hostname no; set ssl:verify-certificate no;set -a; open sftp://ssh.medanosol.es -u 'medanosol.es','qY@5J4G8SwPK'; cd testing; mirror -R /builds/medanosol/projects/grufercan/public/ ./ --parallel=10;bye"
+    - lftp -d -e "set sftp:auto-confirm yes;set ssl:check-hostname no; set ssl:verify-certificate no;set -a; open sftp://ssh.medanosol.es -u 'medanosol.es','qY@5J4G8SwPK'; cd testing; mirror -R /builds/medanosol/projects/grufercan/api/ ./api/ --parallel=10;bye"
 
+  when: manual
   only:
     - main
-
-    # mirror -R --parallel=10 /builds/medanosol/projects/grufercan/public .;
