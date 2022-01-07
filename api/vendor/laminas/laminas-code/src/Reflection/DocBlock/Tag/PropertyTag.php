@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @see       https://github.com/laminas/laminas-code for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-code/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-code/blob/master/LICENSE.md New BSD License
+ */
+
 namespace Laminas\Code\Reflection\DocBlock\Tag;
 
 use function explode;
@@ -9,15 +15,18 @@ use function rtrim;
 class PropertyTag implements TagInterface, PhpDocTypedTagInterface
 {
     /**
-     * @var string[]
-     * @psalm-var list<string>
+     * @var array
      */
     protected $types = [];
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $propertyName;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $description;
 
     /**
@@ -54,9 +63,8 @@ class PropertyTag implements TagInterface, PhpDocTypedTagInterface
     }
 
     /**
-     * @deprecated 2.0.4 use getTypes instead
-     *
      * @return null|string
+     * @deprecated 2.0.4 use getTypes instead
      */
     public function getType()
     {
@@ -67,7 +75,6 @@ class PropertyTag implements TagInterface, PhpDocTypedTagInterface
         return $this->types[0];
     }
 
-    /** {@inheritDoc} */
     public function getTypes()
     {
         return $this->types;
@@ -89,10 +96,6 @@ class PropertyTag implements TagInterface, PhpDocTypedTagInterface
         return $this->description;
     }
 
-    /**
-     * @return string
-     * @psalm-return non-empty-string
-     */
     public function __toString()
     {
         return 'DocBlock Tag [ * @' . $this->getName() . ' ]' . "\n";

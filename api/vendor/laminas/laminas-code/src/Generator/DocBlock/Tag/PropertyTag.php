@@ -1,12 +1,20 @@
 <?php
 
+/**
+ * @see       https://github.com/laminas/laminas-code for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-code/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-code/blob/master/LICENSE.md New BSD License
+ */
+
 namespace Laminas\Code\Generator\DocBlock\Tag;
 
 use function ltrim;
 
 class PropertyTag extends AbstractTypeableTag implements TagInterface
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $propertyName;
 
     /**
@@ -54,9 +62,11 @@ class PropertyTag extends AbstractTypeableTag implements TagInterface
      */
     public function generate()
     {
-        return '@property'
+        $output = '@property'
             . (! empty($this->types) ? ' ' . $this->getTypesAsString() : '')
             . (! empty($this->propertyName) ? ' $' . $this->propertyName : '')
             . (! empty($this->description) ? ' ' . $this->description : '');
+
+        return $output;
     }
 }
