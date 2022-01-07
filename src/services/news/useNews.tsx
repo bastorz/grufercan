@@ -21,7 +21,7 @@ export const useNews = () => {
     // fetch(`${process.env.GATSBY_BASE_URL}/db/news/noticia1.json`, {
     const cookies = new Cookies();
     const token = cookies.get('gfcbtoken');
-    fetch(`http://localhost:8001/api/noticias`, {
+    fetch(`/api/noticias`, {
       headers: {
         Authorization: 'Bearer ' + token,
         'Content-Type': 'application/json',

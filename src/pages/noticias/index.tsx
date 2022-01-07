@@ -44,7 +44,7 @@ const NewsPage = () => {
                     <div className="flex">{item.subtitle}</div>
 
                     <img
-                      src={`http://localhost:8001/uploads/${item.imgUrl}`}
+                      src={`/uploads/${item.imgUrl}`}
                       alt={item.title}
                       width={300}
                     />
