@@ -6,7 +6,6 @@ cache:
 
 stages:
   - deploy-prod
-  - deploy-api
 
 deploy-prod:
   stage: deploy-prod
