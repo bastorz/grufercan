@@ -16,6 +16,8 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@mdi/js": "^6.5.95",
+    "@mdi/react": "^1.5.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@types/node": "^16.11.12",
@@ -23,6 +25,7 @@
     "@types/react-dom": "^17.0.11",
     "@types/react-helmet": "^6.1.4",
     "autoprefixer": "^10.4.0",
+    "clsx": "^1.1.1",
     "gatsby": "^4.3.0",
     "gatsby-plugin-htaccess": "^1.4.0",
     "gatsby-plugin-htaccess-redirects": "^0.3.0",
@@ -45,7 +48,10 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.15.1",
     "react-query": "^3.34.2",
-    "tailwindcss": "^3.0.2"
+    "react-responsive-carousel": "^3.2.22",
+    "react-scroll-section": "^3.1.0",
+    "tailwindcss": "^3.0.2",
+    "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.6.0",

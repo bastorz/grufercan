@@ -1,4 +1,12 @@
 {
+  "header": {
+    "aboutUs": "Nosotros",
+    "partners": "Asociados",
+    "sevenca": "Sevenca",
+    "providers": "Proveedores",
+    "blog": "Blog",
+    "contact": "Contacto"
+  },
   "translate": {
     "this": "Traduce esto!"
   },
@@ -6,5 +14,68 @@
     "navigation": {
       "news": "Noticias"
     }
+  },
+  "partners": {
+    "laCantera": "Está en constante renovación para ofrecer siempre el mejor servicio y una atención personalizada a sus clientes. Cuenta con un amplio horario de atención abriendo al público desde las 7:00h. de la mañana. Su centro se encuentra en Valsequillo, Las Palmas de Gran Canaria.",
+    "saavedra": "Ferretería Saavedra es un comercio especializado en pintura con un asesoramiento personalizado. Ademas, son un referente de la zona con 3.000m2 de exposición incluyendo ferretería, menaje y decoración. Podrás visitarlos en Puerto del Rosario, Las Palmas de Gran Canaria.",
+    "ferrocour": "Cuenta con un gran surtido de artículos para el hogar, construcción y ferretería en general. Su especialidad es el trato directo y altamente cualificado siendo siempre el cliente lo más importante. Están ubicados en Playa Blanca, Lanzarote.",
+    "germanMedina": "Es una empresa consolidada, dirigida por su segunda generación, son especialistas en baños, cerámicas y pinturas. Además, cuentan con una amplia flota de vehículos para ofrecer un servicio eficaz de transporte. Sus instalaciones se encuentran en el Polígono de Vecindario y en Arinaga, en Las Palmas de Gran Canaria.",
+    "sanIsidro": "Destaca especialmente en materiales de construcción, maderas, ferretería, bricolaje, baños, cerámicas y electrodomésticos. Se crea el 1981 como Ferretería San Isidro, como un pequeño negocio familiar de referencia en el municipio de Los Realejos, convirtiéndose en 2006 en el Grupo San Isidro. Cuenta con dos puntos de venta: en Calle Los Barros y Calle Trinidad, ambas en el municipio de Los Realejos en el norte de Tenerife.",
+    "fraper": "Comercial Fraper es punto de venta de referencia del sector en la Isla de La Palma, comprometidos en su gestión de servicio y profesionalidad. En la actualidad poseen dos establecimientos, San Andres y Sauces con 600 m2 de exposición y 1100 m2 de almacén y El paso, con unas instalaciones de 4.430 m2 de exposición y 4.430 m2 de almacén."
+  },
+  "cookiesDialog": {
+    "accept": "Aceptar",
+    "decline": "Rechazar",
+    "text1": "Esta web únicamente utiliza cookies propias con finalidad técnica, no recaba ni cede datos de carácter personal de usuarios sin su conocimiento. Para obtener más información de nuestra política de cookies pulse ",
+    "here": "aquí.",
+    "text2": "También puede consultar nuestra",
+    "privacy": "Política de privacidad",
+    "legal": "Aviso legal"
+  },
+  "news": {
+    "news": "NOTICIAS",
+    "showMore": "CARGAR MÁS"
+  },
+  "home": {
+    "sections": {
+      "aboutUs": {
+        "latestNews": "Últimas noticias",
+        "aboutUs": "QUIÉNES SOMOS",
+        "text": {
+          "paragraph1": "En Grufercan somos una cooperativa de ferreterías con un modelo de gestión basado en facilitar el desarrollo de la actividad comercial de los socios. Lo potenciamos a través de la adquisición de productos permitan un posicionamiento más competitivo, diferenciado y rentable dentro de su zona de influencia.",
+          "paragraph2": "Tenemos representación en las islas de Tenerire, Gran Canaria, Lanzarote, Fuerteventura, y La Palma, con un total de 8 socios y 12 puntos de venta. ",
+          "paragraph3": "Comenzamos nuestra andadura en el año 2004 en la isla de Lanzarote, para trasladarnos posteriormente al Puerto de La Cruz y La Laguna antes de asentarnos definitivamente en Santa Cruz de Tenerife, su sede actual, en 2015. ",
+          "paragraph4": "Con un volumen de compra que supera los 30 millones de euros anuales, ofrecemos un porfolio de productos de importación bajo nuestra marca propia, nuestros clientes se benefician además, de acuerdos globales con las principales marcas del sector de la construcción, ferretería y bricolaje. ",
+          "paragraph5": "Uno de nuestros proyectos destacados es el desarrollo de su marca propia: SEVENCA. A día de hoy supone la importación de productos desde el mercado nacional y asiático como, mamparas de baño, calentadores de agua, escaleras domésticas y hormigoneras."
+        }
+      },
+      "partners": {
+        "partners": "SOCIOS"
+      },
+      "sevenca": {
+        "gallery": "GALERÍA DE PRODUCTOS",
+        "paragraph1": "Marca propia, creada por Grufercan con el objetivo de desarrollar diferentes líneas de producto en las que primen la relación calidad-precio. ",
+        "paragraph2": "Supone una clara apuesta por la mejora del posicionamiento de cada uno de los socios en el mercado actual cada vez más competitivo. Hemos desarrollado varias líneas de producto: calentadores, mamparas de ducha, escaleras domésticas y hormigoneras, seguimos trabajando para implementar nuevas líneas próximamente. "
+      },
+      "providers": {
+        "providers": "Proveedores"
+      },
+      "latestNews": {
+        "latestNews": "ÚLTIMAS NOTICIAS",
+        "keepReading": "SEGUIR LEYENDO"
+      }
+    }
+  },
+  "footer": {
+    "contact": "Contacta con nosotros",
+    "contactFields": {
+      "name": "NOMBRE Y APELLIDOS/EMPRESA",
+      "email": "E-MAIL",
+      "phone": "TELÉFONO",
+      "message": "MENSAJE"
+    },
+    "legal": "Aviso legal",
+    "cookies": "Política de cookies",
+    "privacy": "Política de privacidad"
   }
 }

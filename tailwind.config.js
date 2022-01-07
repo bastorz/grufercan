@@ -1,8 +1,14 @@
 module.exports = {
-  purge: ["./src/**/*.{js,jsx,ts,tsx}"],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#29176E',
+        secondary: '#DE7B13',
+        contrast: '#EBEBEB',
+      },
+    },
   },
   plugins: [],
 };

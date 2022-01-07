@@ -1,26 +1,25 @@
-import { graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { graphql, navigate } from 'gatsby';
 import React, { useState } from 'react';
 import { Key } from 'react';
-import { Image } from '../../components/Image';
 import { SEO } from '../../components/SEO';
+import { isLoggedIn } from '../../services/auth/auth';
 import { useNews } from '../../services/news/useNews';
 
-const NewsPage = ({ data }: any) => {
-  console.log('DATA: ', data);
-  //make generic
-  const bla = getImage(data.allFile.edges[0].node);
+const NewsPage = () => {
+  // if (!isLoggedIn()) {
+  //   navigate('/login');
+  //   return null;
+  // }
   const { news, isLoading, addNews } = useNews();
-  console.log('NEWS: ', news);
   const [image, setImage] = useState<any>();
   const submit = async (event: React.SyntheticEvent) => {
-    console.log('img', image);
     event.preventDefault();
     try {
       await addNews({
         title: 'Nueva noticia',
         subtitle: 'Subtitulo',
         image,
+        date: '2022-01-04',
       });
     } catch (e: any) {
       console.log('ERROR', e);
@@ -43,20 +42,18 @@ const NewsPage = ({ data }: any) => {
                   <div className="flex flex-col w-full" key={i}>
                     <div className="flex">{item.title}</div>
                     <div className="flex">{item.subtitle}</div>
-                    {bla && <GatsbyImage image={bla} alt="ha" />}
-                    {/* <Image /> */}
-                    {/* <img
-                      src={`${process.env.GATSBY_BASE_URL}/db/news/images/${item.imgUrl}`}
+
+                    <img
+                      src={`http://localhost:8001/uploads/${item.imgUrl}`}
                       alt={item.title}
                       width={300}
-                    /> */}
+                    />
                   </div>
                 );
               })}
           </div>
         </div>
-
-        <form onSubmit={submit} encType="multipart/form-data">
+        <form onSubmit={submit}>
           <input
             onChange={(e) => {
               if (e.target.files) {

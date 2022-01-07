@@ -32,7 +32,7 @@ module.exports = {
       options: {
         defaults: {
           formats: [`auto`, `webp`],
-          placeholder: `dominantColor`,
+          placeholder: `tracedSVG`,
           quality: 50,
           breakpoints: [750, 1080, 1366, 1920],
           backgroundColor: `transparent`,
@@ -51,7 +51,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'src/images/icon.png',
+        icon: 'src/images/logo-md.jpg',
       },
     },
     'gatsby-plugin-mdx',
@@ -62,14 +62,6 @@ module.exports = {
         path: './src/pages/',
       },
       __key: 'pages',
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `./${process.env.GATSBY_BASE_URL}/db/news/images/`,
-      },
-      __key: 'images',
     },
     // 'gatsby-transformer-json',
     // {

@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 interface ISEO {
   description?: string;
   lang?: string;
@@ -30,10 +31,13 @@ export const SEO: React.FC<ISEO> = ({
   const keywords = site.siteMetadata.keywords;
   const metaDescription = description || site.siteMetadata.description;
   const defaultTitle = site.siteMetadata?.title;
+  const { i18n } = useTranslation();
+  const getLanguage = () => i18n.language;
+
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: getLanguage() || lang,
       }}
       title={title}
       titleTemplate={defaultTitle ? `${defaultTitle} - %s` : undefined}
