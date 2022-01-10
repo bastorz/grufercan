@@ -1,21 +1,21 @@
 if (process.env.STAGING) {
-  require('dotenv').config({
+  require("dotenv").config({
     path: `.env.${process.env.NODE_ENV}.staging`,
   });
 } else {
-  require('dotenv').config({
+  require("dotenv").config({
     path: `.env.${process.env.NODE_ENV}`,
   });
 }
 module.exports = {
-  pathPrefix: '/grufercan/',
+  pathPrefix: "/grufercan/",
   siteMetadata: {
-    siteUrl: 'https://www.yourdomain.tld',
-    title: 'Grufercan',
-    description: 'Example description',
-    author: 'medanosol',
+    siteUrl: "https://www.yourdomain.tld",
+    title: "Grufercan",
+    description: "Example description",
+    author: "medanosol",
     keywords:
-      'grufercan, grufercan tenerife, ferreteria, ferreteria tenerife, noticias ferreteria, noticias grufercan',
+      "grufercan, grufercan tenerife, ferreteria, ferreteria tenerife, noticias ferreteria, noticias grufercan",
   },
   plugins: [
     {
@@ -26,7 +26,7 @@ module.exports = {
         allExtensions: true, // defaults to false
       },
     },
-    'gatsby-plugin-image',
+    "gatsby-plugin-image",
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -45,23 +45,23 @@ module.exports = {
         },
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-postcss',
-    'gatsby-plugin-react-helmet',
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-postcss",
+    "gatsby-plugin-react-helmet",
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-manifest",
       options: {
-        icon: 'src/images/logo-md.jpg',
+        icon: "src/images/logo-md.jpg",
       },
     },
-    'gatsby-plugin-mdx',
+    "gatsby-plugin-mdx",
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'pages',
-        path: './src/pages/',
+        name: "pages",
+        path: "./src/pages/",
       },
-      __key: 'pages',
+      __key: "pages",
     },
     // 'gatsby-transformer-json',
     // {
@@ -72,7 +72,7 @@ module.exports = {
     //   },
     // },
     {
-      resolve: 'gatsby-plugin-htaccess',
+      resolve: "gatsby-plugin-htaccess",
       options: {
         RewriteBase: true,
       },

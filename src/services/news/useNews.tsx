@@ -18,7 +18,6 @@ export const useNews = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const getData = () => {
-    // fetch(`${process.env.GATSBY_BASE_URL}/db/news/noticia1.json`, {
     const cookies = new Cookies();
     const token = cookies.get("gfcbtoken");
     fetch(`/api/public/noticias`, {
