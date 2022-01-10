@@ -50,7 +50,7 @@ const News: React.FC = (newsProps: any) => {
               </div>
               <div className="relative col-span-5 px-10 md:col-span-2 md:px-0">
                 <img
-                  src={`/uploads/${currentNews.imgUrl}`}
+                  src={`${process.env.GATSBY_BASE_URL}/api/public/uploads/${currentNews.imgUrl}`}
                   alt={currentNews.title}
                   className="w-full aspect-square"
                 />
@@ -78,7 +78,7 @@ const News: React.FC = (newsProps: any) => {
             {filteredNews.slice(0, visibleNews).map((news, i) => (
               <div className="relative flex flex-col gap-4" key={i}>
                 <img
-                  src={`/uploads/${news.imgUrl}`}
+                  src={`${process.env.GATSBY_BASE_URL}/api/public/uploads/${news.imgUrl}`}
                   alt={news.title}
                   className="w-full aspect-video"
                 />
