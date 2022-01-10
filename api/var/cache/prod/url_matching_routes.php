@@ -12,6 +12,7 @@ return [
         '/auth/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\AuthController::login'], null, ['POST' => 0], null, false, false, null]],
         '/auth/register' => [[['_route' => 'register', '_controller' => 'App\\Controller\\AuthController::register'], null, ['POST' => 0], null, false, false, null]],
         '/api/upload' => [[['_route' => 'upload', '_controller' => 'App\\Controller\\FileUploadController::temporaryUploadAction'], null, null, null, false, false, null]],
+        '/api/email' => [[['_route' => 'sendEmail', '_controller' => 'App\\Controller\\MailerController::sendEmail'], null, ['POST' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
