@@ -44,7 +44,7 @@ const NewsPage = () => {
                     <div className="flex">{item.subtitle}</div>
 
                     <img
-                      src={`${process.env.GATSBY_BASE_URL}/api/public/uploads/${item.imgUrl}`}
+                      src={`${process.env.GATSBY_LOCALHOST}${process.env.GATSBY_BASE_URL}uploads/${item.imgUrl}`}
                       alt={item.title}
                       width={300}
                     />
