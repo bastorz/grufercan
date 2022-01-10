@@ -51,7 +51,7 @@ export const AboutUs: React.FC = () => {
         className="flex flex-col w-full gap-20 px-10 md:flex-row md:px-20 lg:px-40 pt-28"
       >
         <div className="flex flex-col w-full text-center md:w-1/3 md:text-right">
-          <span className="w-full text-7xl text-primary">
+          <span className="w-full text-5xl md:text-7xl text-primary">
             {t('home.sections.aboutUs.aboutUs')}
           </span>
           <img src={mapa} alt="mapa islas canarias" />

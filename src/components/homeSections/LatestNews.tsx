@@ -53,7 +53,7 @@ export const LatestNews: React.FC = () => {
           </div>
           <div className="relative col-span-5 px-10 md:col-span-2 md:px-0">
             <img
-              src={`${process.env.GATSBY_BASE_URL}/api/public/uploads/${latestNews.imgUrl}`}
+              src={`${process.env.GATSBY_LOCALHOST}${process.env.GATSBY_BASE_URL}uploads/${latestNews.imgUrl}`}
               alt={latestNews.title}
               className="w-full aspect-square"
             />

@@ -1,9 +1,9 @@
-import i18n from "i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
-import { initReactI18next } from "react-i18next";
+import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import { initReactI18next } from 'react-i18next';
 
-import en from "./src/locales/en.json";
-import es from "./src/locales/es.json";
+import en from './src/locales/en.json';
+import es from './src/locales/es.json';
 
 i18n
   .use(LanguageDetector)
@@ -13,8 +13,9 @@ i18n
       en: { translation: en },
       es: { translation: es },
     },
-    fallbackLng: "es",
-    supportedLngs: ["es", "en"],
+    fallbackLng: 'en',
+    lng: 'es',
+    supportedLngs: ['es', 'en'],
     nonExplicitSupportedLngs: true,
     debug: true,
     interpolation: {

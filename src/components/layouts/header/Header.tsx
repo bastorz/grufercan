@@ -117,7 +117,7 @@ export const Header = () => {
           </li>
           <li
             onClick={() => {
-              navigate('/#latestNews');
+              navigate('/blog');
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
