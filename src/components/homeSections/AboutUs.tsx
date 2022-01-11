@@ -41,7 +41,7 @@ export const AboutUs: React.FC = () => {
             <Icon
               path={mdiChevronDownCircleOutline}
               size={'5vw'}
-              className="text-white"
+              className="text-white transition duration-200 hover:scale-105"
             />
           </div>
         </div>

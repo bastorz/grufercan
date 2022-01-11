@@ -103,7 +103,11 @@ const News: React.FC = (newsProps: any) => {
                     <span className="text-xl font-bold">
                       {t('home.sections.latestNews.keepReading')}
                     </span>
-                    <Icon path={mdiChevronDownCircleOutline} size={2} />
+                    <Icon
+                      path={mdiChevronDownCircleOutline}
+                      size={2}
+                      className="transition duration-200 hover:scale-105"
+                    />
                   </div>
                 </Link>
               </div>
@@ -116,7 +120,11 @@ const News: React.FC = (newsProps: any) => {
             onClick={() => setVisibleNews(visibleNews + 2)}
           >
             <span className="text-2xl">{t('news.showMore')}</span>
-            <Icon path={mdiChevronDownCircleOutline} size={4} />
+            <Icon
+              path={mdiChevronDownCircleOutline}
+              size={4}
+              className="transition duration-200 hover:scale-105"
+            />
           </div>
         )}
       </div>
