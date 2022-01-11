@@ -7,6 +7,7 @@ return [
     'login' => [[], ['_controller' => 'App\\Controller\\AuthController::login'], [], [['text', '/auth/login']], [], [], []],
     'register' => [[], ['_controller' => 'App\\Controller\\AuthController::register'], [], [['text', '/auth/register']], [], [], []],
     'upload' => [[], ['_controller' => 'App\\Controller\\FileUploadController::temporaryUploadAction'], [], [['text', '/api/upload']], [], [], []],
+    'sendEmail' => [[], ['_controller' => 'App\\Controller\\MailerController::sendEmail'], [], [['text', '/api/email']], [], [], []],
     'api_entrypoint' => [['index', '_format'], ['_controller' => 'api_platform.action.entrypoint', '_format' => '', '_api_respond' => 'true', 'index' => 'index'], ['index' => 'index'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', 'index', 'index', true], ['text', '/api']], [], [], []],
     'api_doc' => [['_format'], ['_controller' => 'api_platform.action.documentation', '_format' => '', '_api_respond' => 'true'], [], [['variable', '.', '[^/]++', '_format', true], ['text', '/api/docs']], [], [], []],
     'api_jsonld_context' => [['shortName', '_format'], ['_controller' => 'api_platform.jsonld.action.context', '_format' => 'jsonld', '_api_respond' => 'true'], ['shortName' => '.+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '.+', 'shortName', true], ['text', '/api/contexts']], [], [], []],
