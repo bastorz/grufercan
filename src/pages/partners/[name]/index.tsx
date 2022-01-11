@@ -1,16 +1,14 @@
 import {
-  mdiChevronDownCircleOutline,
   mdiChevronLeftCircleOutline,
   mdiChevronRightCircleOutline,
 } from '@mdi/js';
 import Icon from '@mdi/react';
-import { Link } from 'gatsby';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Carousel } from 'react-responsive-carousel';
 import { SEO } from '../../../components/SEO';
 import { useLanguage } from '../../../hooks/useLanguage';
-import { useNews } from '../../../services/news/useNews';
+import { getPartnerImages } from '../../../components/PartnersImages';
 const PartnersPage = (partnersProp: any) => {
   const { language } = useLanguage();
   const partner = partnersProp?.location.state?.partner;
@@ -22,7 +20,7 @@ const PartnersPage = (partnersProp: any) => {
     }
   };
   const handleNextSlide = () => {
-    if (selectedImage === 1) {
+    if (selectedImage === getPartnerImages(partner?.id)?.length) {
       setSelectedImage(0);
     } else {
       setSelectedImage(selectedImage + 1);
@@ -70,7 +68,7 @@ const PartnersPage = (partnersProp: any) => {
         <div className="px-4 py-10 lg:px-36 bg-primary">
           <div className="flex items-center gap-4">
             <div
-              onClick={handleNextSlide}
+              onClick={handlePreviousSlide}
               className="text-white cursor-pointer"
             >
               <Icon
@@ -80,7 +78,7 @@ const PartnersPage = (partnersProp: any) => {
               />
             </div>
             <Carousel
-              autoPlay={false}
+              autoPlay={true}
               interval={10000}
               infiniteLoop={true}
               showArrows={false}
@@ -89,15 +87,23 @@ const PartnersPage = (partnersProp: any) => {
               selectedItem={selectedImage}
               onChange={updateCurrentSlide}
             >
-              <div key="slide-1">
+              {getPartnerImages(partner?.id)?.map((partnerImage, i) => (
+                <div
+                  key={`slide-${i + 1}`}
+                  className="flex justify-center h-full"
+                >
+                  <img src={partnerImage} className="object-contain" />
+                </div>
+              ))}
+              {/* <div key="slide-1">
                 <img src={partner?.background} className="aspect-auto " />
               </div>
               <div key="slide-2" className="aspect-auto ">
                 <img src={partner?.background} />
-              </div>
+              </div> */}
             </Carousel>
             <div
-              onClick={handlePreviousSlide}
+              onClick={handleNextSlide}
               className="text-white cursor-pointer"
             >
               <Icon

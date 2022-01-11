@@ -1,11 +1,38 @@
-import React from 'react';
+import {
+  mdiChevronLeftCircleOutline,
+  mdiChevronRightCircleOutline,
+} from '@mdi/js';
+import Icon from '@mdi/react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Carousel } from 'react-responsive-carousel';
+import useWindowSize from '../../hooks/useWindowSize';
 import logoSevenca from '../../images/partners/logos/logo-sevenca.png';
 import sevenca1 from '../../images/sevenca/sevenca-1.jpg';
 import sevenca2 from '../../images/sevenca/sevenca-2.jpg';
 export const Sevenca: React.FC = () => {
   const { t } = useTranslation();
+  const [selectedImage, setSelectedImage] = useState(0);
+  const { width } = useWindowSize();
+  const updateCurrentSlide = (index: number) => {
+    if (selectedImage !== index) {
+      setSelectedImage(index);
+    }
+  };
+  const handleNextSlide = () => {
+    if (selectedImage === 1) {
+      setSelectedImage(0);
+    } else {
+      setSelectedImage(selectedImage + 1);
+    }
+  };
+  const handlePreviousSlide = () => {
+    if (selectedImage === 0) {
+      setSelectedImage(1);
+    } else {
+      setSelectedImage(selectedImage - 1);
+    }
+  };
   return (
     <div className="flex flex-col w-full gap-4 md:flex-row" id="sevenca">
       <div className="flex flex-col items-center w-full px-20 pt-16 md:w-2/5 bg-contrast">
@@ -19,27 +46,52 @@ export const Sevenca: React.FC = () => {
           <p>{t('home.sections.sevenca.paragraph2')}</p>
         </div>
       </div>
-      <div className="flex flex-col items-center w-full px-20 py-16 md:w-3/5 h-min bg-contrast">
+      <div className="flex flex-col items-center w-full px-4 py-16 md:px-20 md:w-3/5 h-min bg-contrast">
         <span className="text-4xl font-extrabold text-center text-primary">
           {t('home.sections.sevenca.gallery')}
         </span>
-        <Carousel
-          dynamicHeight={true}
-          autoPlay={true}
-          interval={10000}
-          infiniteLoop={true}
-          showArrows={false}
-          showThumbs={false}
-          showStatus={false}
-          className="py-10"
-        >
-          <div key="slide-1">
-            <img src={sevenca1} className="aspect-video" />
+        <div className="px-4 py-10 ">
+          <div className="flex items-center gap-4">
+            <div
+              onClick={handleNextSlide}
+              className="text-white cursor-pointer"
+            >
+              <Icon
+                path={mdiChevronLeftCircleOutline}
+                size={width && width > 768 ? 3 : 1.5}
+                className="transition duration-200 hover:scale-105 text-primary"
+              />
+            </div>
+            <Carousel
+              dynamicHeight={true}
+              autoPlay={true}
+              interval={5000}
+              infiniteLoop={true}
+              showArrows={false}
+              showThumbs={false}
+              showStatus={false}
+              selectedItem={selectedImage}
+              onChange={updateCurrentSlide}
+            >
+              <div key="slide-1">
+                <img src={sevenca1} className="aspect-video " />
+              </div>
+              <div key="slide-2" className="aspect-video ">
+                <img src={sevenca2} />
+              </div>
+            </Carousel>
+            <div
+              onClick={handlePreviousSlide}
+              className="text-white cursor-pointer"
+            >
+              <Icon
+                path={mdiChevronRightCircleOutline}
+                size={width && width > 768 ? 3 : 1.5}
+                className="transition duration-200 hover:scale-105 text-primary"
+              />
+            </div>
           </div>
-          <div key="slide-2" className="aspect-video">
-            <img src={sevenca2} />
-          </div>
-        </Carousel>
+        </div>
       </div>
     </div>
   );
