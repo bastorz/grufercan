@@ -3,21 +3,20 @@ import Icon from '@mdi/react';
 import { Link } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Section } from 'react-scroll-section';
 import { useNews } from '../../services/news/useNews';
 
 export const LatestNews: React.FC = () => {
   const { news, isLoading } = useNews();
   const { t } = useTranslation();
   const [latestNews, setLatestNews] = useState<{
-    id: string;
+    id: number;
     title: string;
     subtitle: string;
     imgUrl: string;
     date: string;
   }>();
   useEffect(() => {
-    if (!isLoading && news) setLatestNews(news[news.length - 1]);
+    if (!isLoading && news) setLatestNews(news.find((news) => news.id === 1));
   }, [isLoading, news]);
   const formatDate = (date: string): string => {
     const timestamp = Date.parse(date);

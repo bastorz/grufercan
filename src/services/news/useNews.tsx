@@ -8,7 +8,7 @@ export const useNews = () => {
   const { language } = useLanguage();
   const [news, setNews] = useState<
     {
-      id: string;
+      id: number;
       title: string;
       subtitle: string;
       imgUrl: string;
