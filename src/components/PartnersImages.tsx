@@ -3,7 +3,7 @@ import fraper2 from '../images/partners/carousel/Fraper/fraper_2.jpg';
 import fraper3 from '../images/partners/carousel/Fraper/fraper_3.jpg';
 import fraper4 from '../images/partners/carousel/Fraper/fraper_4.jpg';
 import fraper5 from '../images/partners/carousel/Fraper/fraper_5.jpg';
-import fraper6 from '../images/partners/carousel/Fraper/fraper_6.jpg';
+import fraper6 from '../images/partners/carousel/Fraper/fraper_6_1.jpg';
 import fraper7 from '../images/partners/carousel/Fraper/fraper_7.jpg';
 import germanMedina1 from '../images/partners/carousel/germanMedina/germanMedina_1.jpg';
 import germanMedina2 from '../images/partners/carousel/germanMedina/germanMedina_2.jpg';
