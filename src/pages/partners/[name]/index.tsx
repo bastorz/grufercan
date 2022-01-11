@@ -73,7 +73,11 @@ const PartnersPage = (partnersProp: any) => {
               onClick={handleNextSlide}
               className="text-white cursor-pointer"
             >
-              <Icon path={mdiChevronLeftCircleOutline} size={'5vw'} />
+              <Icon
+                path={mdiChevronLeftCircleOutline}
+                size={'5vw'}
+                className="transition duration-200 hover:scale-105"
+              />
             </div>
             <Carousel
               autoPlay={false}
@@ -96,7 +100,11 @@ const PartnersPage = (partnersProp: any) => {
               onClick={handlePreviousSlide}
               className="text-white cursor-pointer"
             >
-              <Icon path={mdiChevronRightCircleOutline} size={'5vw'} />
+              <Icon
+                path={mdiChevronRightCircleOutline}
+                size={'5vw'}
+                className="transition duration-200 hover:scale-105"
+              />
             </div>
           </div>
         </div>

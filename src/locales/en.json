@@ -69,6 +69,7 @@
   },
   "footer": {
     "contact": "Contact us",
+    "messageSent": "Message sent",
     "contactFields": {
       "name": "NAME AND SURNAME/COMPANY",
       "email": "E-MAIL",

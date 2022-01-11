@@ -68,6 +68,7 @@
   },
   "footer": {
     "contact": "Contacta con nosotros",
+    "messageSent": "Mensaje enviado",
     "contactFields": {
       "name": "NOMBRE Y APELLIDOS/EMPRESA",
       "email": "E-MAIL",

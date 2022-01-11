@@ -46,17 +46,28 @@ export const LatestNews: React.FC = () => {
                   <span className="text-3xl font-bold">
                     {t('home.sections.latestNews.keepReading')}
                   </span>
-                  <Icon path={mdiChevronRightCircleOutline} size={3.5} />
+                  <Icon
+                    path={mdiChevronRightCircleOutline}
+                    size={3.5}
+                    className="transition duration-200 hover:scale-105"
+                  />
                 </div>
               </Link>
             </div>
           </div>
-          <div className="relative col-span-5 px-10 md:col-span-2 md:px-0">
-            <img
+          <div
+            className="relative col-span-5 px-10 md:col-span-2 md:px-0 aspect-square"
+            style={{
+              background: `url(${process.env.GATSBY_LOCALHOST}${process.env.GATSBY_BASE_URL}uploads/${latestNews.imgUrl})`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+            }}
+          >
+            {/* <img
               src={`${process.env.GATSBY_LOCALHOST}${process.env.GATSBY_BASE_URL}uploads/${latestNews.imgUrl}`}
               alt={latestNews.title}
-              className="w-full aspect-square"
-            />
+              className="object-cover"
+            /> */}
             <div className="absolute top-0 block lg:hidden md:right-5 right-20">
               <div className="w-full p-8 text-left bg-primary">
                 <span className="text-white md:text-3xl lg:text-4xl">
