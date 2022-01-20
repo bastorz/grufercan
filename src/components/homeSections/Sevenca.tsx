@@ -10,6 +10,7 @@ import useWindowSize from '../../hooks/useWindowSize';
 import logoSevenca from '../../images/partners/logos/logo-sevenca.png';
 import sevenca1 from '../../images/sevenca/sevenca-1.jpg';
 import sevenca2 from '../../images/sevenca/sevenca-2.jpg';
+import sevenca3 from '../../images/sevenca/sevenca-3.jpg';
 export const Sevenca: React.FC = () => {
   const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState(0);
@@ -20,7 +21,7 @@ export const Sevenca: React.FC = () => {
     }
   };
   const handleNextSlide = () => {
-    if (selectedImage === 1) {
+    if (selectedImage === 2) {
       setSelectedImage(0);
     } else {
       setSelectedImage(selectedImage + 1);
@@ -28,7 +29,7 @@ export const Sevenca: React.FC = () => {
   };
   const handlePreviousSlide = () => {
     if (selectedImage === 0) {
-      setSelectedImage(1);
+      setSelectedImage(2);
     } else {
       setSelectedImage(selectedImage - 1);
     }
@@ -53,17 +54,17 @@ export const Sevenca: React.FC = () => {
         <div className="px-4 py-10 ">
           <div className="flex items-center gap-4">
             <div
-              onClick={handleNextSlide}
+              onClick={handlePreviousSlide}
               className="text-white cursor-pointer"
             >
               <Icon
                 path={mdiChevronLeftCircleOutline}
-                size={width && width > 768 ? 3 : 1.5}
+                size={width && width > 768 ? 2 : 1.5}
                 className="transition duration-200 hover:scale-105 text-primary"
               />
             </div>
             <Carousel
-              dynamicHeight={true}
+              dynamicHeight={false}
               autoPlay={true}
               interval={5000}
               infiniteLoop={true}
@@ -73,20 +74,23 @@ export const Sevenca: React.FC = () => {
               selectedItem={selectedImage}
               onChange={updateCurrentSlide}
             >
-              <div key="slide-1">
+              <div key="slide-1" className="flex justify-center h-full">
                 <img src={sevenca1} className="aspect-video " />
               </div>
-              <div key="slide-2" className="aspect-video ">
-                <img src={sevenca2} />
+              <div key="slide-2" className="flex justify-center h-full">
+                <img src={sevenca2} className="aspect-video " />
+              </div>
+              <div key="slide-3" className="flex justify-center h-full ">
+                <img src={sevenca3} className="object-contain aspect-video " />
               </div>
             </Carousel>
             <div
-              onClick={handlePreviousSlide}
+              onClick={handleNextSlide}
               className="text-white cursor-pointer"
             >
               <Icon
                 path={mdiChevronRightCircleOutline}
-                size={width && width > 768 ? 3 : 1.5}
+                size={width && width > 768 ? 2 : 1.5}
                 className="transition duration-200 hover:scale-105 text-primary"
               />
             </div>
