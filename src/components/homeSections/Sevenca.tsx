@@ -74,13 +74,13 @@ export const Sevenca: React.FC = () => {
               selectedItem={selectedImage}
               onChange={updateCurrentSlide}
             >
-              <div key="slide-1" className="flex justify-center h-full">
+              <div key="slide-1" className="flex justify-center h-full w-[99%]">
                 <img src={sevenca1} className="aspect-video " />
               </div>
-              <div key="slide-2" className="flex justify-center h-full">
+              <div key="slide-2" className="flex justify-center h-full w-[99%]">
                 <img src={sevenca2} className="aspect-video " />
               </div>
-              <div key="slide-3" className="flex justify-center h-full ">
+              <div key="slide-3" className="flex justify-center h-full w-[99%]">
                 <img src={sevenca3} className="object-contain aspect-video " />
               </div>
             </Carousel>
