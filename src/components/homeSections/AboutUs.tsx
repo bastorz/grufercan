@@ -14,21 +14,21 @@ export const AboutUs: React.FC = () => {
     <div className="flex flex-col pb-20 bg-contrast">
       <div className="flex flex-col justify-between w-full gap-4 md:flex-row md:gap-0">
         <div className="w-full px-10 pt-20 md:w-2/3 md:px-20 lg:px-40">
-          <Carousel
+          {/* <Carousel
             autoPlay={true}
             interval={5000}
             infiniteLoop={true}
             showArrows={false}
             showThumbs={false}
             showStatus={false}
-          >
-            <div key="slide-2" className="flex justify-center h-full">
-              <img src={portada2} className="object-contain aspect-video" />
-            </div>
-            <div key="slide-1" className="flex justify-center h-full">
-              <img src={portada1} className="aspect-video" />
-            </div>
-          </Carousel>
+          > */}
+          <div key="slide-2" className="flex justify-center h-full">
+            <img src={portada2} className="object-contain aspect-video" />
+          </div>
+          {/* <div key="slide-1" className="flex justify-center h-full">
+            <img src={portada1} className="aspect-video" />
+          </div> */}
+          {/* </Carousel> */}
         </div>
 
         <div
