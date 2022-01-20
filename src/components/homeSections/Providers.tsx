@@ -74,6 +74,9 @@ export const Providers: React.FC = () => {
           </a>
         ))}
       </div>
+      <span className="mt-6 text-2xl font-bold text-center text-primary">
+        {t('home.sections.providers.manyMore')}
+      </span>
     </div>
   );
 };
