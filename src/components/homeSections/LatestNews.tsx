@@ -54,19 +54,12 @@ export const LatestNews: React.FC = () => {
               </Link>
             </div>
           </div>
-          <div
-            className="relative col-span-5 px-10 md:col-span-2 md:px-0 aspect-square"
-            style={{
-              background: `url(${process.env.GATSBY_LOCALHOST}${process.env.GATSBY_BASE_URL}uploads/${latestNews.imgUrl})`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-            }}
-          >
-            {/* <img
+          <div className="relative col-span-5 px-10 md:col-span-2 md:px-0">
+            <img
               src={`${process.env.GATSBY_LOCALHOST}${process.env.GATSBY_BASE_URL}uploads/${latestNews.imgUrl}`}
               alt={latestNews.title}
-              className="object-cover"
-            /> */}
+              className="object-contain object-right-top w-full aspect-square"
+            />
             <div className="absolute top-0 block lg:hidden md:right-5 right-20">
               <div className="w-full p-8 text-left bg-primary">
                 <span className="text-white md:text-3xl lg:text-4xl">

@@ -27,9 +27,6 @@ export const Header = () => {
     };
   }, []);
 
-  const aboutUsSection = useScrollSection('aboutUs');
-  const partnersSection = useScrollSection('partners');
-
   return (
     <div
       className={clsx(
@@ -86,6 +83,7 @@ export const Header = () => {
           <li
             onClick={() => {
               navigate('/#aboutUs');
+              toggleNav();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
@@ -94,6 +92,7 @@ export const Header = () => {
           <li
             onClick={() => {
               navigate('/#partners');
+              toggleNav();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
@@ -102,6 +101,7 @@ export const Header = () => {
           <li
             onClick={() => {
               navigate('/#sevenca');
+              toggleNav();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
@@ -110,6 +110,7 @@ export const Header = () => {
           <li
             onClick={() => {
               navigate('/#providers');
+              toggleNav();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
@@ -118,6 +119,7 @@ export const Header = () => {
           <li
             onClick={() => {
               navigate('/blog');
+              toggleNav();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
@@ -126,6 +128,7 @@ export const Header = () => {
           <li
             onClick={() => {
               navigate('/#contact');
+              toggleNav();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
