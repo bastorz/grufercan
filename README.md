@@ -4,6 +4,8 @@ Run the following scripts with the content in the PHPMYADMIN panel.
 
 ###### Insert image
 
+Date format: 2022-02-04
+
 ```SQL
 INSERT INTO `noticias` (`id`, `img_url`, `date`) VALUES (NULL, '{IMAGENAME.EXTENSION}', '{NEWS_DATE}');
 ```
