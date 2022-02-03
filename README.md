@@ -5,7 +5,7 @@ Run the following scripts with the content in the PHPMYADMIN panel.
 ###### Insert image
 
 ```SQL
-INSERT INTO `noticias` (`id`, `img_url`, `date`) VALUES (NULL, '{IMAGENAME.EXTENSION}', '2022-02-04');
+INSERT INTO `noticias` (`id`, `img_url`, `date`) VALUES (NULL, '{IMAGENAME.EXTENSION}', '{NEWS_DATE}');
 ```
 
 ###### Insert the news content ENGLISH
