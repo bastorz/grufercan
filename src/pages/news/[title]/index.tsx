@@ -52,7 +52,7 @@ const News: React.FC = (newsProps: any) => {
                 <img
                   src={`${process.env.GATSBY_LOCALHOST}${process.env.GATSBY_BASE_URL}uploads/${currentNews.imgUrl}`}
                   alt={currentNews.title}
-                  className="w-full aspect-square"
+                  className="object-contain object-right-top w-full aspect-square"
                 />
                 <div className="absolute top-0 block lg:hidden md:right-5 right-20">
                   <div className="w-full p-8 text-left bg-primary">
