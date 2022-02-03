@@ -1,54 +1,33 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+#### Add news to the DB
 
-## 🚀 Quick start
+Run the following scripts with the content in the PHPMYADMIN panel.
 
-1.  **Create a Gatsby site.**
+###### Insert image
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+```SQL
+INSERT INTO `noticias` (`id`, `img_url`, `date`) VALUES (NULL, '{IMAGENAME.EXTENSION}', '2022-02-04');
+```
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+###### Insert the news content ENGLISH
 
-2.  **Start developing.**
+```SQL
+INSERT INTO `noticias_en` (`id`, `title`, `subtitle`) VALUES (NULL,'{NEWS TITLE}', '{NEWS CONTENT}');
+```
 
-    Navigate into your new site’s directory and start it up.
+###### Insert the news content SPANISH
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+```SQL
+INSERT INTO `noticias_es` (`id`, `title`, `subtitle`) VALUES (NULL,'{NEWS TITLE}', '{NEWS CONTENT}');
+```
 
-3.  **Open the code and start customizing!**
+###### Relate the news to the images ENGLISH
 
-    Your site is now running at http://localhost:8000!
+```SQL
+INSERT INTO `noticias_en_noticias` (`noticias_en_id`, `noticias_id`) VALUES ('{NEWS_ID}', '{NEWS_IMAGE_ID}');
+```
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+###### Relate the news to the images SPANISH
 
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+```SQL
+INSERT INTO `noticias_es_noticias` (`noticias_es_id`, `noticias_id`) VALUES ('{NEWS_ID}', '{NEWS_IMAGE_ID}');
+```
