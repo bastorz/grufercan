@@ -17,7 +17,10 @@ import saavedra2 from '../images/partners/carousel/Saavedra/saavedra_2.jpg';
 import sanIsidro1 from '../images/partners/carousel/sanIsidro/sanIsidro_1.jpg';
 import sanIsidro2 from '../images/partners/carousel/sanIsidro/sanIsidro_2.jpg';
 import ferrocur1 from '../images/partners/carousel/ferrocur/ferrocur_1.png';
-
+import ucanca1 from '../images/partners/carousel/ucanca/ucanca_1.jpg';
+import ucanca2 from '../images/partners/carousel/ucanca/ucanca_2.jpg';
+import ucanca3 from '../images/partners/carousel/ucanca/ucanca_3.jpg';
+import ucanca4 from '../images/partners/carousel/ucanca/ucanca_4.jpg';
 export const getPartnerImages = (id: string) => {
   const fraperImages = [
     fraper1,
@@ -33,6 +36,7 @@ export const getPartnerImages = (id: string) => {
   const saavedraImages = [saavedra1, saavedra2];
   const sanIsidroImages = [sanIsidro1, sanIsidro2];
   const ferrocurImages = [ferrocur1];
+  const ucancaImages = [ucanca1, ucanca2, ucanca3, ucanca4];
 
   switch (id) {
     case 'fraper':
@@ -47,6 +51,8 @@ export const getPartnerImages = (id: string) => {
       return sanIsidroImages;
     case 'ferrocour':
       return ferrocurImages;
+    case 'ucanca':
+      return ucancaImages;
 
     default:
       break;
