@@ -46,10 +46,7 @@ export const Header = () => {
             alt="grufercan logo"
             width={250}
             height={250}
-            className={clsx(
-              'min-h-[50px] min-w-[50px]',
-              screenWidth < 854 && 'w-20 h-20',
-            )}
+            className={clsx('max-w-[50px] md:max-w-[80px] lg:max-w-[150px] ')}
           />
         </Link>
         <div
