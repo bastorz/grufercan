@@ -29,7 +29,7 @@ export const ContactSection: React.FC = () => {
   };
   return (
     <div
-      className="flex flex-col w-full gap-4 pt-20 md:flex-row md:gap-0"
+      className="flex flex-col w-full gap-4 pt-20 md:flex-row md:gap-0 scroll-mt-20"
       id="contact"
     >
       <div className="flex flex-row items-center order-last w-full p-3 text-center md:items-start justify-evenly md:justify-between md:flex-col md:order-first md:w-1/3 bg-secondary md:aspect-square md:p-10 md:text-left">

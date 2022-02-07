@@ -1,8 +1,6 @@
 import React from 'react';
 import Icon from '@mdi/react';
 import { mdiChevronDownCircleOutline } from '@mdi/js';
-import { Carousel } from 'react-responsive-carousel';
-import portada1 from '../../images/portada/portada-1.jpg';
 import portada2 from '../../images/portada/portada-2.jpg';
 import mapa from '../../images/portada/mapa-canarias.svg';
 import { useTranslation } from 'react-i18next';
@@ -49,7 +47,7 @@ export const AboutUs: React.FC = () => {
       </div>
       <div
         id="aboutUs"
-        className="flex flex-col w-full gap-20 px-10 md:flex-row md:px-20 lg:px-40 pt-28"
+        className="flex flex-col w-full gap-20 px-10 scroll-mt-20 md:flex-row md:px-20 lg:px-40 pt-28"
       >
         <div className="flex flex-col w-full text-center md:w-1/3 md:text-right">
           <span className="w-full text-5xl md:text-7xl text-primary">

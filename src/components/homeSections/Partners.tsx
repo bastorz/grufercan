@@ -64,7 +64,7 @@ export const Partners = () => {
     },
   ];
   return (
-    <div className="w-full py-20" id="partners">
+    <div className="w-full py-20 scroll-mt-20" id="partners">
       <div className="w-full text-center text-7xl text-primary">
         <span>{t('home.sections.partners.partners')}</span>
       </div>

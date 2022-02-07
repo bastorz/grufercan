@@ -56,7 +56,7 @@ export const Providers: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col w-full py-20" id="providers">
+    <div className="flex flex-col w-full py-20 scroll-mt-20" id="providers">
       <div className="w-full py-10 text-4xl font-extrabold text-center lg:text-7xl text-primary">
         <span>{t('home.sections.providers.providers')}</span>
       </div>
