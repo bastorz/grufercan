@@ -23,7 +23,7 @@ export const LatestNews: React.FC = () => {
     return new Date(timestamp).toLocaleDateString();
   };
   return (
-    <div className="flex flex-col w-full py-20" id="latestNews">
+    <div className="flex flex-col w-full py-20 scroll-mt-20" id="latestNews">
       <div className="w-full py-10 text-center text-7xl text-primary">
         <span>{t('home.sections.latestNews.latestNews')}</span>
       </div>

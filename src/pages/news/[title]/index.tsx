@@ -114,7 +114,7 @@ const News: React.FC = (newsProps: any) => {
             ))}
           </div>
         )}
-        {filteredNews && filteredNews.length !== visibleNews && (
+        {filteredNews && filteredNews.length > visibleNews && (
           <div
             className="flex flex-col items-center justify-center w-full pt-20 cursor-pointer text-primary"
             onClick={() => setVisibleNews(visibleNews + 2)}

@@ -1,17 +1,16 @@
 import { Link, navigate } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { isLoggedIn, logout } from '../../../services/auth/auth';
 import logoMd from '../../../images/logo-md.jpg';
 import clsx from 'clsx';
 import { mdiMenu } from '@mdi/js';
 import Icon from '@mdi/react';
 import { useLanguage } from '../../../hooks/useLanguage';
-import { useScrollSection } from 'react-scroll-section';
 export const Header = () => {
   const { t, i18n } = useTranslation();
   const { language } = useLanguage();
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [isOnTop, setIsOnTop] = useState(true);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const toggleNav = () => {
     setToggleMenu(!toggleMenu);
@@ -27,10 +26,16 @@ export const Header = () => {
     };
   }, []);
 
+  const handleHeaderItemClick = () => {
+    screenWidth < 854 && toggleNav();
+  };
+  useEffect(() => {
+    window.onscroll = () => setIsOnTop(window.pageYOffset === 0);
+  });
   return (
     <div
       className={clsx(
-        'flex justify-between p-10 items-center gap-4',
+        'flex justify-between py-4 px-10 items-center gap-4',
         toggleMenu && screenWidth < 854 && 'flex-col',
       )}
     >
@@ -44,9 +49,12 @@ export const Header = () => {
           <img
             src={logoMd}
             alt="grufercan logo"
-            width={250}
-            height={250}
-            className={clsx('max-w-[50px] md:max-w-[80px] lg:max-w-[150px] ')}
+            width={125}
+            height={125}
+            className={clsx(
+              'max-w-[50px] md:max-w-[80px] transition-all ',
+              isOnTop ? 'lg:max-w-[150px]' : 'lg:max-w-[50px]',
+            )}
           />
         </Link>
         <div
@@ -80,7 +88,7 @@ export const Header = () => {
           <li
             onClick={() => {
               navigate('/#aboutUs');
-              toggleNav();
+              handleHeaderItemClick();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
@@ -89,7 +97,7 @@ export const Header = () => {
           <li
             onClick={() => {
               navigate('/#partners');
-              toggleNav();
+              handleHeaderItemClick();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
@@ -98,7 +106,7 @@ export const Header = () => {
           <li
             onClick={() => {
               navigate('/#sevenca');
-              toggleNav();
+              handleHeaderItemClick();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
@@ -107,7 +115,7 @@ export const Header = () => {
           <li
             onClick={() => {
               navigate('/#providers');
-              toggleNav();
+              handleHeaderItemClick();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
@@ -115,8 +123,8 @@ export const Header = () => {
           </li>
           <li
             onClick={() => {
-              navigate('/blog');
-              toggleNav();
+              navigate('/blog/#latest');
+              handleHeaderItemClick();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
@@ -125,7 +133,7 @@ export const Header = () => {
           <li
             onClick={() => {
               navigate('/#contact');
-              toggleNav();
+              handleHeaderItemClick();
             }}
             className={clsx('cursor-pointer active:text-contrast')}
           >
