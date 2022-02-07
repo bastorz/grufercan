@@ -10,6 +10,7 @@ export const Header = () => {
   const { t, i18n } = useTranslation();
   const { language } = useLanguage();
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [isOnTop, setIsOnTop] = useState(true);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const toggleNav = () => {
     setToggleMenu(!toggleMenu);
@@ -28,6 +29,9 @@ export const Header = () => {
   const handleHeaderItemClick = () => {
     screenWidth < 854 && toggleNav();
   };
+  useEffect(() => {
+    window.onscroll = () => setIsOnTop(window.pageYOffset === 0);
+  });
   return (
     <div
       className={clsx(
@@ -47,7 +51,10 @@ export const Header = () => {
             alt="grufercan logo"
             width={125}
             height={125}
-            className={clsx('max-w-[50px] md:max-w-[80px] lg:max-w-[150px] ')}
+            className={clsx(
+              'max-w-[50px] md:max-w-[80px] transition-all ',
+              isOnTop ? 'lg:max-w-[150px]' : 'lg:max-w-[50px]',
+            )}
           />
         </Link>
         <div
