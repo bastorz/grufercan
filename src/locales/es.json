@@ -22,7 +22,8 @@
     "germanMedina": "Es una empresa consolidada, dirigida por su segunda generación, son especialistas en baños, cerámicas y pinturas. Además, cuentan con una amplia flota de vehículos para ofrecer un servicio eficaz de transporte. Sus instalaciones se encuentran en el Polígono de Vecindario y en Arinaga, en Las Palmas de Gran Canaria.",
     "sanIsidro": "Destaca especialmente en materiales de construcción, maderas, ferretería, bricolaje, baños, cerámicas y electrodomésticos. Se crea el 1981 como Ferretería San Isidro, como un pequeño negocio familiar de referencia en el municipio de Los Realejos, convirtiéndose en 2006 en el Grupo San Isidro. Cuenta con dos puntos de venta: en Calle Los Barros y Calle Trinidad, ambas en el municipio de Los Realejos en el norte de Tenerife.",
     "fraper": "Comercial Fraper es punto de venta de referencia del sector en la Isla de La Palma, comprometidos en su gestión de servicio y profesionalidad. En la actualidad poseen dos establecimientos, San Andres y Sauces con 600 m2 de exposición y 1100 m2 de almacén y El paso, con unas instalaciones de 4.430 m2 de exposición y 4.430 m2 de almacén.",
-    "ucanca": "Situada  en la localidad tinerfeña de San Isidro, en la Avda. José González Rivas, la nueva Ferretería Ucanca cuenta con más de 1.100 m2, repartidos en una amplia sala de venta y almacén, en un establecimiento destinado tanto hacia el cliente profesional como el particular, adaptando su oferta a cada uno de estos grupos con más de 35.000 referencias. Las secciones se encuentran bien estructuradas e interrelacionadas: herramientas, fontanería, pintura, menaje, PAE, maquinaria, madera, decoración, ferretería, cerrajería, seguridad y ropa laboral, iluminación, baño, electricidad, adhesivos, etc. Cuenta también con una zona de ‘showroom’ dedicada al baño, que incluye una extensa selección de armarios y espejos, así como grifería."
+    "ucanca": "Situada  en la localidad tinerfeña de San Isidro, en la Avda. José González Rivas, la nueva Ferretería Ucanca cuenta con más de 1.100 m2, repartidos en una amplia sala de venta y almacén, en un establecimiento destinado tanto hacia el cliente profesional como el particular, adaptando su oferta a cada uno de estos grupos con más de 35.000 referencias. Las secciones se encuentran bien estructuradas e interrelacionadas: herramientas, fontanería, pintura, menaje, PAE, maquinaria, madera, decoración, ferretería, cerrajería, seguridad y ropa laboral, iluminación, baño, electricidad, adhesivos, etc. Cuenta también con una zona de ‘showroom’ dedicada al baño, que incluye una extensa selección de armarios y espejos, así como grifería.",
+    "fergres": "Ubicada en la Carretera General de Guaza,  Las Galletas, con más de 30 años de actividad, ofrece una amplia gama de pavimentos y revestimientos cerámicos, porcelánicos, rústicos, gresite y piezas especiales, incluyendo además el transporte de mercancías de forma gratuita. En sus instalaciones podrás encontrar también una amplia gama en accesorios de baño, mobiliario, griferías y mamparas."
   },
   "cookiesDialog": {
     "accept": "Aceptar",
@@ -43,7 +44,7 @@
         "latestNews": "Últimas noticias",
         "aboutUs": "QUIÉNES SOMOS",
         "text": {
-          "paragraph1": "En Grufercan somos una cooperativa de ferreterías con un modelo de gestión basado en facilitar el desarrollo de la actividad comercial de los socios. Lo potenciamos a través de la adquisición de productos que permitan un posicionamiento más competitivo, diferenciado y rentable dentro de su zona de influencia.",
+          "paragraph1": "En Grufercan somos un grupo de compras y servicios con un modelo de gestión basado en facilitar el desarrollo de la actividad comercial de los socios. Lo potenciamos a través de la adquisición de productos que permitan un posicionamiento más competitivo, diferenciado y rentable dentro de su zona de influencia.",
           "paragraph2": "Tenemos representación en las islas de Tenerire, Gran Canaria, Lanzarote, Fuerteventura, y La Palma, con un total de 8 socios y 12 puntos de venta. ",
           "paragraph3": "Comenzamos nuestra andadura en el año 2004 en la isla de Lanzarote, para trasladarnos posteriormente al Puerto de La Cruz y La Laguna antes de asentarnos definitivamente en Santa Cruz de Tenerife, su sede actual, en 2015. ",
           "paragraph4": "Con un volumen de compra que supera los 30 millones de euros anuales, ofrecemos un porfolio de productos de importación bajo nuestra marca propia, nuestros clientes se benefician además, de acuerdos globales con las principales marcas del sector de la construcción, ferretería y bricolaje. ",
@@ -57,6 +58,9 @@
         "gallery": "GALERÍA DE PRODUCTOS",
         "paragraph1": "Marca propia, creada por Grufercan con el objetivo de desarrollar diferentes líneas de producto en las que primen la relación calidad-precio. ",
         "paragraph2": "Supone una clara apuesta por la mejora del posicionamiento de cada uno de los socios en el mercado actual cada vez más competitivo. Hemos desarrollado varias líneas de producto: calentadores, mamparas de ducha, escaleras domésticas y hormigoneras, seguimos trabajando para implementar nuevas líneas próximamente. "
+      },
+      "ambi": {
+        "paragraph1": "Es la marca propia de Grufercan para productos e instalaciones sanitarias, en especial inodoros, importados de Asia, incorporan el sistema 'rimless flushing', sistema de descarga que dispara agua hacia el borde y alrededor de la taza del inodoro sin dejar ningún espacio libre, logrando así una higienización total. Ven y descúbrelos en las ferreterías del grupo. "
       },
       "providers": {
         "providers": "Proveedores",
