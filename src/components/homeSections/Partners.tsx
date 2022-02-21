@@ -10,6 +10,7 @@ import germanMedina from '../../images/partners/backgrounds/german-medina.jpg';
 import saavedra from '../../images/partners/backgrounds/saavedra.jpg';
 import ucanca from '../../images/partners/backgrounds/ucanca.jpg';
 import sanIsidro from '../../images/partners/backgrounds/san-isidro.jpg';
+import fergres from '../../images/partners/backgrounds/fergres.jpg';
 import logoCantera from '../../images/partners/logos/logo-cantera.png';
 import logoFerrocur from '../../images/partners/logos/logo-ferrocur.png';
 import logoFraper from '../../images/partners/logos/logo-fraper.png';
@@ -17,6 +18,7 @@ import logoGermanMedina from '../../images/partners/logos/logo-german-medina.png
 import logoSaavedra from '../../images/partners/logos/logo-saavedra.png';
 import logoSanIsidro from '../../images/partners/logos/logo-san-isidro.jpg';
 import logoUcanca from '../../images/partners/logos/logo-ucanca.png';
+import logoFergres from '../../images/partners/logos/logo-fergres.jpg';
 export const Partners = () => {
   const { t } = useTranslation();
   const partners = [
@@ -61,6 +63,12 @@ export const Partners = () => {
       background: ucanca,
       logo: logoUcanca,
       id: 'ucanca',
+    },
+    {
+      name: 'Fergrés',
+      background: fergres,
+      logo: logoFergres,
+      id: 'fergres',
     },
   ];
   return (
