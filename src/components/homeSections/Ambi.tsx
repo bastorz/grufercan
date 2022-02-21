@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Carousel } from 'react-responsive-carousel';
 import useWindowSize from '../../hooks/useWindowSize';
-import logoSevenca from '../../images/partners/logos/logo-sevenca.png';
+import logoAmbi from '../../images/partners/logos/logo-ambi.jpg';
 import ambi1 from '../../images/ambi/ambi-1.jpg';
 import ambi2 from '../../images/ambi/ambi-2.jpg';
 export const Ambi: React.FC = () => {
@@ -40,10 +40,12 @@ export const Ambi: React.FC = () => {
     >
       <div className="flex flex-col items-center w-full px-20 pt-16 md:w-2/5 bg-contrast">
         <div className="flex items-center justify-center bg-white w-80 h-80">
-          <img src={logoSevenca} alt="sevenca logo" className="p-2" />
+          <img src={logoAmbi} alt="sevenca logo" className="p-2" />
         </div>
         <div className="py-10 text-xl text-justify w-80 text-primary ">
-          <p className="mb-4">{t('home.sections.ambi.paragraph1')}</p>
+          <p className="mb-4">
+            <b>AMBI</b> {t('home.sections.ambi.paragraph1')}
+          </p>
         </div>
       </div>
       <div className="flex flex-col items-center w-full px-4 py-16 md:px-20 md:w-3/5 h-min bg-contrast">
