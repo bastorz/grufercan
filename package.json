@@ -27,6 +27,7 @@
     "autoprefixer": "^10.4.0",
     "browser-monads": "^1.0.0",
     "clsx": "^1.1.1",
+    "dayjs": "^1.10.7",
     "gatsby": "^4.3.0",
     "gatsby-plugin-htaccess": "^1.4.0",
     "gatsby-plugin-htaccess-redirects": "^0.3.0",
