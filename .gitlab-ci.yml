@@ -44,14 +44,14 @@ deploy-prod:
     - apt-get update -qy
     - apt-get install -y lftp
     - yarn config set cache-folder .yarn
-    # - yarn install
+    - yarn install
   script:
     - echo 'Building staging'
     - lftp -v
     - node -v
-    # - yarn build
+    - yarn build
     - echo 'Deploying to Production Host'
-    # - ls /builds/medanosol/projects/grufercan/public/
+    - ls /builds/medanosol/projects/grufercan/public/
 
     - lftp -d -e "set sftp:auto-confirm yes;set ssl:check-hostname no; set ssl:verify-certificate no; open ftp://ftp.grufercan.com.grufercan.com/ -u 'ftp.grufercan.com','fWgNPQJA';  mirror -v -R /builds/medanosol/projects/grufercan/public/ ./ --parallel=10;bye"
     - lftp -d -e "set sftp:auto-confirm yes;set ssl:check-hostname no; set ssl:verify-certificate no; open ftp://ftp.grufercan.com.grufercan.com/ -u 'ftp.grufercan.com','fWgNPQJA';  mirror -v -R /builds/medanosol/projects/grufercan/api/ ./api/ --parallel=10;bye"
