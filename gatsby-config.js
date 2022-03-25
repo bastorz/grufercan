@@ -1,6 +1,10 @@
-if (process.env.STAGING) {
+if (process.env.STAGING && !process.env.MAMP) {
   require("dotenv").config({
     path: `.env.${process.env.NODE_ENV}.staging`,
+  });
+} else if (process.env.MAMP && !process.env.STAGING) {
+  require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}.mamp`,
   });
 } else {
   require("dotenv").config({
@@ -10,7 +14,7 @@ if (process.env.STAGING) {
 module.exports = {
   pathPrefix: "/grufercan/",
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://www.grufercan.com",
     title: "Grufercan",
     description: "Example description",
     author: "medanosol",
