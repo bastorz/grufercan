@@ -52,8 +52,8 @@ deploy-prod:
     - echo 'Deploying to Staging Host'
     - ls /builds/medanosol/projects/grufercan/public/
 
-    - lftp -d -e "open ftp://ftp.grufercan.com/ -u 'ftp.grufercan.com','fWgNPQJA';  mirror -v -R /builds/medanosol/projects/grufercan/public/ ./ --parallel=10;bye"
-    - lftp -d -e "open ftp://ftp.grufercan.com/ -u 'ftp.grufercan.com','fWgNPQJA';  mirror -v -R /builds/medanosol/projects/grufercan/api/ ./api/ --parallel=10;bye"
+    - lftp -d -e "open ftp://ftp.grufercan.com.grufercan.com/ -u 'ftp.grufercan.com','fWgNPQJA';  mirror -v -R /builds/medanosol/projects/grufercan/public/ ./ --parallel=10;bye"
+    - lftp -d -e "open ftp://ftp.grufercan.com.grufercan.com/ -u 'ftp.grufercan.com','fWgNPQJA';  mirror -v -R /builds/medanosol/projects/grufercan/api/ ./api/ --parallel=10;bye"
 
   only:
     - main
