@@ -11,7 +11,8 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
-    "build:mamp": "SET STAGING=TRUE & gatsby build --prefix-paths",
+    "build:stage": "SET STAGING=TRUE & gatsby build",
+    "build:mamp": "SET MAMP=TRUE & gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },

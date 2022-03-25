@@ -5,7 +5,37 @@ cache:
     - node_modules/
 
 stages:
+  - deploy-stage
   - deploy-prod
+
+variables:
+  FTP_HOST_STAGE: $FTP_HOST_STAGE
+  FTP_USER_STAGE: $FTP_USER_STAGE
+  FTP_PASS_STAGE: $FTP_PASS_STAGE
+  FTP_HOST_PROD: $FTP_HOST_PROD
+  FTP_USER_PROD: $FTP_USER_PROD
+  FTP_PASS_PROD: $FTP_PASS_PROD
+
+deploy-stage:
+  stage: deploy-stage
+  before_script:
+    - apt-get update -qy
+    - apt-get install -y lftp
+    - yarn config set cache-folder .yarn
+    - yarn install
+  script:
+    - echo 'Building staging'
+    - lftp -v
+    - node -v
+    - yarn build:stage
+    - echo 'Deploying to Staging Host'
+    - ls /builds/medanosol/projects/grufercan/public/
+
+    - lftp -d -e "set sftp:auto-confirm yes;set ssl:check-hostname no; set ssl:verify-certificate no;set -a; open sftp://ssh.medanosol.es -u 'medanosol.es','qY@5J4G8SwPK'; cd testing; mirror -v -R /builds/medanosol/projects/grufercan/public/ ./ --parallel=10;bye"
+    - lftp -d -e "set sftp:auto-confirm yes;set ssl:check-hostname no; set ssl:verify-certificate no;set -a; open sftp://ssh.medanosol.es -u 'medanosol.es','qY@5J4G8SwPK'; cd testing; mirror -v -R /builds/medanosol/projects/grufercan/api/ ./api/ --parallel=10;bye"
+
+  only:
+    - staging
 
 deploy-prod:
   stage: deploy-prod
@@ -15,15 +45,15 @@ deploy-prod:
     - yarn config set cache-folder .yarn
     - yarn install
   script:
-    - echo 'Building production'
+    - echo 'Building staging'
     - lftp -v
     - node -v
     - yarn build
-    - echo 'Deploying to Host'
+    - echo 'Deploying to Staging Host'
     - ls /builds/medanosol/projects/grufercan/public/
 
-    - lftp -d -e "set sftp:auto-confirm yes;set ssl:check-hostname no; set ssl:verify-certificate no;set -a; open sftp://ssh.medanosol.es -u 'medanosol.es','qY@5J4G8SwPK'; cd testing; mirror -v -R /builds/medanosol/projects/grufercan/public/ ./ --parallel=10;bye"
-    - lftp -d -e "set sftp:auto-confirm yes;set ssl:check-hostname no; set ssl:verify-certificate no;set -a; open sftp://ssh.medanosol.es -u 'medanosol.es','qY@5J4G8SwPK'; cd testing; mirror -v -R /builds/medanosol/projects/grufercan/api/ ./api/ --parallel=10;bye"
+    - lftp -d -e "open ftp://ftp.grufercan.com/ -u 'ftp.grufercan.com','fWgNPQJA';  mirror -v -R /builds/medanosol/projects/grufercan/public/ ./ --parallel=10;bye"
+    - lftp -d -e "open ftp://ftp.grufercan.com/ -u 'ftp.grufercan.com','fWgNPQJA';  mirror -v -R /builds/medanosol/projects/grufercan/api/ ./api/ --parallel=10;bye"
 
   only:
     - main
