@@ -79,6 +79,8 @@ module.exports = {
       resolve: "gatsby-plugin-htaccess",
       options: {
         RewriteBase: true,
+        www: process.env.STAGING || process.env.MAMP ? false : true,
+        DisallowSymLinks: true,
       },
     },
     // {
