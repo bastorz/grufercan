@@ -80,6 +80,9 @@ module.exports = {
       options: {
         RewriteBase: true,
         www: process.env.STAGING || process.env.MAMP ? false : true,
+        https: process.env.MAMP ? false : true,
+        // www: true,
+        // https: false,
         DisallowSymLinks: true,
       },
     },
