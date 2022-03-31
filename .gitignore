@@ -3,5 +3,7 @@ node_modules/
 /public
 api/var/cache/
 api/.env.staging
+api/.env.prod
+api/.env
 
 
