@@ -38,6 +38,12 @@ final class ConstraintViolationListNormalizer implements NormalizerInterface, Ca
         $this->nameConverter = $nameConverter;
     }
 
+    /**
+     * @param mixed      $object
+     * @param mixed|null $format
+     *
+     * @return array
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $violations = [];
@@ -56,7 +62,7 @@ final class ConstraintViolationListNormalizer implements NormalizerInterface, Ca
     /**
      * {@inheritdoc}
      */
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return self::FORMAT === $format && $data instanceof ConstraintViolationListInterface;
     }

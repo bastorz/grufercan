@@ -1,5 +1,6 @@
 import { mdiChevronDownCircleOutline } from '@mdi/js';
 import Icon from '@mdi/react';
+import dayjs from 'dayjs';
 import { Link } from 'gatsby';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -9,8 +10,7 @@ import { useNews } from '../../services/news/useNews';
 
 const News: React.FC = () => {
   const formatDate = (date: string): string => {
-    const timestamp = Date.parse(date);
-    return new Date(timestamp).toLocaleDateString();
+    return dayjs(date).format('DD/MM/YYYY');
   };
   const { news, isLoading } = useNews();
   // const [filteredNews, setFilteredNews] = useState<any[]>();

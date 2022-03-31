@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -19,17 +20,17 @@ export const useNews = () => {
 
   const getData = () => {
     const cookies = new Cookies();
-    const token = cookies.get('gfcbtoken');
+    const token = cookies.get("gfcbtoken");
 
     fetch(
       `${process.env.GATSBY_LOCALHOST}${process.env.GATSBY_BASE_URL}api/noticias`,
       {
         headers: {
           // Authorization: "Bearer " + token,
-          'Content-Type': 'application/json',
-          accept: 'application/json',
+          "Content-Type": "application/json",
+          accept: "application/json",
         },
-      },
+      }
     )
       .then(async (response) => {
         setIsLoading(false);
@@ -50,7 +51,7 @@ export const useNews = () => {
                 subtitle: string;
                 imgUrl: string;
                 date: string;
-              }[],
+              }[]
             ) => {
               id: string;
               title: string;
@@ -58,17 +59,28 @@ export const useNews = () => {
               imgUrl: string;
               date: string;
             }[]) = [];
-        newsData.forEach((data: { noticiasEn: any; noticiasEs: any }) => {
-          if (language === 'en') {
-            if (data.noticiasEn) {
-              const noticiasEn = data?.noticiasEn[0];
-              delete data.noticiasEn;
-              delete data.noticiasEs;
-              dataArray.push({ ...data, ...noticiasEn });
+        newsData &&
+          newsData.length &&
+          newsData.length > 0 &&
+          newsData.forEach((data: { noticiasEn: any; noticiasEs: any }) => {
+            if (language === "en") {
+              if (data.noticiasEn) {
+                const noticiasEn = data?.noticiasEn[0];
+                delete data.noticiasEn;
+                delete data.noticiasEs;
+                dataArray.push({ ...data, ...noticiasEn });
+              } else {
+                const noticiasEs = data?.noticiasEs[0];
+                delete data.noticiasEs;
+                dataArray.push({ ...data, ...noticiasEs });
+              }
             } else {
-              const noticiasEs = data?.noticiasEs[0];
-              delete data.noticiasEs;
-              dataArray.push({ ...data, ...noticiasEs });
+              if (data.noticiasEs) {
+                const noticiasEs = data?.noticiasEs[0];
+                delete data.noticiasEs;
+                delete data.noticiasEn;
+                dataArray.push({ ...data, ...noticiasEs });
+              }
             }
           } else {
             if (data.noticiasEs) {
@@ -79,10 +91,13 @@ export const useNews = () => {
             }
           }
         });
-        setNews(dataArray);
+        const sortedNews = dataArray.sort((a, b) =>
+          dayjs(a.date).isBefore(dayjs(b.date)) ? 1 : -1,
+        );
+        setNews(sortedNews);
       })
       .catch((e) => {
-        console.log('ERROR: ', e);
+        console.log("ERROR: ", e);
       });
   };
   const addNews = async ({
@@ -98,22 +113,22 @@ export const useNews = () => {
   }): Promise<any> => {
     try {
       const formData = new FormData();
-      formData.append('image', image);
+      formData.append("image", image);
       await fetch(`http://localhost:8001/api/upload`, {
-        method: 'post',
+        method: "post",
         body: formData,
       }).then(handleErrors);
       await fetch(`http://localhost:8001/api/noticias`, {
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        method: 'post',
+        method: "post",
         body: JSON.stringify({ title, subtitle, imgUrl: image.name, date }),
       });
       setIsLoading(true);
       return true;
     } catch (e: any) {
-      console.log('ERROR: ', e.message);
+      console.log("ERROR: ", e.message);
       return false;
     }
   };

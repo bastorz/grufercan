@@ -96,6 +96,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
     public function supportsNormalization($data, $format = null)
     {
@@ -118,6 +120,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
      * {@inheritdoc}
      *
      * @throws LogicException
+     *
+     * @return array|string|int|float|bool|\ArrayObject|null
      */
     public function normalize($object, $format = null, array $context = [])
     {
@@ -173,6 +177,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
     public function supportsDenormalization($data, $type, $format = null)
     {
@@ -181,11 +187,13 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
 
     /**
      * {@inheritdoc}
+     *
+     * @return mixed
      */
     public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (null === $objectToPopulate = $this->extractObjectToPopulate($class, $context, static::OBJECT_TO_POPULATE)) {
-            $normalizedData = $this->prepareForDenormalization($data);
+            $normalizedData = is_scalar($data) ? [$data] : $this->prepareForDenormalization($data);
             $class = $this->getClassDiscriminatorResolvedClass($normalizedData, $class);
         }
         $resourceClass = $this->resourceClassResolver->getResourceClass($objectToPopulate, $class);
@@ -259,6 +267,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
      * {@inheritdoc}
      *
      * @internal
+     *
+     * @return object
      */
     protected function instantiateObject(array &$data, $class, array &$context, \ReflectionClass $reflectionClass, $allowedAttributes, string $format = null)
     {
@@ -344,6 +354,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
      * {@inheritdoc}
      *
      * Unused in this context.
+     *
+     * @return string[]
      */
     protected function extractAttributes($object, $format = null, array $context = [])
     {
@@ -352,6 +364,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
 
     /**
      * {@inheritdoc}
+     *
+     * @return array|bool
      */
     protected function getAllowedAttributes($classOrObject, array $context, $attributesAsString = false)
     {
@@ -378,6 +392,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
     protected function isAllowedAttribute($classOrObject, $attribute, $format = null, array $context = [])
     {
@@ -408,6 +424,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
     /**
      * Validates the type of the value. Allows using integers as floats for JSON formats.
      *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
      */
     protected function validateType(string $attribute, Type $type, $value, string $format = null)
@@ -426,6 +444,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
 
     /**
      * Denormalizes a collection of objects.
+     *
+     * @param mixed $value
      *
      * @throws InvalidArgumentException
      */
@@ -452,6 +472,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
 
     /**
      * Denormalizes a relation.
+     *
+     * @param mixed $value
      *
      * @throws LogicException
      * @throws UnexpectedValueException
@@ -554,6 +576,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
      *
      * @throws UnexpectedValueException
      * @throws LogicException
+     *
+     * @return mixed
      */
     protected function getAttributeValue($object, $attribute, $format = null, array $context = [])
     {
@@ -618,6 +642,13 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
         }
 
         unset($context['resource_class']);
+
+        if ($type && $type->getClassName()) {
+            $childContext = $this->createChildContext($context, $attribute, $format);
+            unset($childContext['iri']);
+
+            return $this->serializer->normalize($attributeValue, $format, $childContext);
+        }
 
         return $this->serializer->normalize($attributeValue, $format, $context);
     }
@@ -699,6 +730,8 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
     /**
      * For a given resource, it returns an output representation if any
      * If not, the resource is returned.
+     *
+     * @param mixed $object
      */
     protected function transformOutput($object, array $context = [], string $outputClass = null)
     {
@@ -841,6 +874,7 @@ abstract class AbstractItemNormalizer extends AbstractObjectNormalizer
      * Sets a value of the object using the PropertyAccess component.
      *
      * @param object $object
+     * @param mixed  $value
      */
     private function setValue($object, string $attributeName, $value)
     {

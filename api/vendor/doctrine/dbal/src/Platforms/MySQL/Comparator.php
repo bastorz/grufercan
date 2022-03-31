@@ -2,7 +2,7 @@
 
 namespace Doctrine\DBAL\Platforms\MySQL;
 
-use Doctrine\DBAL\Platforms\MySQLPlatform;
+use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
 use Doctrine\DBAL\Schema\Comparator as BaseComparator;
 use Doctrine\DBAL\Schema\Table;
 
@@ -21,7 +21,7 @@ class Comparator extends BaseComparator
     /**
      * @internal The comparator can be only instantiated by a schema manager.
      */
-    public function __construct(MySQLPlatform $platform)
+    public function __construct(AbstractMySQLPlatform $platform)
     {
         parent::__construct($platform);
     }
@@ -31,27 +31,25 @@ class Comparator extends BaseComparator
      */
     public function diffTable(Table $fromTable, Table $toTable)
     {
-        $defaults = array_intersect_key($fromTable->getOptions(), [
+        return parent::diffTable(
+            $this->normalizeColumns($fromTable),
+            $this->normalizeColumns($toTable)
+        );
+    }
+
+    private function normalizeColumns(Table $table): Table
+    {
+        $defaults = array_intersect_key($table->getOptions(), [
             'charset'   => null,
             'collation' => null,
         ]);
 
-        if ($defaults !== []) {
-            $fromTable = clone $fromTable;
-            $toTable   = clone $toTable;
-
-            $this->normalizeColumns($fromTable, $defaults);
-            $this->normalizeColumns($toTable, $defaults);
+        if ($defaults === []) {
+            return $table;
         }
 
-        return parent::diffTable($fromTable, $toTable);
-    }
+        $table = clone $table;
 
-    /**
-     * @param array<string,mixed> $defaults
-     */
-    private function normalizeColumns(Table $table, array $defaults): void
-    {
         foreach ($table->getColumns() as $column) {
             $options = $column->getPlatformOptions();
             $diff    = array_diff_assoc($options, $defaults);
@@ -62,5 +60,7 @@ class Comparator extends BaseComparator
 
             $column->setPlatformOptions($diff);
         }
+
+        return $table;
     }
 }

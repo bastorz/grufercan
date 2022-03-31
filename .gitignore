@@ -1,4 +1,7 @@
 node_modules/
 .cache/
 /public
-# api/vendor
+api/var/cache/
+api/.env.staging
+
+
