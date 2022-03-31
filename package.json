@@ -9,7 +9,6 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "gatsby develop",
     "build": "gatsby build",
     "build:stage": "SET STAGING=TRUE & gatsby build",
     "build:mamp": "SET MAMP=TRUE & gatsby build --prefix-paths",

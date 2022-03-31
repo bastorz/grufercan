@@ -1,10 +1,10 @@
-import dayjs from 'dayjs';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import Cookies from 'universal-cookie/es6';
-import { useLanguage } from '../../hooks/useLanguage';
-import { handleErrors } from '../utils';
+import dayjs from "dayjs";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import Cookies from "universal-cookie/es6";
+import { useLanguage } from "../../hooks/useLanguage";
+import { handleErrors } from "../utils";
 export const useNews = () => {
   const { language } = useLanguage();
   const [news, setNews] = useState<
@@ -82,17 +82,10 @@ export const useNews = () => {
                 dataArray.push({ ...data, ...noticiasEs });
               }
             }
-          } else {
-            if (data.noticiasEs) {
-              const noticiasEs = data?.noticiasEs[0];
-              delete data.noticiasEs;
-              delete data.noticiasEn;
-              dataArray.push({ ...data, ...noticiasEs });
-            }
-          }
-        });
+          });
+
         const sortedNews = dataArray.sort((a, b) =>
-          dayjs(a.date).isBefore(dayjs(b.date)) ? 1 : -1,
+          dayjs(a.date).isBefore(dayjs(b.date)) ? 1 : -1
         );
         setNews(sortedNews);
       })
