@@ -52,7 +52,7 @@ final class CollectionFiltersNormalizer implements NormalizerInterface, Normaliz
     /**
      * {@inheritdoc}
      */
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return $this->collectionNormalizer->supportsNormalization($data, $format);
     }
@@ -67,6 +67,8 @@ final class CollectionFiltersNormalizer implements NormalizerInterface, Normaliz
 
     /**
      * {@inheritdoc}
+     *
+     * @return array|string|int|float|bool|\ArrayObject|null
      */
     public function normalize($object, $format = null, array $context = [])
     {

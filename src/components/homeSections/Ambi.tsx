@@ -1,15 +1,15 @@
 import {
   mdiChevronLeftCircleOutline,
   mdiChevronRightCircleOutline,
-} from '@mdi/js';
-import Icon from '@mdi/react';
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Carousel } from 'react-responsive-carousel';
-import useWindowSize from '../../hooks/useWindowSize';
-import logoAmbi from '../../images/partners/logos/logo-ambi.jpg';
-import ambi1 from '../../images/ambi/ambi-1.jpg';
-import ambi2 from '../../images/ambi/ambi-2.jpg';
+} from "@mdi/js";
+import Icon from "@mdi/react";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Carousel } from "react-responsive-carousel";
+import useWindowSize from "../../hooks/useWindowSize";
+import logoAmbi from "../../images/partners/logos/logo-ambi.jpg";
+import ambi1 from "../../images/ambi/ambi-1.jpg";
+import ambi2 from "../../images/ambi/ambi-2.jpg";
 export const Ambi: React.FC = () => {
   const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState(0);
@@ -44,13 +44,13 @@ export const Ambi: React.FC = () => {
         </div>
         <div className="py-10 text-xl text-justify w-80 text-primary ">
           <p className="mb-4">
-            <b>AMBI</b> {t('home.sections.ambi.paragraph1')}
+            <b>AMBI</b> {t("home.sections.ambi.paragraph1")}
           </p>
         </div>
       </div>
       <div className="flex flex-col items-center w-full px-4 py-16 md:px-20 md:w-3/5 h-min bg-contrast">
         <span className="text-4xl font-extrabold text-center text-primary">
-          {t('home.sections.sevenca.gallery')}
+          {t("home.sections.sevenca.gallery")}
         </span>
         <div className="px-4 py-10 ">
           <div className="flex items-center gap-4">

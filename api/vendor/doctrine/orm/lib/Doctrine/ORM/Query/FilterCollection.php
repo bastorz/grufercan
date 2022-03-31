@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Doctrine\ORM\Query;
 
 use Doctrine\ORM\Configuration;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query\Filter\SQLFilter;
 use InvalidArgumentException;
@@ -40,7 +39,7 @@ class FilterCollection
     /**
      * The EntityManager that "owns" this FilterCollection instance.
      *
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
     private $em;
 
@@ -98,8 +97,7 @@ class FilterCollection
             // Keep the enabled filters sorted for the hash
             ksort($this->enabledFilters);
 
-            // Now the filter collection is dirty
-            $this->filtersState = self::FILTERS_STATE_DIRTY;
+            $this->setFiltersStateDirty();
         }
 
         return $this->enabledFilters[$name];
@@ -121,8 +119,7 @@ class FilterCollection
 
         unset($this->enabledFilters[$name]);
 
-        // Now the filter collection is dirty
-        $this->filtersState = self::FILTERS_STATE_DIRTY;
+        $this->setFiltersStateDirty();
 
         return $filter;
     }
@@ -194,6 +191,9 @@ class FilterCollection
         foreach ($this->enabledFilters as $name => $filter) {
             $filterHash .= $name . $filter;
         }
+
+        $this->filterHash   = $filterHash;
+        $this->filtersState = self::FILTERS_STATE_CLEAN;
 
         return $filterHash;
     }

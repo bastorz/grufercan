@@ -45,6 +45,8 @@ final class ApiGatewayNormalizer implements NormalizerInterface, CacheableSuppor
      * {@inheritdoc}
      *
      * @throws UnexpectedValueException
+     *
+     * @return array|string|int|float|bool|\ArrayObject|null
      */
     public function normalize($object, $format = null, array $context = [])
     {
@@ -118,7 +120,7 @@ final class ApiGatewayNormalizer implements NormalizerInterface, CacheableSuppor
     /**
      * {@inheritdoc}
      */
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return $this->documentationNormalizer->supportsNormalization($data, $format);
     }

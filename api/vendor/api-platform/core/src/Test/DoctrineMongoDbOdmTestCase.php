@@ -28,6 +28,8 @@ use Symfony\Component\Cache\Adapter\ArrayAdapter;
 class DoctrineMongoDbOdmTestCase extends TestCase
 {
     /**
+     * @param mixed $paths
+     *
      * @return DocumentManager
      */
     public static function createTestDocumentManager($paths = [])
@@ -42,7 +44,7 @@ class DoctrineMongoDbOdmTestCase extends TestCase
         if (method_exists($config, 'setMetadataCache')) {
             $config->setMetadataCache(new ArrayAdapter());
         } else {
-            $config->setMetadataCacheImpl(new ArrayCache());
+            $config->setMetadataCacheImpl(new ArrayCache()); // @phpstan-ignore-line
         }
 
         return DocumentManager::create(null, $config);
