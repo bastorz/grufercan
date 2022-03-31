@@ -43,7 +43,9 @@ export const Ambi: React.FC = () => {
           <img src={logoAmbi} alt="sevenca logo" className="p-2" />
         </div>
         <div className="py-10 text-xl text-justify w-80 text-primary ">
-          <p className="mb-4">{t("home.sections.ambi.paragraph1")}</p>
+          <p className="mb-4">
+            <b>AMBI</b> {t("home.sections.ambi.paragraph1")}
+          </p>
         </div>
       </div>
       <div className="flex flex-col items-center w-full px-4 py-16 md:px-20 md:w-3/5 h-min bg-contrast">

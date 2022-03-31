@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNews } from '../../services/news/useNews';
-
+import dayjs from 'dayjs';
 export const LatestNews: React.FC = () => {
   const { news, isLoading } = useNews();
   const { t } = useTranslation();
@@ -16,11 +16,12 @@ export const LatestNews: React.FC = () => {
     date: string;
   }>();
   useEffect(() => {
-    if (!isLoading && news) setLatestNews(news.find((news) => news.id === 1));
+    if (!isLoading && news) {
+      setLatestNews(news[0]);
+    }
   }, [isLoading, news]);
   const formatDate = (date: string): string => {
-    const timestamp = Date.parse(date);
-    return new Date(timestamp).toLocaleDateString();
+    return dayjs(date).format('DD/MM/YYYY');
   };
   return (
     <div className="flex flex-col w-full py-20 scroll-mt-20" id="latestNews">

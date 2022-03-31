@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -82,7 +83,11 @@ export const useNews = () => {
               }
             }
           });
-        setNews(dataArray);
+
+        const sortedNews = dataArray.sort((a, b) =>
+          dayjs(a.date).isBefore(dayjs(b.date)) ? 1 : -1
+        );
+        setNews(sortedNews);
       })
       .catch((e) => {
         console.log("ERROR: ", e);
