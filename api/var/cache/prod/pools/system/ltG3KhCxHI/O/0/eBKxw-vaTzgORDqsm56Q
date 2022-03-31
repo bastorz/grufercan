@@ -1,0 +1,3 @@
+<?php //route_name_06b86005f816d41c3ad50079da9ddc92
+
+return [PHP_INT_MAX, 'api_noticias_get_collection'];

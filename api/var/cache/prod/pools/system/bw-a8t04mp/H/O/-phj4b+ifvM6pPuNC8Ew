@@ -1,0 +1,36 @@
+<?php //App_Entity_NoticiasEn
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\NoticiasEn',
+                'id',
+                'title',
+                'subtitle',
+                'id_noticia',
+                'idNoticia',
+            ],
+            'attributesMetadata' => [
+                [
+                    'id' => $o[1],
+                    'title' => $o[2],
+                    'subtitle' => $o[3],
+                    'id_noticia' => $o[4],
+                    'idNoticia' => $o[5],
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];
