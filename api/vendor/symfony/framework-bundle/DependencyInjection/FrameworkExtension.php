@@ -341,52 +341,8 @@ class FrameworkExtension extends Extension
             }
         }
 
-        // register cache before session so both can share the connection services
-        $this->registerCacheConfiguration($config['cache'], $container);
-
-        if ($this->isConfigEnabled($container, $config['session'])) {
-            if (!\extension_loaded('session')) {
-                throw new LogicException('Session support cannot be enabled as the session extension is not installed. See https://php.net/session.installation for instructions.');
-            }
-
-            $this->sessionConfigEnabled = true;
-            $this->registerSessionConfiguration($config['session'], $container, $loader);
-            if (!empty($config['test'])) {
-                // test listener will replace the existing session listener
-                // as we are aliasing to avoid duplicated registered events
-                $container->setAlias('session_listener', 'test.session.listener');
-            }
-        } elseif (!empty($config['test'])) {
-            $container->removeDefinition('test.session.listener');
-        }
-
         if ($this->isConfigEnabled($container, $config['request'])) {
             $this->registerRequestConfiguration($config['request'], $container, $loader);
-        }
-
-        if (null === $config['csrf_protection']['enabled']) {
-            $config['csrf_protection']['enabled'] = $this->sessionConfigEnabled && !class_exists(FullStack::class) && ContainerBuilder::willBeAvailable('symfony/security-csrf', CsrfTokenManagerInterface::class, ['symfony/framework-bundle'], true);
-        }
-        $this->registerSecurityCsrfConfiguration($config['csrf_protection'], $container, $loader);
-
-        if ($this->isConfigEnabled($container, $config['form'])) {
-            if (!class_exists(Form::class)) {
-                throw new LogicException('Form support cannot be enabled as the Form component is not installed. Try running "composer require symfony/form".');
-            }
-
-            $this->formConfigEnabled = true;
-            $this->registerFormConfiguration($config, $container, $loader);
-
-            if (ContainerBuilder::willBeAvailable('symfony/validator', Validation::class, ['symfony/framework-bundle', 'symfony/form'], true)) {
-                $config['validation']['enabled'] = true;
-            } else {
-                $container->setParameter('validator.translation_domain', 'validators');
-
-                $container->removeDefinition('form.type_extension.form.validator');
-                $container->removeDefinition('form.type_guesser.validator');
-            }
-        } else {
-            $container->removeDefinition('console.command.form_debug');
         }
 
         if ($this->isConfigEnabled($container, $config['assets'])) {
@@ -397,39 +353,6 @@ class FrameworkExtension extends Extension
             $this->registerAssetsConfiguration($config['assets'], $container, $loader);
         }
 
-        if ($this->messengerConfigEnabled = $this->isConfigEnabled($container, $config['messenger'])) {
-            $this->registerMessengerConfiguration($config['messenger'], $container, $loader, $config['validation']);
-        } else {
-            $container->removeDefinition('console.command.messenger_consume_messages');
-            $container->removeDefinition('console.command.messenger_debug');
-            $container->removeDefinition('console.command.messenger_stop_workers');
-            $container->removeDefinition('console.command.messenger_setup_transports');
-            $container->removeDefinition('console.command.messenger_failed_messages_retry');
-            $container->removeDefinition('console.command.messenger_failed_messages_show');
-            $container->removeDefinition('console.command.messenger_failed_messages_remove');
-            $container->removeDefinition('cache.messenger.restart_workers_signal');
-
-            if ($container->hasDefinition('messenger.transport.amqp.factory') && !class_exists(AmqpTransportFactory::class)) {
-                if (class_exists(\Symfony\Component\Messenger\Transport\AmqpExt\AmqpTransportFactory::class)) {
-                    $container->getDefinition('messenger.transport.amqp.factory')
-                        ->setClass(\Symfony\Component\Messenger\Transport\AmqpExt\AmqpTransportFactory::class)
-                        ->addTag('messenger.transport_factory');
-                } else {
-                    $container->removeDefinition('messenger.transport.amqp.factory');
-                }
-            }
-
-            if ($container->hasDefinition('messenger.transport.redis.factory') && !class_exists(RedisTransportFactory::class)) {
-                if (class_exists(\Symfony\Component\Messenger\Transport\RedisExt\RedisTransportFactory::class)) {
-                    $container->getDefinition('messenger.transport.redis.factory')
-                        ->setClass(\Symfony\Component\Messenger\Transport\RedisExt\RedisTransportFactory::class)
-                        ->addTag('messenger.transport_factory');
-                } else {
-                    $container->removeDefinition('messenger.transport.redis.factory');
-                }
-            }
-        }
-
         if ($this->httpClientConfigEnabled = $this->isConfigEnabled($container, $config['http_client'])) {
             $this->registerHttpClientConfiguration($config['http_client'], $container, $loader, $config['profiler']);
         }
@@ -438,18 +361,12 @@ class FrameworkExtension extends Extension
             $this->registerMailerConfiguration($config['mailer'], $container, $loader);
         }
 
-        if ($this->notifierConfigEnabled = $this->isConfigEnabled($container, $config['notifier'])) {
-            $this->registerNotifierConfiguration($config['notifier'], $container, $loader);
-        }
-
         $propertyInfoEnabled = $this->isConfigEnabled($container, $config['property_info']);
-        $this->registerValidationConfiguration($config['validation'], $container, $loader, $propertyInfoEnabled);
         $this->registerHttpCacheConfiguration($config['http_cache'], $container, $config['http_method_override']);
         $this->registerEsiConfiguration($config['esi'], $container, $loader);
         $this->registerSsiConfiguration($config['ssi'], $container, $loader);
         $this->registerFragmentsConfiguration($config['fragments'], $container, $loader);
         $this->registerTranslatorConfiguration($config['translator'], $container, $loader, $config['default_locale'], $config['enabled_locales']);
-        $this->registerProfilerConfiguration($config['profiler'], $container, $loader);
         $this->registerWorkflowConfiguration($config['workflows'], $container, $loader);
         $this->registerDebugConfiguration($config['php_errors'], $container, $loader);
         // @deprecated since Symfony 5.4, in 6.0 change to:
@@ -500,6 +417,97 @@ class FrameworkExtension extends Extension
 
             $this->registerUidConfiguration($config['uid'], $container, $loader);
         }
+
+        // register cache before session so both can share the connection services
+        $this->registerCacheConfiguration($config['cache'], $container);
+
+        if ($this->isConfigEnabled($container, $config['session'])) {
+            if (!\extension_loaded('session')) {
+                throw new LogicException('Session support cannot be enabled as the session extension is not installed. See https://php.net/session.installation for instructions.');
+            }
+
+            $this->sessionConfigEnabled = true;
+            $this->registerSessionConfiguration($config['session'], $container, $loader);
+            if (!empty($config['test'])) {
+                // test listener will replace the existing session listener
+                // as we are aliasing to avoid duplicated registered events
+                $container->setAlias('session_listener', 'test.session.listener');
+            }
+        } elseif (!empty($config['test'])) {
+            $container->removeDefinition('test.session.listener');
+        }
+
+        // csrf depends on session being registered
+        if (null === $config['csrf_protection']['enabled']) {
+            $config['csrf_protection']['enabled'] = $this->sessionConfigEnabled && !class_exists(FullStack::class) && ContainerBuilder::willBeAvailable('symfony/security-csrf', CsrfTokenManagerInterface::class, ['symfony/framework-bundle'], true);
+        }
+        $this->registerSecurityCsrfConfiguration($config['csrf_protection'], $container, $loader);
+
+        // form depends on csrf being registered
+        if ($this->isConfigEnabled($container, $config['form'])) {
+            if (!class_exists(Form::class)) {
+                throw new LogicException('Form support cannot be enabled as the Form component is not installed. Try running "composer require symfony/form".');
+            }
+
+            $this->formConfigEnabled = true;
+            $this->registerFormConfiguration($config, $container, $loader);
+
+            if (ContainerBuilder::willBeAvailable('symfony/validator', Validation::class, ['symfony/framework-bundle', 'symfony/form'], true)) {
+                $config['validation']['enabled'] = true;
+            } else {
+                $container->setParameter('validator.translation_domain', 'validators');
+
+                $container->removeDefinition('form.type_extension.form.validator');
+                $container->removeDefinition('form.type_guesser.validator');
+            }
+        } else {
+            $container->removeDefinition('console.command.form_debug');
+        }
+
+        // validation depends on form, annotations being registered
+        $this->registerValidationConfiguration($config['validation'], $container, $loader, $propertyInfoEnabled);
+
+        // messenger depends on validation being registered
+        if ($this->messengerConfigEnabled = $this->isConfigEnabled($container, $config['messenger'])) {
+            $this->registerMessengerConfiguration($config['messenger'], $container, $loader, $config['validation']);
+        } else {
+            $container->removeDefinition('console.command.messenger_consume_messages');
+            $container->removeDefinition('console.command.messenger_debug');
+            $container->removeDefinition('console.command.messenger_stop_workers');
+            $container->removeDefinition('console.command.messenger_setup_transports');
+            $container->removeDefinition('console.command.messenger_failed_messages_retry');
+            $container->removeDefinition('console.command.messenger_failed_messages_show');
+            $container->removeDefinition('console.command.messenger_failed_messages_remove');
+            $container->removeDefinition('cache.messenger.restart_workers_signal');
+
+            if ($container->hasDefinition('messenger.transport.amqp.factory') && !class_exists(AmqpTransportFactory::class)) {
+                if (class_exists(\Symfony\Component\Messenger\Transport\AmqpExt\AmqpTransportFactory::class)) {
+                    $container->getDefinition('messenger.transport.amqp.factory')
+                        ->setClass(\Symfony\Component\Messenger\Transport\AmqpExt\AmqpTransportFactory::class)
+                        ->addTag('messenger.transport_factory');
+                } else {
+                    $container->removeDefinition('messenger.transport.amqp.factory');
+                }
+            }
+
+            if ($container->hasDefinition('messenger.transport.redis.factory') && !class_exists(RedisTransportFactory::class)) {
+                if (class_exists(\Symfony\Component\Messenger\Transport\RedisExt\RedisTransportFactory::class)) {
+                    $container->getDefinition('messenger.transport.redis.factory')
+                        ->setClass(\Symfony\Component\Messenger\Transport\RedisExt\RedisTransportFactory::class)
+                        ->addTag('messenger.transport_factory');
+                } else {
+                    $container->removeDefinition('messenger.transport.redis.factory');
+                }
+            }
+        }
+
+        // notifier depends on messenger, mailer being registered
+        if ($this->notifierConfigEnabled = $this->isConfigEnabled($container, $config['notifier'])) {
+            $this->registerNotifierConfiguration($config['notifier'], $container, $loader);
+        }
+
+        // profiler depends on form, validation, translation, messenger, mailer, http-client, notifier being registered
+        $this->registerProfilerConfiguration($config['profiler'], $container, $loader);
 
         $this->addAnnotatedClassesToCompile([
             '**\\Controller\\',
@@ -629,6 +637,7 @@ class FrameworkExtension extends Extension
             'container.service_locator',
             'container.service_subscriber',
             'kernel.event_subscriber',
+            'kernel.event_listener',
             'kernel.locale_aware',
             'kernel.reset',
         ]);
@@ -1652,9 +1661,10 @@ class FrameworkExtension extends Extension
 
         $container
             ->getDefinition('annotations.cached_reader')
+            ->setPublic(true) // set to false in AddAnnotationsCachedReaderPass
             ->replaceArgument(2, $config['debug'])
-            // temporary property to lazy-reference the cache provider without using it until AddAnnotationsCachedReaderPass runs
-            ->setProperty('cacheProviderBackup', new ServiceClosureArgument(new Reference($cacheService)))
+            // reference the cache provider without using it until AddAnnotationsCachedReaderPass runs
+            ->addArgument(new ServiceClosureArgument(new Reference($cacheService)))
             ->addTag('annotations.cached_reader')
         ;
 
@@ -2229,7 +2239,9 @@ class FrameworkExtension extends Extension
                 $pool['reset'] = 'reset';
             }
 
-            if ($isRedisTagAware) {
+            if ($isRedisTagAware && 'cache.app' === $name) {
+                $container->setAlias('cache.app.taggable', $name);
+            } elseif ($isRedisTagAware) {
                 $tagAwareId = $name;
                 $container->setAlias('.'.$name.'.inner', $name);
             } elseif ($pool['tags']) {
@@ -2245,7 +2257,8 @@ class FrameworkExtension extends Extension
                 if (method_exists(TagAwareAdapter::class, 'setLogger')) {
                     $container
                         ->getDefinition($name)
-                        ->addMethodCall('setLogger', [new Reference('logger', ContainerInterface::IGNORE_ON_INVALID_REFERENCE)]);
+                        ->addMethodCall('setLogger', [new Reference('logger', ContainerInterface::IGNORE_ON_INVALID_REFERENCE)])
+                        ->addTag('monolog.logger', ['channel' => 'cache']);
                 }
 
                 $pool['name'] = $tagAwareId = $name;

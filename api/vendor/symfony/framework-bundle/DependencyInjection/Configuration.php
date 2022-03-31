@@ -18,6 +18,7 @@ use Doctrine\DBAL\Connection;
 use Psr\Log\LogLevel;
 use Symfony\Bundle\FullStack;
 use Symfony\Component\Asset\Package;
+use Symfony\Component\Cache\Adapter\DoctrineAdapter;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -1078,19 +1079,20 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('default_redis_provider')->defaultValue('redis://localhost')->end()
                         ->scalarNode('default_memcached_provider')->defaultValue('memcached://localhost')->end()
                         ->scalarNode('default_doctrine_dbal_provider')->defaultValue('database_connection')->end()
-                        ->scalarNode('default_pdo_provider')->defaultValue($willBeAvailable('doctrine/dbal', Connection::class) ? 'database_connection' : null)->end()
+                        ->scalarNode('default_pdo_provider')->defaultValue($willBeAvailable('doctrine/dbal', Connection::class) && class_exists(DoctrineAdapter::class) ? 'database_connection' : null)->end()
                         ->arrayNode('pools')
                             ->useAttributeAsKey('name')
                             ->prototype('array')
                                 ->fixXmlConfig('adapter')
                                 ->beforeNormalization()
-                                    ->ifTrue(function ($v) { return (isset($v['adapters']) || \is_array($v['adapter'] ?? null)) && isset($v['provider']); })
-                                    ->thenInvalid('Pool cannot have a "provider" while "adapter" is set to a map')
+                                    ->ifTrue(function ($v) { return isset($v['provider']) && \is_array($v['adapters'] ?? $v['adapter'] ?? null) && 1 < \count($v['adapters'] ?? $v['adapter']); })
+                                    ->thenInvalid('Pool cannot have a "provider" while more than one adapter is defined')
                                 ->end()
                                 ->children()
                                     ->arrayNode('adapters')
                                         ->performNoDeepMerging()
                                         ->info('One or more adapters to chain for creating the pool, defaults to "cache.app".')
+                                        ->beforeNormalization()->castToArray()->end()
                                         ->beforeNormalization()
                                             ->always()->then(function ($values) {
                                                 if ([0] === array_keys($values) && \is_array($values[0])) {

@@ -1,0 +1,33 @@
+<?php //Doctrine_Common_Collections_Collection
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Serializer\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\ClassMetadata')),
+        clone ($p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata')),
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'Doctrine\\Common\\Collections\\Collection',
+                'empty',
+                'keys',
+                'values',
+                'iterator',
+            ],
+            'attributesMetadata' => [
+                [
+                    'empty' => $o[1],
+                    'keys' => $o[2],
+                    'values' => $o[3],
+                    'iterator' => $o[4],
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

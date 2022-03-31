@@ -42,6 +42,12 @@ final class ErrorNormalizer implements NormalizerInterface, CacheableSupportsMet
         $this->defaultContext = array_merge($this->defaultContext, $defaultContext);
     }
 
+    /**
+     * @param mixed      $object
+     * @param mixed|null $format
+     *
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [
@@ -63,7 +69,7 @@ final class ErrorNormalizer implements NormalizerInterface, CacheableSupportsMet
     /**
      * {@inheritdoc}
      */
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return self::FORMAT === $format && ($data instanceof \Exception || $data instanceof FlattenException || $data instanceof LegacyFlattenException);
     }

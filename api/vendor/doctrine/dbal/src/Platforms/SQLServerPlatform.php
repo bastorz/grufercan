@@ -98,9 +98,17 @@ class SQLServerPlatform extends AbstractPlatform
      *
      * Microsoft SQL Server prefers "autoincrement" identity columns
      * since sequences can only be emulated with a table.
+     *
+     * @deprecated
      */
     public function prefersIdentityColumns()
     {
+        Deprecation::trigger(
+            'doctrine/dbal',
+            'https://github.com/doctrine/dbal/pulls/1519',
+            'SQLServerPlatform::prefersIdentityColumns() is deprecated.'
+        );
+
         return true;
     }
 
@@ -1085,7 +1093,7 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * {@inheritDoc}
      *
-     * @deprecated Use {@link SQLServerSchemaManager::listSchemaNames()} instead.
+     * @deprecated Use {@see SQLServerSchemaManager::listSchemaNames()} instead.
      */
     public function getListNamespacesSQL()
     {
@@ -1481,7 +1489,7 @@ class SQLServerPlatform extends AbstractPlatform
     /**
      * {@inheritDoc}
      *
-     * @deprecated Implement {@link createReservedKeywordsList()} instead.
+     * @deprecated Implement {@see createReservedKeywordsList()} instead.
      */
     protected function getReservedKeywordsClass()
     {

@@ -81,8 +81,8 @@ final class Dotenv
     /**
      * Loads one or several .env files.
      *
-     * @param string    $path       A file to load
-     * @param ...string $extraPaths A list of additional files to load
+     * @param string   $path          A file to load
+     * @param string[] ...$extraPaths A list of additional files to load
      *
      * @throws FormatException when a file has a syntax error
      * @throws PathException   when a file does not exist or is not readable
@@ -151,7 +151,7 @@ final class Dotenv
         $env = is_file($p) ? include $p : null;
         $k = $this->envKey;
 
-        if (\is_array($env) && (!isset($env[$k]) || ($_SERVER[$k] ?? $_ENV[$k] ?? $env[$k]) === $env[$k])) {
+        if (\is_array($env) && ($overrideExistingVars || !isset($env[$k]) || ($_SERVER[$k] ?? $_ENV[$k] ?? $env[$k]) === $env[$k])) {
             $this->populate($env, $overrideExistingVars);
         } else {
             $this->loadEnv($path, $k, $defaultEnv, $testEnvs, $overrideExistingVars);
@@ -167,8 +167,8 @@ final class Dotenv
     /**
      * Loads one or several .env files and enables override existing vars.
      *
-     * @param string    $path       A file to load
-     * @param ...string $extraPaths A list of additional files to load
+     * @param string   $path          A file to load
+     * @param string[] ...$extraPaths A list of additional files to load
      *
      * @throws FormatException when a file has a syntax error
      * @throws PathException   when a file does not exist or is not readable

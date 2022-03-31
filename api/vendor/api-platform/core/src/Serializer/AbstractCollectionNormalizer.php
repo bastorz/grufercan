@@ -52,6 +52,8 @@ abstract class AbstractCollectionNormalizer implements NormalizerInterface, Norm
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
     public function supportsNormalization($data, $format = null)
     {
@@ -70,6 +72,8 @@ abstract class AbstractCollectionNormalizer implements NormalizerInterface, Norm
      * {@inheritdoc}
      *
      * @param iterable $object
+     *
+     * @return array|string|int|float|bool|\ArrayObject|null
      */
     public function normalize($object, $format = null, array $context = [])
     {
@@ -92,6 +96,7 @@ abstract class AbstractCollectionNormalizer implements NormalizerInterface, Norm
      * Normalizes a raw collection (not API resources).
      *
      * @param string|null $format
+     * @param mixed       $object
      */
     protected function normalizeRawCollection($object, $format = null, array $context = []): array
     {

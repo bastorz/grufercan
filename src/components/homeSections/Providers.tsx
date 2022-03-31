@@ -23,6 +23,7 @@ import stn from '../../images/providers/stn.png';
 import tatay from '../../images/providers/Tatay.jpg';
 import teicocil from '../../images/providers/Teicocil.png';
 import weber from '../../images/providers/weber.jpg';
+import conmetall from '../../images/providers/conmetall.png';
 
 export const Providers: React.FC = () => {
   const { t } = useTranslation();
@@ -53,10 +54,11 @@ export const Providers: React.FC = () => {
     { url: 'https://www.tatay.com/es', logo: tatay },
     { url: 'https://www.teicocil.com/site/', logo: teicocil },
     { url: 'https://www.weber.com/ES/es/home/', logo: weber },
+    { url: 'https://www.conmetallmeister.de', logo: conmetall },
   ];
 
   return (
-    <div className="flex flex-col w-full py-20" id="providers">
+    <div className="flex flex-col w-full py-20 scroll-mt-20" id="providers">
       <div className="w-full py-10 text-4xl font-extrabold text-center lg:text-7xl text-primary">
         <span>{t('home.sections.providers.providers')}</span>
       </div>

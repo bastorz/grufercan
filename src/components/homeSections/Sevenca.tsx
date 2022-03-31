@@ -35,7 +35,10 @@ export const Sevenca: React.FC = () => {
     }
   };
   return (
-    <div className="flex flex-col w-full gap-4 md:flex-row" id="sevenca">
+    <div
+      className="flex flex-col w-full gap-4 md:flex-row scroll-mt-20"
+      id="sevenca"
+    >
       <div className="flex flex-col items-center w-full px-20 pt-16 md:w-2/5 bg-contrast">
         <div className="flex items-center justify-center bg-white w-80 h-80">
           <img src={logoSevenca} alt="sevenca logo" className="p-2" />

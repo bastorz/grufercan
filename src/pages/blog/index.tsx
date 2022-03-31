@@ -1,7 +1,8 @@
 import { mdiChevronDownCircleOutline } from '@mdi/js';
 import Icon from '@mdi/react';
+import dayjs from 'dayjs';
 import { Link } from 'gatsby';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SEO } from '../../components/SEO';
 import { useLanguage } from '../../hooks/useLanguage';
@@ -9,8 +10,7 @@ import { useNews } from '../../services/news/useNews';
 
 const News: React.FC = () => {
   const formatDate = (date: string): string => {
-    const timestamp = Date.parse(date);
-    return new Date(timestamp).toLocaleDateString();
+    return dayjs(date).format('DD/MM/YYYY');
   };
   const { news, isLoading } = useNews();
   // const [filteredNews, setFilteredNews] = useState<any[]>();
@@ -24,7 +24,6 @@ const News: React.FC = () => {
   //     setCurrentNews(news.find((n) => n.id === currentNewsId));
   //   }
   // }, [news, isLoading, newsProps]);
-
   return (
     <>
       <SEO
@@ -32,7 +31,7 @@ const News: React.FC = () => {
         description={'Grufercan ' + t('news.news').toLocaleLowerCase()}
         lang={language}
       />
-      <div className="flex flex-col">
+      <div className="flex flex-col" id="latest">
         <div className="flex flex-col w-full py-20">
           <div className="w-full px-10 py-10 text-6xl lg:px-32 lg:text-9xl text-primary">
             <h1>{t('news.news')}</h1>
@@ -80,7 +79,7 @@ const News: React.FC = () => {
             ))}
           </div>
         )}
-        {news && news.length > 0 && news.length >= visibleNews && (
+        {news && news.length > 0 && news.length > visibleNews && (
           <div
             className="flex flex-col items-center justify-center w-full pt-20 cursor-pointer text-primary"
             onClick={() => setVisibleNews(visibleNews + 2)}
