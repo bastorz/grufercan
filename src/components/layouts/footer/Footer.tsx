@@ -21,7 +21,7 @@ export const Footer = () => {
             <b>+34 922 631 417</b>
             <b>+34 608 904 429</b>
 
-            <b>administracion@grufercan.es</b>
+            <b>administracion@grufercan.com</b>
           </div>
         </div>
         <div className="w-[200px] h-[200px] sm:h-[300px] sm:w-[300px] md:h-[400px] md:w-[400px] mb-10 md:mb-0">
