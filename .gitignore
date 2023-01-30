@@ -2,9 +2,4 @@ node_modules/
 .cache/
 /public
 api/var/cache/
-api/staging.env
-api/prod.env
-api/local.env
-api/.env
-
-
+api/.env.staging

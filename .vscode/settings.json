@@ -10,5 +10,8 @@
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "[php]": {
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   }
 }
