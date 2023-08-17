@@ -55,6 +55,7 @@ deploy-prod:
 
     - lftp -d -e "set sftp:auto-confirm yes;set ssl:check-hostname no; set ssl:verify-certificate no; open ftp://ftp.grufercan.com.grufercan.com/ -u 'ftp.grufercan.com','fWgNPQJA';  mirror -v -R /builds/medanosol/projects/grufercan/public/ ./ --parallel=10;bye"
     - lftp -d -e "set sftp:auto-confirm yes;set ssl:check-hostname no; set ssl:verify-certificate no; open ftp://ftp.grufercan.com.grufercan.com/ -u 'ftp.grufercan.com','fWgNPQJA';  mirror -v -R /builds/medanosol/projects/grufercan/api/ ./api/ --parallel=10;bye"
-
+  when:
+    - manual
   only:
     - main
