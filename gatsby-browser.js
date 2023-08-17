@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import App from './src/_app';
-import Layout from './src/components/layouts/Layout';
-import { navigate } from 'gatsby';
-import { isLoggedIn } from './src/services/auth/auth';
+import App from "./src/_app";
+import Layout from "./src/components/layouts/Layout";
+import { navigate } from "gatsby";
+import { isLoggedIn } from "./src/services/auth/auth";
 
 export const wrapRootElement = ({ element, props }) => {
   return <App {...props}>{element}</App>;
