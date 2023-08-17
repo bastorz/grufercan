@@ -1,3 +1,8 @@
+## DEPLOY
+
+use `yarn build` to create a production build and paste the public folder content into the FTP.
+The API folder is here just for development purposes, the real one is in the WAMP www folder.
+
 #### Add news to the DB
 
 Run the following scripts with the content in the PHPMYADMIN panel.
