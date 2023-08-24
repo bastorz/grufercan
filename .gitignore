@@ -3,3 +3,4 @@ node_modules/
 /public
 api/var/cache/
 api/.env.staging
+api
