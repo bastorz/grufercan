@@ -1,17 +1,19 @@
-import { Link, navigate } from 'gatsby';
-import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import logoMd from '../../../images/logo-md.jpg';
-import clsx from 'clsx';
-import { mdiMenu } from '@mdi/js';
-import Icon from '@mdi/react';
-import { useLanguage } from '../../../hooks/useLanguage';
+import { Link, navigate } from "gatsby";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import logoMd from "../../../images/logo-md.jpg";
+import clsx from "clsx";
+import { mdiMenu } from "@mdi/js";
+import Icon from "@mdi/react";
+import { useLanguage } from "../../../hooks/useLanguage";
 export const Header = () => {
   const { t, i18n } = useTranslation();
   const { language } = useLanguage();
   const [toggleMenu, setToggleMenu] = useState(false);
   const [isOnTop, setIsOnTop] = useState(true);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 800
+  );
   const toggleNav = () => {
     setToggleMenu(!toggleMenu);
   };
@@ -20,9 +22,9 @@ export const Header = () => {
       setScreenWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', changeWidth);
+    window.addEventListener("resize", changeWidth);
     return () => {
-      window.removeEventListener('resize', changeWidth);
+      window.removeEventListener("resize", changeWidth);
     };
   }, []);
 
@@ -35,14 +37,14 @@ export const Header = () => {
   return (
     <div
       className={clsx(
-        'flex justify-between py-4 px-10 items-center gap-4',
-        toggleMenu && screenWidth < 854 && 'flex-col',
+        "flex justify-between py-4 px-10 items-center gap-4",
+        toggleMenu && screenWidth < 854 && "flex-col"
       )}
     >
       <div
         className={clsx(
-          'flex justify-between items-center',
-          screenWidth < 854 && 'w-full',
+          "flex justify-between items-center",
+          screenWidth < 854 && "w-full"
         )}
       >
         <Link to="/">
@@ -52,15 +54,15 @@ export const Header = () => {
             width={125}
             height={125}
             className={clsx(
-              'max-w-[50px] md:max-w-[80px] transition-all ',
-              isOnTop ? 'lg:max-w-[150px]' : 'lg:max-w-[50px]',
+              "max-w-[50px] md:max-w-[80px] transition-all ",
+              isOnTop ? "lg:max-w-[150px]" : "lg:max-w-[50px]"
             )}
           />
         </Link>
         <div
           className={clsx(
-            'block cursor-pointer',
-            screenWidth >= 854 && 'hidden',
+            "block cursor-pointer",
+            screenWidth >= 854 && "hidden"
           )}
           onClick={toggleNav}
         >
@@ -72,14 +74,14 @@ export const Header = () => {
       {(toggleMenu || screenWidth > 854) && (
         <ul
           className={clsx(
-            'flex gap-4 uppercase text-primary',
-            toggleMenu && screenWidth < 854 && 'flex-wrap justify-center',
+            "flex gap-4 uppercase text-primary",
+            toggleMenu && screenWidth < 854 && "flex-wrap justify-center"
           )}
         >
           <div
             className={clsx(
-              'flex gap-2 px-4',
-              toggleMenu && screenWidth < 854 && 'w-full justify-center',
+              "flex gap-2 px-4",
+              toggleMenu && screenWidth < 854 && "w-full justify-center"
             )}
           >
             <div className="w-6 h-6 bg-primary" />
@@ -87,57 +89,57 @@ export const Header = () => {
           </div>
           <li
             onClick={() => {
-              navigate('/#aboutUs');
+              navigate("/#aboutUs");
               handleHeaderItemClick();
             }}
-            className={clsx('cursor-pointer active:text-contrast')}
+            className={clsx("cursor-pointer active:text-contrast")}
           >
-            {t('header.aboutUs')}
+            {t("header.aboutUs")}
           </li>
           <li
             onClick={() => {
-              navigate('/#partners');
+              navigate("/#partners");
               handleHeaderItemClick();
             }}
-            className={clsx('cursor-pointer active:text-contrast')}
+            className={clsx("cursor-pointer active:text-contrast")}
           >
-            {t('header.partners')}
+            {t("header.partners")}
           </li>
           <li
             onClick={() => {
-              navigate('/#sevenca');
+              navigate("/#sevenca");
               handleHeaderItemClick();
             }}
-            className={clsx('cursor-pointer active:text-contrast')}
+            className={clsx("cursor-pointer active:text-contrast")}
           >
-            {t('header.sevenca')}
+            {t("header.sevenca")}
           </li>
           <li
             onClick={() => {
-              navigate('/#providers');
+              navigate("/#providers");
               handleHeaderItemClick();
             }}
-            className={clsx('cursor-pointer active:text-contrast')}
+            className={clsx("cursor-pointer active:text-contrast")}
           >
-            {t('header.providers')}
+            {t("header.providers")}
           </li>
           <li
             onClick={() => {
-              navigate('/blog/#latest');
+              navigate("/blog/#latest");
               handleHeaderItemClick();
             }}
-            className={clsx('cursor-pointer active:text-contrast')}
+            className={clsx("cursor-pointer active:text-contrast")}
           >
-            {t('header.blog')}
+            {t("header.blog")}
           </li>
           <li
             onClick={() => {
-              navigate('/#contact');
+              navigate("/#contact");
               handleHeaderItemClick();
             }}
-            className={clsx('cursor-pointer active:text-contrast')}
+            className={clsx("cursor-pointer active:text-contrast")}
           >
-            {t('header.contact')}
+            {t("header.contact")}
           </li>
           {/* <li className="p-2 hover:bg-red-400">
             <button
@@ -154,17 +156,17 @@ export const Header = () => {
       {(toggleMenu || screenWidth > 854) && (
         <ul
           className={clsx(
-            'flex text-primary text-lg gap-4',
-            toggleMenu && screenWidth < 854 && 'flex-wrap justify-center',
+            "flex text-primary text-lg gap-4",
+            toggleMenu && screenWidth < 854 && "flex-wrap justify-center"
           )}
         >
           <li>
             <button
               className={clsx(
-                language === 'en' ? 'font-semibold' : 'font-light',
+                language === "en" ? "font-semibold" : "font-light"
               )}
               onClick={() => {
-                i18n.changeLanguage('en');
+                i18n.changeLanguage("en");
               }}
             >
               EN
@@ -173,10 +175,10 @@ export const Header = () => {
           <li>
             <button
               className={clsx(
-                language === 'es' ? 'font-semibold' : 'font-light',
+                language === "es" ? "font-semibold" : "font-light"
               )}
               onClick={() => {
-                i18n.changeLanguage('es');
+                i18n.changeLanguage("es");
               }}
             >
               ES

@@ -1,12 +1,12 @@
-import { Link } from 'gatsby';
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Link } from "gatsby";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 export const CookiesDialog = () => {
   const [acceptedCookies, setAcceptedCookies] = useState(false);
   const { t } = useTranslation();
   return (
     <>
-      {!acceptedCookies && localStorage.getItem('gfccookies') === null && (
+      {/* {!acceptedCookies && localStorage.getItem('gfccookies') === null && (
         <div className="fixed z-50 w-screen md:w-[35vw] p-10 bg-primary border-2 border-white rounded-sm bottom-10 right-0 md:right-10 opacity-[97%] text-justify">
           <div className="flex flex-col gap-2">
             <div className="text-white">
@@ -42,7 +42,7 @@ export const CookiesDialog = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };

@@ -12,6 +12,9 @@ if (process.env.STAGING && !process.env.MAMP) {
   });
 }
 module.exports = {
+  flags: {
+    DEV_SSR: true,
+  },
   pathPrefix: "/grufercan/",
   siteMetadata: {
     siteUrl: "https://www.grufercan.com",

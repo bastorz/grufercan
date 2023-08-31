@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { window } from 'browser-monads';
+import { useState, useEffect } from "react";
+import { window } from "browser-monads";
 
 function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
@@ -14,9 +14,9 @@ function useWindowSize() {
         height: window.innerHeight,
       });
     }
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return { width: windowSize?.width, height: windowSize?.height };

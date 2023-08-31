@@ -1,7 +1,7 @@
-import { Link } from 'gatsby';
-import React, { useState } from 'react';
-import { Footer } from './footer/Footer';
-import { Header } from './header/Header';
+import { Link } from "gatsby";
+import React, { useState } from "react";
+import { Footer } from "./footer/Footer";
+import { Header } from "./header/Header";
 
 const Layout: React.FC = ({ children }) => {
   return (
