@@ -1,11 +1,11 @@
-import React from 'react';
-import Icon from '@mdi/react';
-import { mdiChevronDownCircleOutline } from '@mdi/js';
-import portada2 from '../../images/portada/portada-2.jpg';
-import mapa from '../../images/portada/mapa-canarias.svg';
-import { useTranslation } from 'react-i18next';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { navigate } from 'gatsby';
+import React from "react";
+import Icon from "@mdi/react";
+import { mdiChevronDownCircleOutline } from "@mdi/js";
+import portada3 from "../../images/portada/portada-3.jpeg";
+import mapa from "../../images/portada/mapa-canarias.svg";
+import { useTranslation } from "react-i18next";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { navigate } from "gatsby";
 export const AboutUs: React.FC = () => {
   const { t } = useTranslation();
   return (
@@ -21,7 +21,7 @@ export const AboutUs: React.FC = () => {
             showStatus={false}
           > */}
           <div key="slide-2" className="flex justify-center h-full">
-            <img src={portada2} className="object-contain aspect-video" />
+            <img src={portada3} className="object-contain aspect-video" />
           </div>
           {/* <div key="slide-1" className="flex justify-center h-full">
             <img src={portada1} className="aspect-video" />
@@ -30,16 +30,16 @@ export const AboutUs: React.FC = () => {
         </div>
 
         <div
-          onClick={() => navigate('/#latestNews')}
+          onClick={() => navigate("/#latestNews")}
           className="flex-col justify-between hidden w-full p-3 text-center cursor-pointer md:flex md:w-1/3 bg-secondary md:aspect-square md:p-10 md:text-left"
         >
           <span className="text-3xl text-white md:text-4xl lg:text-6xl">
-            {t('home.sections.aboutUs.latestNews')}
+            {t("home.sections.aboutUs.latestNews")}
           </span>
           <div className="justify-end w-full ">
             <Icon
               path={mdiChevronDownCircleOutline}
-              size={'5vw'}
+              size={"5vw"}
               className="text-white transition duration-200 hover:scale-105"
             />
           </div>
@@ -51,25 +51,28 @@ export const AboutUs: React.FC = () => {
       >
         <div className="flex flex-col w-full text-center md:w-1/3 md:text-right">
           <span className="w-full text-5xl md:text-7xl text-primary">
-            {t('home.sections.aboutUs.aboutUs')}
+            {t("home.sections.aboutUs.aboutUs")}
           </span>
           <img src={mapa} alt="mapa islas canarias" />
         </div>
         <div className="flex flex-col w-full gap-2 md:w-2/3">
           <p className="text-lg text-primary">
-            {t('home.sections.aboutUs.text.paragraph1')}
+            {t("home.sections.aboutUs.text.paragraph1")}
           </p>
           <p className="text-lg text-primary">
-            {t('home.sections.aboutUs.text.paragraph2')}
+            {t("home.sections.aboutUs.text.paragraph2")}
           </p>
           <p className="text-lg text-primary">
-            {t('home.sections.aboutUs.text.paragraph3')}
+            {t("home.sections.aboutUs.text.paragraph3")}
           </p>
           <p className="text-lg text-primary">
-            {t('home.sections.aboutUs.text.paragraph4')}
+            {t("home.sections.aboutUs.text.paragraph4")}
           </p>
           <p className="text-lg text-primary">
-            {t('home.sections.aboutUs.text.paragraph5')}
+            {t("home.sections.aboutUs.text.paragraph5")}
+          </p>
+          <p className="text-lg text-primary">
+            {t("home.sections.aboutUs.text.paragraph6")}
           </p>
         </div>
       </div>

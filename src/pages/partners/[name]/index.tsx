@@ -1,14 +1,14 @@
 import {
   mdiChevronLeftCircleOutline,
   mdiChevronRightCircleOutline,
-} from '@mdi/js';
-import Icon from '@mdi/react';
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Carousel } from 'react-responsive-carousel';
-import { SEO } from '../../../components/SEO';
-import { useLanguage } from '../../../hooks/useLanguage';
-import { getPartnerImages } from '../../../components/PartnersImages';
+} from "@mdi/js";
+import Icon from "@mdi/react";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Carousel } from "react-responsive-carousel";
+import { SEO } from "../../../components/SEO";
+import { useLanguage } from "../../../hooks/useLanguage";
+import { getPartnerImages } from "../../../components/PartnersImages";
 const PartnersPage = (partnersProp: any) => {
   const { language } = useLanguage();
   const partner = partnersProp?.location.state?.partner;
@@ -43,26 +43,32 @@ const PartnersPage = (partnersProp: any) => {
 
       <div className="flex flex-col w-full px-10 lg:px-32">
         <div className="flex flex-col items-center w-full text-3xl text-center lg:mb-20 text-primary lg:text-6xl">
-          <h1>{t('home.sections.partners.partners')}</h1>
+          <h1>{t("home.sections.partners.partners")}</h1>
           <img
             src={partner?.logo}
-            alt={partner?.name + ' logo'}
+            alt={partner?.name + " logo"}
             className="max-w-[200px] p-2 transform  lg:hidden"
           />
         </div>
         <div className="relative flex flex-col gap-4 p-4 text-white lg:grid lg:divide-x-2 lg:grid-cols-5 bg-primary lg:p-14">
           <div className="col-span-1">
-            <h2 className="text-2xl font-bold lg:text-4xl">{partner?.name}</h2>
+            <a href={partner?.url}>
+              <h2 className="text-2xl font-bold lg:text-4xl">
+                {partner?.name}
+              </h2>
+            </a>
           </div>
           <div className="col-span-3 text-lg lg:px-10">
             <p>{t(`partners.${partner?.id}`)}</p>
           </div>
           <div className="absolute top-0 items-center justify-center hidden w-32 h-32 bg-white lg:flex right-16">
-            <img
-              src={partner?.logo}
-              alt={partner?.name + ' logo'}
-              className="p-2"
-            />
+            <a href={partner?.url}>
+              <img
+                src={partner?.logo}
+                alt={partner?.name + " logo"}
+                className="p-2"
+              />
+            </a>
           </div>
         </div>
         <div className="px-4 py-10 lg:px-36 bg-primary">
@@ -73,7 +79,7 @@ const PartnersPage = (partnersProp: any) => {
             >
               <Icon
                 path={mdiChevronLeftCircleOutline}
-                size={'5vw'}
+                size={"5vw"}
                 className="transition duration-200 hover:scale-105"
               />
             </div>
@@ -108,7 +114,7 @@ const PartnersPage = (partnersProp: any) => {
             >
               <Icon
                 path={mdiChevronRightCircleOutline}
-                size={'5vw'}
+                size={"5vw"}
                 className="transition duration-200 hover:scale-105"
               />
             </div>

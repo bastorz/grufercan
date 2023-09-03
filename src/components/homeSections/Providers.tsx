@@ -13,8 +13,9 @@ import Genebre from "../../images/providers/Genebre.jpg";
 import hikoki from "../../images/providers/HiKOKI.jpg";
 import intermas from "../../images/providers/INTERMAS.png";
 import jotun from "../../images/providers/Jotun.png";
-import lafargeholcim from "../../images/providers/LAFARGEHOLCIM.jpg";
 import mt from "../../images/providers/MT.png";
+import lafargeholcim from "../../images/providers/LAFARGEHOLCIM.png";
+import tesy from "../../images/providers/Tesy.jpg";
 import pinturasCinCanariaas from "../../images/providers/pinturas-cin-canarias.jpg";
 import pladur from "../../images/providers/Pladur.gif";
 import sirl from "../../images/providers/sirl.jpg";
@@ -55,6 +56,7 @@ export const Providers: React.FC = () => {
     { url: "https://www.teicocil.com/site/", logo: teicocil },
     { url: "https://www.es.weber/", logo: weber },
     { url: "https://www.conmetallmeister.de", logo: conmetall },
+    { url: "https://www.tesy.es", logo: tesy },
   ];
 
   return (

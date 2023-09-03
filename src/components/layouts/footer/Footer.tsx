@@ -8,6 +8,12 @@ export const Footer = () => {
   const { t } = useTranslation();
   return (
     <>
+      <div className="flex items-center justify-center text-primary space-y-2">
+        <h3 className="font-semibold text-2xl">¿Quieres ser socio?</h3>
+        <p className="text-lg">
+          Envia tu solicitud a administracion@grufercan.com
+        </p>
+      </div>
       <ContactSection />
       <div className="relative flex flex-col items-center justify-between gap-10 p-10 bg-white md:p-20 md:flex-row md:items-stretch">
         <div className="flex flex-col items-center justify-around space-y-4 md:ml-10 md:space-y-0 md:items-stretch">
