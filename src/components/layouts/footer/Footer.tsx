@@ -8,7 +8,7 @@ export const Footer = () => {
   const { t } = useTranslation();
   return (
     <>
-      <div className="flex items-center justify-center text-primary space-y-2">
+      <div className="flex flex-col items-center justify-center text-primary space-y-2 pt-20">
         <h3 className="font-semibold text-2xl">¿Quieres ser socio?</h3>
         <p className="text-lg">
           Envia tu solicitud a administracion@grufercan.com
