@@ -52,7 +52,7 @@ const PartnersPage = (partnersProp: any) => {
         </div>
         <div className="relative flex flex-col gap-4 p-4 text-white lg:grid lg:divide-x-2 lg:grid-cols-5 bg-primary lg:p-14">
           <div className="col-span-1">
-            <a href={partner?.url}>
+            <a href={partner?.url} target="_blank" rel="noopener noreferrer">
               <h2 className="text-2xl font-bold lg:text-4xl">
                 {partner?.name}
               </h2>
@@ -62,7 +62,7 @@ const PartnersPage = (partnersProp: any) => {
             <p>{t(`partners.${partner?.id}`)}</p>
           </div>
           <div className="absolute top-0 items-center justify-center hidden w-32 h-32 bg-white lg:flex right-16">
-            <a href={partner?.url}>
+            <a href={partner?.url} target="_blank" rel="noopener noreferrer">
               <img
                 src={partner?.logo}
                 alt={partner?.name + " logo"}

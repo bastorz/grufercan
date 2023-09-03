@@ -26,7 +26,7 @@ export const Sevenca: React.FC = () => {
     }
   };
   const handleNextSlide = () => {
-    if (selectedImage === 2) {
+    if (selectedImage === 7) {
       setSelectedImage(0);
     } else {
       setSelectedImage(selectedImage + 1);
@@ -34,7 +34,7 @@ export const Sevenca: React.FC = () => {
   };
   const handlePreviousSlide = () => {
     if (selectedImage === 0) {
-      setSelectedImage(2);
+      setSelectedImage(7);
     } else {
       setSelectedImage(selectedImage - 1);
     }
@@ -91,19 +91,19 @@ export const Sevenca: React.FC = () => {
               <div key="slide-3" className="flex justify-center h-full w-[99%]">
                 <img src={sevenca3} className="object-contain aspect-video " />
               </div>
-              <div key="slide-3" className="flex justify-center h-full w-[99%]">
+              <div key="slide-4" className="flex justify-center h-full w-[99%]">
                 <img src={sevenca4} className="object-contain aspect-video " />
               </div>
-              <div key="slide-3" className="flex justify-center h-full w-[99%]">
+              <div key="slide-5" className="flex justify-center h-full w-[99%]">
                 <img src={sevenca5} className="object-contain aspect-video " />
               </div>
-              <div key="slide-3" className="flex justify-center h-full w-[99%]">
+              <div key="slide-6" className="flex justify-center h-full w-[99%]">
                 <img src={sevenca6} className="object-contain aspect-video " />
               </div>
-              <div key="slide-3" className="flex justify-center h-full w-[99%]">
+              <div key="slide-7" className="flex justify-center h-full w-[99%]">
                 <img src={sevenca7} className="object-contain aspect-video " />
               </div>
-              <div key="slide-3" className="flex justify-center h-full w-[99%]">
+              <div key="slide-8" className="flex justify-center h-full w-[99%]">
                 <img src={sevenca8} className="object-contain aspect-video " />
               </div>
             </Carousel>

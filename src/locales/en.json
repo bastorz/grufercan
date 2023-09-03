@@ -23,7 +23,7 @@
     "sanIsidro": "They stand out especially for their construction materials, woods, hardware, DIY, bathrooms, ceramics and home appliances.Founded in 1981 as Ferretería San Isidro, a small family-run business well-known in the county of Los Realejos, before becoming the Grupo San Isidro in 2006.They offer two sales points within the county of Los Realejos; one on Calle Los Barros and the second on Calle Trinidad.",
     "fraper": "Comercial Fraper is a store that stands out in its sector on the island of La Palma. They are committed to service management and professionalism.Currently, they offer two sales points; one in San Andres y Sauces with a 600m2 showroom and 1100m2 of warehouse space and the other in El Paso with a 4.430 m2 showroom and 4.430m2 of warehouse space.",
     "sevenca": "Grufercan’s own brand that was created with the objective of offering different product lines that prioritize the price-quality balance. This is a clear commitment to improving the positioning of each of the partners in today's increasingly competitive market. We’ve created various product lines including, heaters, shower partitions, home stairs and concrete mixers and we are continuing to work to include new lines soon.",
-    "ucanca": "Located in the Tenerife town of San Isidro, on Avenue José Gonzalález Rivas, the new hardware store Ucanca boasts over 1.100m2, divided between a large sales area and warehouse, in an establishment intended for both professional and private clients, adapting its offer to each of these groups with more than 35,000 references.  The sections are well structured and interrelated: tools, plumbing, painting, kitchenware, PAE, machinery, wood, decoration, hardware, locksmith, safety and work clothes, lighting, bathrooms, electricity, adhesives, etc. It also has a 'showroom' area dedicated to bathrooms, which includes an extensive selection of cabinets and mirrors, as well as faucets.",
+    "ferreteriaucanca": "Located in the Tenerife town of San Isidro, on Avenue José Gonzalález Rivas, the new hardware store Ucanca boasts over 1.100m2, divided between a large sales area and warehouse, in an establishment intended for both professional and private clients, adapting its offer to each of these groups with more than 35,000 references.  The sections are well structured and interrelated: tools, plumbing, painting, kitchenware, PAE, machinery, wood, decoration, hardware, locksmith, safety and work clothes, lighting, bathrooms, electricity, adhesives, etc. It also has a 'showroom' area dedicated to bathrooms, which includes an extensive selection of cabinets and mirrors, as well as faucets.",
     "fergres": "Located on the Carretera General de Guaza, Las Galletas, with over a 30 year presence, it offers a wide range of ceramic, porcelain, rustic, tile and special piece floor and wall tiles, also including free freight transport. In its facilities you can also find a wide range of bathroom accessories, furniture, faucets and divider screens."
   },
   "news": {
@@ -75,6 +75,11 @@
     }
   },
   "footer": {
+    "partner": {
+      "title": "Want to become a partner?",
+      "subtitle": "Send your apply to",
+      "email": "administracion@grufercan.com"
+    },
     "contact": "Contact us",
     "messageSent": "Message sent",
     "contactFields": {
